@@ -23,19 +23,32 @@
 import XCTest
 
 struct Matcher<T: Equatable> {
-    let expectedValue: ExpectedValue<T>
+    let expectedValue: ExpectedValue<T>?
     let to: Bool
+    
+    func beNil(file: StaticString = #filePath,
+               line: UInt = #line) {
+        if to {
+            XCTAssertNil(expectedValue?.value,
+                         file: file,
+                         line: line)
+        } else {
+            XCTAssertNotNil(expectedValue?.value,
+                            file: file,
+                            line: line)
+        }
+    }
     
     func equal(_ actualValue: T,
                file: StaticString = #filePath,
                line: UInt = #line) {
         if to {
-            XCTAssertEqual(expectedValue.value,
+            XCTAssertEqual(expectedValue?.value,
                            actualValue,
                            file: file,
                            line: line)
         } else {
-            XCTAssertNotEqual(expectedValue.value,
+            XCTAssertNotEqual(expectedValue?.value,
                               actualValue,
                               file: file,
                               line: line)

@@ -23,7 +23,7 @@
 import Foundation
 
 struct ExpectedValue<T: Equatable> {
-    let value: T
+    let value: T?
     
     var to: Matcher<T> {
         return Matcher(expectedValue: self,
