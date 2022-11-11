@@ -1,6 +1,8 @@
 import Foundation
 
-final class Dog: Equatable {
+protocol Wolf { }
+
+final class Dog: Wolf, Equatable {
     var name = "Pancho"
     
     static func == (lhs: Dog, rhs: Dog) -> Bool {
