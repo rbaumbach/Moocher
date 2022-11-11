@@ -54,4 +54,50 @@ struct Matcher<T: Equatable> {
                               line: line)
         }
     }
+    
+    func beTruthy(file: StaticString = #filePath,
+                  line: UInt = #line) {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        guard let booleanValue = value as? Bool else {
+            XCTFail("expected value is not a boolean",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        XCTAssertTrue(booleanValue,
+                      file: file,
+                      line: line)
+    }
+    
+    func beFalsy(file: StaticString = #filePath,
+                 line: UInt = #line) {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        guard let booleanValue = value as? Bool else {
+            XCTFail("expected value is not a boolean",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        XCTAssertFalse(booleanValue,
+                       file: file,
+                       line: line)
+    }
 }
