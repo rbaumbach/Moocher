@@ -1,3 +1,6 @@
+// swift-tools-version:5.1
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
 //MIT License
 //
 //Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
@@ -20,12 +23,28 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-#import <Foundation/Foundation.h>
+import PackageDescription
 
-//! Project version number for Moocher.
-FOUNDATION_EXPORT double MoocherVersionNumber;
+let package = Package(
+    name: "Moocher",
+    platforms: [
+        .iOS(.v10)
+    ],
+    products: [
+        .library(
+            name: "Moocher",
+            targets: ["Moocher"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "Moocher"
+        ),
+        .testTarget(
+            name: "Specs",
+            dependencies: ["Moocher"]
+        )
+    ],
+    swiftLanguageVersions: [.v5]
+)
 
-//! Project version string for Moocher.
-FOUNDATION_EXPORT const unsigned char MoocherVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <Moocher/PublicHeader.h>
