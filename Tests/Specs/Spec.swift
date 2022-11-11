@@ -39,6 +39,10 @@ final class Specs: XCTestCase {
 //
 //        expect(99).to.beTruthy()
 //        expect(false).to.beTruthy()
+        
+        expect(false).toNot.beTruthy()
+        
+//        expect(true).toNot.beTruthy()
     }
     
     func testBeFalsy() {
@@ -48,5 +52,29 @@ final class Specs: XCTestCase {
 //
 //        expect(99).to.beFalsy()
 //        expect(true).to.beFalsy()
+        
+        expect(true).toNot.beFalsy()
+        
+//        expect(false).toNot.beFalsy()
+    }
+    
+    func testBeInstance() {
+        let dog1 = Dog()
+        let dog2 = dog1
+        
+        expect(dog1).to.beInstance(dog2)
+        
+//        expect(99).to.beInstance(dog1)
+//        expect(99).toNot.beInstance(dog1) // This passes because Int gets converted to NSNumber =(
+        
+        let dog3 = Dog()
+        expect(dog1).toNot.beInstance(dog3)
+        
+//        expect(dog1).to.beInstance(dog3)
+        
+//        let fish1 = Fish()
+//        let fish2 = Fish()
+//
+//        expect(fish1).to.beInstance(fish2)
     }
 }

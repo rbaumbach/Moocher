@@ -39,6 +39,30 @@ struct Matcher<T: Equatable> {
         }
     }
     
+    func beInstance(_ actualValue: AnyObject,
+                    file: StaticString = #filePath,
+                    line: UInt = #line) {
+        guard let expectedObject = expectedValue?.value as? AnyObject else {
+            XCTFail("Expected value is not an object",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertIdentical(expectedObject,
+                               actualValue,
+                               file: file,
+                               line: line)
+        } else {
+            XCTAssertNotIdentical(expectedObject,
+                                  actualValue,
+                                  file:file,
+                                  line: line)
+        }
+    }
+    
     func equal(_ actualValue: T,
                file: StaticString = #filePath,
                line: UInt = #line) {
@@ -73,9 +97,15 @@ struct Matcher<T: Equatable> {
             return
         }
         
-        XCTAssertTrue(booleanValue,
-                      file: file,
-                      line: line)
+        if to {
+            XCTAssertTrue(booleanValue,
+                          file: file,
+                          line: line)
+        } else {
+            XCTAssertFalse(booleanValue,
+                           file: file,
+                           line: line)
+        }
     }
     
     func beFalsy(file: StaticString = #filePath,
@@ -96,8 +126,14 @@ struct Matcher<T: Equatable> {
             return
         }
         
-        XCTAssertFalse(booleanValue,
-                       file: file,
-                       line: line)
+        if to {
+            XCTAssertFalse(booleanValue,
+                           file: file,
+                           line: line)
+        } else {
+            XCTAssertTrue(booleanValue,
+                          file: file,
+                          line: line)
+        }
     }
 }
