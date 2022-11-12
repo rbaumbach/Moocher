@@ -22,15 +22,15 @@
 
 import Foundation
 
-struct ExpectedValue<T: Equatable> {
+public struct ExpectedValue<T: Equatable> {
     let value: T?
     
-    var to: Matcher<T> {
+    public var to: Matcher<T> {
         return Matcher(expectedValue: self,
                        to: true)
     }
     
-    var toNot: Matcher<T> {
+    public var toNot: Matcher<T> {
         return Matcher(expectedValue: self,
                        to: false)
     }

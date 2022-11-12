@@ -11,6 +11,7 @@
 		9499BD65291EBA03004C2244 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD63291EBA00004C2244 /* Dog.swift */; };
 		9499BD68291EC21D004C2244 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD66291EC210004C2244 /* Fish.swift */; };
 		9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD69291ECD42004C2244 /* GrizzlyBear.swift */; };
+		9499BD6C291F1E9E004C2244 /* BJJBelt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD6B291F1E9E004C2244 /* BJJBelt.swift */; };
 		94F1DE88291E054900411CCB /* Moocher.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F1DE87291E054900411CCB /* Moocher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94F1DE98291E071900411CCB /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
 		94F1DE9F291E08E900411CCB /* ExpectedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DE9E291E08E900411CCB /* ExpectedValue.swift */; };
@@ -35,6 +36,7 @@
 		9499BD63291EBA00004C2244 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		9499BD66291EC210004C2244 /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
 		9499BD69291ECD42004C2244 /* GrizzlyBear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrizzlyBear.swift; sourceTree = "<group>"; };
+		9499BD6B291F1E9E004C2244 /* BJJBelt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BJJBelt.swift; sourceTree = "<group>"; };
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
 		94F1DE94291E071900411CCB /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 				9499BD63291EBA00004C2244 /* Dog.swift */,
 				9499BD66291EC210004C2244 /* Fish.swift */,
 				9499BD69291ECD42004C2244 /* GrizzlyBear.swift */,
+				9499BD6B291F1E9E004C2244 /* BJJBelt.swift */,
 			);
 			path = Filez;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				9499BD65291EBA03004C2244 /* Dog.swift in Sources */,
 				9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */,
+				9499BD6C291F1E9E004C2244 /* BJJBelt.swift in Sources */,
 				9499BD68291EC21D004C2244 /* Fish.swift in Sources */,
 				9499BD61291EA897004C2244 /* Spec.swift in Sources */,
 			);

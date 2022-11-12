@@ -18,3 +18,7 @@ expect(AnswerToUltimateQuestion.value).to.equal(42)
 * `equal`
 * `beTruthy`
 * `beFalsy`
+* `beLessThan`
+* `beLessThanOrEqualTo`
+* `beGreaterThan`
+* `beGreaterThanOrEqualTo`

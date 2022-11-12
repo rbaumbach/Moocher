@@ -22,12 +22,12 @@
 
 import XCTest
 
-struct Matcher<T: Equatable> {
+public struct Matcher<T: Equatable> {
     let expectedValue: ExpectedValue<T>?
     let to: Bool
     
-    func beNil(file: StaticString = #filePath,
-               line: UInt = #line) {
+    public func beNil(file: StaticString = #filePath,
+                      line: UInt = #line) {
         if to {
             XCTAssertNil(expectedValue?.value,
                          file: file,
@@ -39,9 +39,9 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func beInstance(_ actualValue: AnyObject,
-                    file: StaticString = #filePath,
-                    line: UInt = #line) {
+    public func beInstance(_ actualValue: AnyObject,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) {
         guard let expectedObject = expectedValue?.value as? AnyObject else {
             XCTFail("Expected value is not an object",
                     file: file,
@@ -63,14 +63,14 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func beKindOf<U>(_ type: U.Type,
-                     file: StaticString = #filePath,
-                     line: UInt = #line) {
+    public func beKindOf<U>(_ type: U.Type,
+                            file: StaticString = #filePath,
+                            line: UInt = #line) {
         guard let expectedValue = expectedValue?.value else {
             XCTFail("expected value is nil",
                     file: file,
                     line: line)
-
+            
             return
         }
         
@@ -89,17 +89,17 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func conformTo<U>(_ conformingProtocol: U.Type,
-                      file: StaticString = #filePath,
-                      line: UInt = #line) {
+    public func conformTo<U>(_ conformingProtocol: U.Type,
+                             file: StaticString = #filePath,
+                             line: UInt = #line) {
         beKindOf(conformingProtocol,
                  file: file,
                  line: line)
     }
     
-    func equal(_ actualValue: T,
-               file: StaticString = #filePath,
-               line: UInt = #line) {
+    public func equal(_ actualValue: T,
+                      file: StaticString = #filePath,
+                      line: UInt = #line) {
         if to {
             XCTAssertEqual(expectedValue?.value,
                            actualValue,
@@ -113,8 +113,8 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func beTruthy(file: StaticString = #filePath,
-                  line: UInt = #line) {
+    public func beTruthy(file: StaticString = #filePath,
+                         line: UInt = #line) {
         guard let value = expectedValue?.value else {
             XCTFail("expected value is nil",
                     file: file,
@@ -142,8 +142,8 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func beFalsy(file: StaticString = #filePath,
-                 line: UInt = #line) {
+    public func beFalsy(file: StaticString = #filePath,
+                        line: UInt = #line) {
         guard let value = expectedValue?.value else {
             XCTFail("expected value is nil",
                     file: file,
@@ -168,6 +168,99 @@ struct Matcher<T: Equatable> {
             XCTAssertTrue(booleanValue,
                           file: file,
                           line: line)
+        }
+    }
+    
+    public func beLessThan(_ actualValue: T,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) where T: Comparable {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertLessThan(value,
+                              actualValue,
+                              file: file,
+                              line: line)
+        } else {
+            XCTAssertGreaterThanOrEqual(value, actualValue,
+                                        file: file,
+                                        line: line)
+        }
+    }
+    
+    public func beLessThanOrEqualTo(_ actualValue: T,
+                                    file: StaticString = #filePath,
+                                    line: UInt = #line) where T: Comparable {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertLessThanOrEqual(value,
+                                     actualValue,
+                                     file: file,
+                                     line: line)
+        } else {
+            XCTAssertGreaterThan(value,
+                                 actualValue,
+                                 file: file,
+                                 line: line)
+        }
+    }
+    
+    public func beGreaterThan(_ actualValue: T,
+                              file: StaticString = #filePath,
+                              line: UInt = #line) where T: Comparable {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertGreaterThan(value,
+                                 actualValue,
+                                 file: file,
+                                 line: line)
+        } else {
+            XCTAssertLessThanOrEqual(value, actualValue,
+                                     file: file,
+                                     line: line)
+        }
+    }
+    
+    public func beGreaterThanOrEqualTo(_ actualValue: T,
+                                       file: StaticString = #filePath,
+                                       line: UInt = #line) where T: Comparable {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertGreaterThanOrEqual(value,
+                                        actualValue,
+                                        file: file,
+                                        line: line)
+        } else {
+            XCTAssertLessThan(value, actualValue,
+                              file: file,
+                              line: line)
         }
     }
 }

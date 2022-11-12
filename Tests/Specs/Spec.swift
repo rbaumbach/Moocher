@@ -108,4 +108,65 @@ final class Specs: XCTestCase {
         
 //        expect(false).toNot.beFalsy()
     }
+    
+    func testBeLessThan() {
+        expect(9).to.beLessThan(10)
+        expect(BJJBelt.white).to.beLessThan(BJJBelt.blue)
+        
+//        expect(9).to.beLessThan(9)
+//        expect(BJJBelt.white).to.beLessThan(BJJBelt.white)
+        
+        expect(9).toNot.beLessThan(8)
+        expect(9).toNot.beLessThan(9)
+        expect(BJJBelt.blue).toNot.beLessThan(BJJBelt.white)
+        
+//        expect(9).toNot.beLessThan(10)
+//        expect(BJJBelt.white).toNot.beLessThan(BJJBelt.blue)
+    }
+    
+    func testBeLessThanOrEqualTo() {
+        expect(9).to.beLessThanOrEqualTo(9)
+        expect(9).to.beLessThanOrEqualTo(10)
+        expect(BJJBelt.white).to.beLessThanOrEqualTo(BJJBelt.white)
+        expect(BJJBelt.white).to.beLessThanOrEqualTo(BJJBelt.blue)
+        
+//        expect(9).to.beLessThanOrEqualTo(8)
+//        expect(BJJBelt.black).to.beLessThanOrEqualTo(BJJBelt.white)
+        
+        expect(9).toNot.beLessThanOrEqualTo(8)
+        expect(BJJBelt.blue).toNot.beLessThanOrEqualTo(BJJBelt.white)
+        
+//        expect(9).toNot.beLessThanOrEqualTo(10)
+//        expect(BJJBelt.white).toNot.beLessThanOrEqualTo(BJJBelt.blue)
+    }
+    
+    func testBeGreaterThan() {
+        expect(10).to.beGreaterThan(9)
+        expect(BJJBelt.black).to.beGreaterThan(BJJBelt.purple)
+        
+//        expect(9).to.beGreaterThan(9)
+//        expect(BJJBelt.white).to.beGreaterThan(BJJBelt.white)
+        
+        expect(8).toNot.beGreaterThan(9)
+        expect(9).toNot.beGreaterThan(9)
+        expect(BJJBelt.blue).toNot.beGreaterThan(BJJBelt.purple)
+        
+//        expect(10).toNot.beGreaterThan(9)
+//        expect(BJJBelt.brown).toNot.beGreaterThan(BJJBelt.blue)
+    }
+    
+    func testBeGreaterThanOrEqualTo() {
+        expect(10).to.beGreaterThanOrEqualTo(9)
+        expect(10).to.beGreaterThanOrEqualTo(10)
+        expect(BJJBelt.black).to.beGreaterThanOrEqualTo(BJJBelt.black)
+        
+//        expect(9).to.beGreaterThanOrEqualTo(10)
+//        expect(BJJBelt.white).to.beGreaterThanOrEqualTo(BJJBelt.red)
+        
+        expect(8).toNot.beGreaterThanOrEqualTo(9)
+        expect(BJJBelt.blue).toNot.beGreaterThanOrEqualTo(BJJBelt.purple)
+        
+//        expect(10).toNot.beGreaterThanOrEqualTo(9)
+//        expect(BJJBelt.brown).toNot.beGreaterThanOrEqualTo(BJJBelt.blue)
+    }
 }
