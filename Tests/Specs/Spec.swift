@@ -19,27 +19,35 @@ final class Specs: XCTestCase {
 //        expect(somethingNonNil).to.beNil()
     }
     
-    func testBeInstance() {
+    func testBeInstanceOf() {
+//        let doggy: Dog? = nil
+//
+//        expect(doggy).to.beInstanceOf(Dog())
+        
         let dog1 = Dog()
         let dog2 = dog1
         
-        expect(dog1).to.beInstance(dog2)
+        expect(dog1).to.beInstanceOf(dog2)
         
-//        expect(99).to.beInstance(dog1)
-//        expect(99).toNot.beInstance(dog1) // This passes because Int gets converted to NSNumber =(
+//        expect(99).to.beInstanceOf(dog1)
+//        expect(99).toNot.beInstanceOf(dog1) // This passes because Int gets converted to NSNumber =(
         
         let dog3 = Dog()
-        expect(dog1).toNot.beInstance(dog3)
+        expect(dog1).toNot.beInstanceOf(dog3)
         
-//        expect(dog1).to.beInstance(dog3)
+//        expect(dog1).to.beInstanceOf(dog3)
         
 //        let fish1 = Fish()
 //        let fish2 = Fish()
 //
-//        expect(fish1).to.beInstance(fish2)
+//        expect(fish1).to.beInstanceOf(fish2)
     }
     
     func testKindOf() {
+//        let doggy: Dog? = nil
+//
+//        expect(doggy).to.beKindOf(Dog.self)
+        
         let dog = Dog()
         let fish = Fish()
         
@@ -57,6 +65,10 @@ final class Specs: XCTestCase {
     }
     
     func testConformTo() {
+//        let doggy: Dog? = nil
+//
+//        expect(doggy).to.conformTo(Wolf.self)
+        
         let dog = Dog()
         
 //        let grizzyBear = GrizzlyBear()
@@ -84,6 +96,14 @@ final class Specs: XCTestCase {
     }
 
     func testBeTruthy() {
+//        var doggy: Dog? = nil
+//
+//        expect(doggy).to.beTruthy()
+//
+//        doggy = Dog()
+//
+//        expect(doggy).to.beTruthy()
+        
         expect(true).to.beTruthy()
 
 //        expect(somethingNil).to.beTruthy()
@@ -97,6 +117,14 @@ final class Specs: XCTestCase {
     }
     
     func testBeFalsy() {
+//        var doggy: Dog? = nil
+//
+//        expect(doggy).to.beFalsy()
+//
+//        doggy = Dog()
+//
+//        expect(doggy).to.beFalsy()
+        
         expect(false).to.beFalsy()
         
 //        expect(somethingNil).to.beFalsy()
@@ -110,6 +138,10 @@ final class Specs: XCTestCase {
     }
     
     func testBeLessThan() {
+//        let bjjBelt: BJJBelt? = nil
+//
+//        expect(bjjBelt).to.beLessThan(BJJBelt.blue)
+        
         expect(9).to.beLessThan(10)
         expect(BJJBelt.white).to.beLessThan(BJJBelt.blue)
         
@@ -125,6 +157,10 @@ final class Specs: XCTestCase {
     }
     
     func testBeLessThanOrEqualTo() {
+//        let bjjBelt: BJJBelt? = nil
+//
+//        expect(bjjBelt).to.beLessThanOrEqualTo(BJJBelt.blue)
+
         expect(9).to.beLessThanOrEqualTo(9)
         expect(9).to.beLessThanOrEqualTo(10)
         expect(BJJBelt.white).to.beLessThanOrEqualTo(BJJBelt.white)
@@ -141,6 +177,10 @@ final class Specs: XCTestCase {
     }
     
     func testBeGreaterThan() {
+//        let bjjBelt: BJJBelt? = nil
+//
+//        expect(bjjBelt).to.beGreaterThan(BJJBelt.blue)
+        
         expect(10).to.beGreaterThan(9)
         expect(BJJBelt.black).to.beGreaterThan(BJJBelt.purple)
         
@@ -156,6 +196,10 @@ final class Specs: XCTestCase {
     }
     
     func testBeGreaterThanOrEqualTo() {
+//        let bjjBelt: BJJBelt? = nil
+//
+//        expect(bjjBelt).to.beGreaterThanOrEqualTo(BJJBelt.blue)
+        
         expect(10).to.beGreaterThanOrEqualTo(9)
         expect(10).to.beGreaterThanOrEqualTo(10)
         expect(BJJBelt.black).to.beGreaterThanOrEqualTo(BJJBelt.black)

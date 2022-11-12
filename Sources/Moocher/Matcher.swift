@@ -23,8 +23,12 @@
 import XCTest
 
 public struct Matcher<T: Equatable> {
+    // MARK: - Read only properties
+    
     let expectedValue: ExpectedValue<T>?
     let to: Bool
+    
+    // MARK: - Public methods
     
     public func beNil(file: StaticString = #filePath,
                       line: UInt = #line) {
@@ -39,11 +43,19 @@ public struct Matcher<T: Equatable> {
         }
     }
     
-    public func beInstance(_ actualValue: AnyObject,
-                           file: StaticString = #filePath,
-                           line: UInt = #line) {
+    public func beInstanceOf(_ actualValue: AnyObject,
+                             file: StaticString = #filePath,
+                             line: UInt = #line) {
         guard let expectedObject = expectedValue?.value as? AnyObject else {
             XCTFail("Expected value is not an object",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        guard !(expectedObject is NSNull) else {
+            XCTFail("Expected value is nil (NSNull actually...)",
                     file: file,
                     line: line)
             
