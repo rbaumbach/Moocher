@@ -23,7 +23,11 @@
 import Foundation
 
 public struct ExpectedValue<T: Equatable> {
+    // MARK: - Readonly properties
+    
     let value: T?
+    
+    // MARK: - Public properties
     
     public var to: Matcher<T> {
         return Matcher(expectedValue: self,
