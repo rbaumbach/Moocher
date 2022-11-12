@@ -13,6 +13,8 @@ expect(AnswerToUltimateQuestion.value).to.equal(42)
 
 * `beNil`
 * `beInstance`
+* `beKindOf`
+* `conformTo`
 * `equal`
 * `beTruthy`
 * `beFalsy`

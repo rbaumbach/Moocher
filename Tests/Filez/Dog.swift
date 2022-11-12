@@ -2,7 +2,9 @@ import Foundation
 
 protocol Wolf { }
 
-final class Dog: Wolf, Equatable {
+class WildAnimal { }
+
+final class Dog: WildAnimal, Wolf, Equatable {
     var name = "Pancho"
     
     static func == (lhs: Dog, rhs: Dog) -> Bool {

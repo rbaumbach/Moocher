@@ -39,10 +39,27 @@ final class Specs: XCTestCase {
 //        expect(fish1).to.beInstance(fish2)
     }
     
+    func testKindOf() {
+        let dog = Dog()
+        let fish = Fish()
+        
+        expect(fish).to.beKindOf(Fish.self)
+        expect(dog).to.beKindOf(WildAnimal.self)
+        
+//        expect(dog).to.beKindOf(Fish.self)
+//        expect(dog).to.beKindOf(Bear.self)
+        
+        expect(fish).toNot.beKindOf(WildAnimal.self)
+        expect(dog).toNot.beKindOf(Bear.self)
+        
+//        expect(dog).toNot.beKindOf(Wolf.self)
+//        expect(dog).toNot.beKindOf(WildAnimal.self)
+    }
+    
     func testConformTo() {
         let dog = Dog()
         
-        let grizzyBear = GrizzlyBear()
+//        let grizzyBear = GrizzlyBear()
                 
         expect(dog).to.conformTo(Wolf.self)
         

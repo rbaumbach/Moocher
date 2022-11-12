@@ -63,9 +63,9 @@ struct Matcher<T: Equatable> {
         }
     }
     
-    func conformTo<U>(_ conformingProtocol: U.Type,
-                      file: StaticString = #filePath,
-                      line: UInt = #line) {
+    func beKindOf<U>(_ type: U.Type,
+                     file: StaticString = #filePath,
+                     line: UInt = #line) {
         guard let expectedValue = expectedValue?.value else {
             XCTFail("expected value is nil",
                     file: file,
@@ -76,17 +76,25 @@ struct Matcher<T: Equatable> {
         
         if to {
             if !(expectedValue is U) {
-                XCTFail("expected value does not conform to \(conformingProtocol)",
+                XCTFail("expected value does not conform to \(type)",
                         file: file,
                         line: line)
             }
         } else {
             if expectedValue is U {
-                XCTFail("expected value conforms to \(conformingProtocol)",
+                XCTFail("expected value conforms to \(type)",
                         file: file,
                         line: line)
             }
         }
+    }
+    
+    func conformTo<U>(_ conformingProtocol: U.Type,
+                      file: StaticString = #filePath,
+                      line: UInt = #line) {
+        beKindOf(conformingProtocol,
+                 file: file,
+                 line: line)
     }
     
     func equal(_ actualValue: T,
