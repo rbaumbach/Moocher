@@ -22,6 +22,6 @@
 
 import Foundation
 
-public func expect<T: Equatable>(_ value: T?) -> ExpectedValue<T> {
+public func expect<T>(_ value: T?) -> ExpectedValue<T> {
     return ExpectedValue(value: value)
 }

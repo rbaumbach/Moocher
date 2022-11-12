@@ -22,7 +22,7 @@
 
 import Foundation
 
-public struct ExpectedValue<T: Equatable> {
+public struct ExpectedValue<T> {
     // MARK: - Readonly properties
     
     let value: T?

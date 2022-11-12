@@ -22,7 +22,7 @@
 
 import XCTest
 
-public struct Matcher<T: Equatable> {
+public struct Matcher<T> {
     // MARK: - Read only properties
     
     let expectedValue: ExpectedValue<T>?
@@ -111,7 +111,7 @@ public struct Matcher<T: Equatable> {
     
     public func equal(_ actualValue: T,
                       file: StaticString = #filePath,
-                      line: UInt = #line) {
+                      line: UInt = #line) where T: Equatable {
         if to {
             XCTAssertEqual(expectedValue?.value,
                            actualValue,
