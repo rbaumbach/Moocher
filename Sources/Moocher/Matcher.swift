@@ -275,4 +275,33 @@ public struct Matcher<T> {
                               line: line)
         }
     }
+    
+    public func throwError(file: StaticString = #filePath,
+                           line: UInt = #line) {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value block is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+                
+        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
+                    file: file,
+                    line: line)
+
+            return
+        }
+        
+        if to {
+            XCTAssertThrowsError(try throwExceptionBlock(),
+                                 file: file,
+                                 line:line)
+        } else {
+            XCTAssertNoThrow(try throwExceptionBlock(),
+                             file:file,
+                             line:line)
+        }
+    }
 }

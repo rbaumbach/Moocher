@@ -22,6 +22,8 @@
 
 import Foundation
 
+public typealias ThrowExceptionBlock = () throws -> Void
+
 public func expect<T>(_ value: T?) -> ExpectedValue<T> {
     return ExpectedValue(value: value)
 }

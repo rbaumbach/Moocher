@@ -213,4 +213,25 @@ final class Specs: XCTestCase {
 //        expect(10).toNot.beGreaterThanOrEqualTo(9)
 //        expect(BJJBelt.brown).toNot.beGreaterThanOrEqualTo(BJJBelt.blue)
     }
+    
+    func testThrowError() {
+//        var doggy: Dog? = nil
+//        
+//        expect(doggy).to.throwError()
+        
+        let dog = Dog()
+        
+        // Note: This expect has a function type of () throws-> String
+        // instead of () throws -> Void
+        
+//        expect({try dog.bark(shouldThroughExceptionalBark: true)}).to.throwError()
+        
+        expect({try _ = dog.bark(shouldThroughExceptionalBark: true)}).to.throwError()
+        
+//        expect({try _ = dog.bark(shouldThroughExceptionalBark: false)}).to.throwError()
+        
+        expect({try _ = dog.bark(shouldThroughExceptionalBark: false)}).toNot.throwError()
+        
+//        expect({try _ = dog.bark(shouldThroughExceptionalBark: true)}).toNot.throwError()
+    }
 }
