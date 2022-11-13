@@ -22,3 +22,4 @@ expect(AnswerToUltimateQuestion.value).to.equal(42)
 * `beLessThanOrEqualTo`
 * `beGreaterThan`
 * `beGreaterThanOrEqualTo`
+* `throwError`
