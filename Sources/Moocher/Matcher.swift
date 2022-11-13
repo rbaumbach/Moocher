@@ -278,7 +278,40 @@ public struct Matcher<T> {
     
     public func throwError(file: StaticString = #filePath,
                            line: UInt = #line,
-                           errorHandler: (Error) -> Void = { _ in }) {
+                           errorHandler: ((Error) -> Void)? = nil) {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value block is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+                
+        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
+                    file: file,
+                    line: line)
+
+            return
+        }
+        
+        if to {
+            let assertErrorHandler = errorHandler ?? { _ in }
+            
+            XCTAssertThrowsError(try throwExceptionBlock(),
+                                 file: file,
+                                 line: line,
+                                 assertErrorHandler)
+        } else {
+            XCTAssertNoThrow(try throwExceptionBlock(),
+                             file:file,
+                             line:line)
+        }
+    }
+    
+    public func throwError(specificError: Error,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) {
         guard let value = expectedValue?.value else {
             XCTFail("expected value block is nil",
                     file: file,
@@ -298,24 +331,61 @@ public struct Matcher<T> {
         if to {
             XCTAssertThrowsError(try throwExceptionBlock(),
                                  file: file,
-                                 line: line,
-                                 errorHandler)
+                                 line: line) { error in
+                if String(reflecting: specificError) != String(reflecting: error) {
+                    XCTFail("expected value does not match throw error",
+                            file: file,
+                            line: line)
+
+                    return
+                }
+            }
         } else {
-            XCTAssertNoThrow(try throwExceptionBlock(),
-                             file:file,
-                             line:line)
+            XCTFail("toNot.throwError should not have a specific error",
+                    file: file,
+                    line: line)
+            
+            return
         }
-    }
-    
-    public func throwError(specificError: Error,
-                           file: StaticString = #filePath,
-                           line: UInt = #line) {
-        
     }
     
     public func throwError<U>(errorType: U.Type,
                               file: StaticString = #filePath,
-                              line: UInt = #line) {
+                              line: UInt = #line) where U: Error {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value block is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+                
+        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
+                    file: file,
+                    line: line)
+
+            return
+        }
         
+        if to {
+            XCTAssertThrowsError(try throwExceptionBlock(),
+                                 file: file,
+                                 line: line) { error in
+                if !(error is U) {
+                    XCTFail("\(errorType) is not of type \(U.self)",
+                            file: file,
+                            line: line)
+                    
+                    return
+                }
+            }
+        } else {
+            XCTFail("toNot.throwError should not have an error to type check",
+                    file: file,
+                    line: line)
+            
+            return
+        }
     }
 }

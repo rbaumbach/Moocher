@@ -6,6 +6,7 @@ class WildAnimal { }
 
 enum BarkException: Error {
     case earShrikingBark
+    case deafeningBark
 }
 
 final class Dog: WildAnimal, Wolf, Equatable {
@@ -16,9 +17,7 @@ final class Dog: WildAnimal, Wolf, Equatable {
     // MARK: - Public methods
     
     func bark(shouldThroughExceptionalBark: Bool) throws -> String {
-        if shouldThroughExceptionalBark {
-            print("RAAAWWWAAARRRR!!!!")
-            
+        if shouldThroughExceptionalBark {            
             throw BarkException.earShrikingBark
         }
         
