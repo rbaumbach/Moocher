@@ -277,7 +277,8 @@ public struct Matcher<T> {
     }
     
     public func throwError(file: StaticString = #filePath,
-                           line: UInt = #line) {
+                           line: UInt = #line,
+                           errorHandler: (Error) -> Void = { _ in }) {
         guard let value = expectedValue?.value else {
             XCTFail("expected value block is nil",
                     file: file,
@@ -297,11 +298,24 @@ public struct Matcher<T> {
         if to {
             XCTAssertThrowsError(try throwExceptionBlock(),
                                  file: file,
-                                 line:line)
+                                 line: line,
+                                 errorHandler)
         } else {
             XCTAssertNoThrow(try throwExceptionBlock(),
                              file:file,
                              line:line)
         }
+    }
+    
+    public func throwError(specificError: Error,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) {
+        
+    }
+    
+    public func throwError<U>(errorType: U.Type,
+                              file: StaticString = #filePath,
+                              line: UInt = #line) {
+        
     }
 }
