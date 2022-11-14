@@ -125,6 +125,33 @@ public struct Matcher<T> {
         }
     }
     
+    public func equal(_ actualValue: T,
+                      within accuracy: T,
+                      file: StaticString = #filePath,
+                      line: UInt = #line) where T: FloatingPoint {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            XCTAssertEqual(value,
+                           actualValue,
+                           accuracy: accuracy,
+                           file: file,
+                           line: line)
+        } else {
+            XCTAssertNotEqual(value,
+                              actualValue,
+                              accuracy: accuracy,
+                              file: file,
+                              line: line)
+        }
+    }
+    
     public func beTruthy(file: StaticString = #filePath,
                          line: UInt = #line) {
         guard let value = expectedValue?.value else {
@@ -386,6 +413,56 @@ public struct Matcher<T> {
                     line: line)
             
             return
+        }
+    }
+    
+    public func beEmpty(file: StaticString = #filePath,
+                        line: UInt = #line) where T: Collection {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            if !value.isEmpty {
+                XCTFail("\(value) is not empty",
+                        file: file,
+                        line: line)
+            }
+        } else {
+            if value.isEmpty {
+                XCTFail("\(value) is empty",
+                        file: file,
+                        line: line)
+            }
+        }
+    }
+    
+    public func beEmpty(file: StaticString = #filePath,
+                        line: UInt = #line) where T == String {
+        guard let value = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        if to {
+            if value != "" {
+                XCTFail("\(value) is not empty",
+                        file: file,
+                        line: line)
+            }
+        } else {
+            if value == "" {
+                XCTFail("\(value) is empty",
+                        file: file,
+                        line: line)
+            }
         }
     }
 }

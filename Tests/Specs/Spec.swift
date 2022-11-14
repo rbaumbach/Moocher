@@ -94,6 +94,16 @@ final class Specs: XCTestCase {
         
 //        expect(99).toNot.equal(99)
     }
+    
+    func testEqualWithAccuracy() {
+//        let floaty: Float? = nil
+//
+//        expect(floaty).toNot.equal(9.9, within: 0.1)
+        
+        expect(9.9).to.equal(9.9, within: 0.1)
+        
+//        expect(9.9).toNot.equal(9.9, within: 0.1)
+    }
 
     func testBeTruthy() {
 //        var doggy: Dog? = nil
@@ -277,5 +287,37 @@ final class Specs: XCTestCase {
 //        expect({ try _ = dog.bark(shouldThroughExceptionalBark: false) }).to.throwError(errorType: BarkException.self)
 //
 //        expect({ try _ = dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(errorType: BarkException.self)
+    }
+    
+    func testIsEmptyCollection() {
+//        let nilArray: [Int]? = nil
+//
+//        expect(nilArray).to.beEmpty()
+        
+        let arr1: [Int] = []
+        
+        expect(arr1).to.beEmpty()
+        
+        let arr2 = [1,2]
+        
+//        expect(arr2).to.beEmpty()
+        
+        expect(arr2).toNot.beEmpty()
+        
+//        expect(arr1).toNot.beEmpty()
+    }
+    
+    func testIsEmptyString() {
+//        let nilString: String? = nil
+//
+//        expect(nilString).to.beEmpty()
+        
+        expect("").to.beEmpty()
+        
+//        expect("Burrito").to.beEmpty()
+        
+        expect("Taco").toNot.beEmpty()
+        
+//        expect("").toNot.beEmpty()
     }
 }
