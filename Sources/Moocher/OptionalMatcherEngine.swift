@@ -23,6 +23,8 @@
 import Foundation
 
 public struct OptionalMatcherEngine<T> {
+    // MARK: - Readonly properties
+    
     let actualValue: OptionalActualValue<T>?
     let to: Bool
     

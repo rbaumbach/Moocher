@@ -9,6 +9,8 @@ enum BJJBelt: Int, Comparable {
     case coral
     case red
     
+    // MARK: - Comparable
+    
     static func < (lhs: BJJBelt, rhs: BJJBelt) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
