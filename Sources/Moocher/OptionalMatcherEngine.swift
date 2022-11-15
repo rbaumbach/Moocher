@@ -22,10 +22,18 @@
 
 import Foundation
 
-public func expect<T>(_ value: T) -> ActualValue<T> {
-    return ActualValue(value: value)
+public struct OptionalMatcherEngine<T> {
+    let actualValue: OptionalActualValue<T>?
+    let to: Bool
+    
+    // MARK: - Public methods
+    
+    public func beNil(file: StaticString = #filePath,
+                      line: UInt = #line) {
+        BeNil().beNil(actualValue?.value,
+                      to: to,
+                      file: file,
+                      line: line)
+    }
 }
 
-public func expect<T>(_ value: T?) -> OptionalActualValue<T> {
-    return OptionalActualValue(value: value)
-}

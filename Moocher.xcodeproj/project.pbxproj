@@ -25,12 +25,14 @@
 		9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */; };
 		94F1DE88291E054900411CCB /* Moocher.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F1DE87291E054900411CCB /* Moocher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94F1DE98291E071900411CCB /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
-		94F1DE9F291E08E900411CCB /* ExpectedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DE9E291E08E900411CCB /* ExpectedValue.swift */; };
+		94F1DE9F291E08E900411CCB /* ActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DE9E291E08E900411CCB /* ActualValue.swift */; };
 		94F1DEA1291E091100411CCB /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEA0291E091100411CCB /* Expect.swift */; };
 		94F1DEA5291E09AD00411CCB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; };
-		94F1DEA7291E09CA00411CCB /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEA6291E09CA00411CCB /* Matcher.swift */; };
+		94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEA6291E09CA00411CCB /* MatcherEngine.swift */; };
 		94F1DEAF29234AF600411CCB /* ThrowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEAE29234AF600411CCB /* ThrowError.swift */; };
 		94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB0292350DB00411CCB /* BeEmpty.swift */; };
+		94F1DEB32924056000411CCB /* OptionalMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */; };
+		94F1DEB5292405A300411CCB /* OptionalActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB4292405A300411CCB /* OptionalActualValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +66,14 @@
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
 		94F1DE94291E071900411CCB /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94F1DE9E291E08E900411CCB /* ExpectedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedValue.swift; sourceTree = "<group>"; };
+		94F1DE9E291E08E900411CCB /* ActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualValue.swift; sourceTree = "<group>"; };
 		94F1DEA0291E091100411CCB /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		94F1DEA4291E09AD00411CCB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		94F1DEA6291E09CA00411CCB /* Matcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matcher.swift; sourceTree = "<group>"; };
+		94F1DEA6291E09CA00411CCB /* MatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatcherEngine.swift; sourceTree = "<group>"; };
 		94F1DEAE29234AF600411CCB /* ThrowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowError.swift; sourceTree = "<group>"; };
 		94F1DEB0292350DB00411CCB /* BeEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
+		94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalMatcherEngine.swift; sourceTree = "<group>"; };
+		94F1DEB4292405A300411CCB /* OptionalActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalActualValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +170,10 @@
 			children = (
 				9499BD6D2922EEF3004C2244 /* Matchers */,
 				94F1DEA0291E091100411CCB /* Expect.swift */,
-				94F1DE9E291E08E900411CCB /* ExpectedValue.swift */,
-				94F1DEA6291E09CA00411CCB /* Matcher.swift */,
+				94F1DE9E291E08E900411CCB /* ActualValue.swift */,
+				94F1DEA6291E09CA00411CCB /* MatcherEngine.swift */,
+				94F1DEB4292405A300411CCB /* OptionalActualValue.swift */,
+				94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */,
 			);
 			path = Moocher;
 			sourceTree = "<group>";
@@ -307,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9499BD702922F000004C2244 /* BeNil.swift in Sources */,
+				94F1DEB5292405A300411CCB /* OptionalActualValue.swift in Sources */,
 				9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */,
 				9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */,
 				9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */,
@@ -315,13 +322,14 @@
 				9499BD7F2922FECC004C2244 /* BeLessThan.swift in Sources */,
 				94F1DEA1291E091100411CCB /* Expect.swift in Sources */,
 				9499BD772922F3A4004C2244 /* ConformTo.swift in Sources */,
-				94F1DEA7291E09CA00411CCB /* Matcher.swift in Sources */,
+				94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */,
 				9499BD732922F1A6004C2244 /* BeInstanceOf.swift in Sources */,
 				9499BD7D2922FD64004C2244 /* BeFalsy.swift in Sources */,
 				94F1DEAF29234AF600411CCB /* ThrowError.swift in Sources */,
 				9499BD792922F4DF004C2244 /* Equal.swift in Sources */,
 				94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */,
-				94F1DE9F291E08E900411CCB /* ExpectedValue.swift in Sources */,
+				94F1DEB32924056000411CCB /* OptionalMatcherEngine.swift in Sources */,
+				94F1DE9F291E08E900411CCB /* ActualValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

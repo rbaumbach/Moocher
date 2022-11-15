@@ -22,20 +22,20 @@
 
 import Foundation
 
-public struct ExpectedValue<T> {
+public struct OptionalActualValue<T> {
     // MARK: - Readonly properties
     
     let value: T?
     
     // MARK: - Public properties
     
-    public var to: Matcher<T> {
-        return Matcher(expectedValue: self,
-                       to: true)
+    public var to: OptionalMatcherEngine<T> {
+        return OptionalMatcherEngine(actualValue: self,
+                                     to: true)
     }
     
-    public var toNot: Matcher<T> {
-        return Matcher(expectedValue: self,
-                       to: false)
+    public var toNot: OptionalMatcherEngine<T> {
+        return OptionalMatcherEngine(actualValue: self,
+                                     to: false)
     }
 }

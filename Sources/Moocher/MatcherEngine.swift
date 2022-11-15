@@ -22,34 +22,20 @@
 
 import XCTest
 
-public struct Matcher<T> {
+public typealias ThrowExceptionBlock = () throws -> Void
+
+public struct MatcherEngine<T> {
     // MARK: - Read only properties
     
-    let expectedValue: ExpectedValue<T>?
+    let actualValue: ActualValue<T>
     let to: Bool
     
     // MARK: - Public methods
     
-    public func beNil(file: StaticString = #filePath,
-                      line: UInt = #line) {
-        BeNil().beNil(expectedValue?.value,
-                      to: to,
-                      file: file,
-                      line: line)
-    }
-    
-    public func beInstanceOf(_ actualValue: AnyObject,
+    public func beInstanceOf(_ expectedObject: AnyObject,
                              file: StaticString = #filePath,
-                             line: UInt = #line) {
-        guard let expectedObject = expectedValue?.value as? AnyObject else {
-            XCTFail("Expected value is not an object",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        guard !(expectedObject is NSNull) else {
+                             line: UInt = #line) where T: AnyObject {
+        guard !(actualValue.value is NSNull) else {
             XCTFail("Expected value is nil (NSNull actually...)",
                     file: file,
                     line: line)
@@ -57,8 +43,8 @@ public struct Matcher<T> {
             return
         }
         
-        BeInstanceOf().beInstanceOf(expectedObject,
-                                    actualValue,
+        BeInstanceOf().beInstanceOf(actualValue.value,
+                                    expectedObject,
                                     to: to,
                                     file: file,
                                     line: line)
@@ -67,15 +53,7 @@ public struct Matcher<T> {
     public func beKindOf<U>(_ type: U.Type,
                             file: StaticString = #filePath,
                             line: UInt = #line) {
-        guard let expectedValue = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeKindOf().beKindOf(expectedValue,
+        BeKindOf().beKindOf(actualValue.value,
                             type,
                             to: to,
                             file: file,
@@ -85,45 +63,29 @@ public struct Matcher<T> {
     public func conformTo<U>(_ conformingProtocol: U.Type,
                              file: StaticString = #filePath,
                              line: UInt = #line) {
-        guard let expectedValue = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        ConformTo().conformTo(expectedValue,
+        ConformTo().conformTo(actualValue.value,
                               conformingProtocol,
                               to: to,
                               file: file,
                               line: line)
     }
     
-    public func equal(_ actualValue: T,
+    public func equal(_ expectedValue: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: Equatable {
-        Equal().equal(expectedValue?.value,
-                      actualValue,
+        Equal().equal(actualValue.value,
+                      expectedValue,
                       to: to,
                       file: file,
                       line: line)
     }
     
-    public func equal(_ actualValue: T,
+    public func equal(_ expectedValue: T,
                       within accuracy: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: FloatingPoint {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        Equal().equal(value,
-                      actualValue,
+        Equal().equal(actualValue.value,
+                      expectedValue,
                       to: to,
                       within: accuracy,
                       file: file,
@@ -131,120 +93,56 @@ public struct Matcher<T> {
     }
     
     public func beTruthy(file: StaticString = #filePath,
-                         line: UInt = #line) {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        guard let booleanValue = value as? Bool else {
-            XCTFail("expected value is not a boolean",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeTruthy().beTruthy(booleanValue,
+                         line: UInt = #line) where T == Bool {
+        BeTruthy().beTruthy(actualValue.value,
+                            to: to,
+                            file: file,
+                            line: line)
+    }
+    
+    public func beFalsy(file: StaticString = #filePath,
+                        line: UInt = #line) where T == Bool {
+        BeFalsy().beFalsy(actualValue.value,
                           to: to,
                           file: file,
                           line: line)
     }
     
-    public func beFalsy(file: StaticString = #filePath,
-                        line: UInt = #line) {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        guard let booleanValue = value as? Bool else {
-            XCTFail("expected value is not a boolean",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeFalsy().beFalsy(booleanValue,
-                        to: to,
-                        file: file,
-                        line: line)
-    }
-    
-    public func beLessThan(_ actualValue: T,
+    public func beLessThan(_ expectedValue: T,
                            file: StaticString = #filePath,
                            line: UInt = #line) where T: Comparable {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeLessThan().beLessThan(value,
-                                actualValue,
+        BeLessThan().beLessThan(actualValue.value,
+                                expectedValue,
                                 to: to,
                                 file: file,
                                 line: line)
     }
     
-    public func beLessThanOrEqualTo(_ actualValue: T,
+    public func beLessThanOrEqualTo(_ expectedValue: T,
                                     file: StaticString = #filePath,
                                     line: UInt = #line) where T: Comparable {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeLessThanOrEqualTo().beLessThanOrEqualTo(value,
-                                                  actualValue,
+        BeLessThanOrEqualTo().beLessThanOrEqualTo(actualValue.value,
+                                                  expectedValue,
                                                   to: to,
                                                   file: file,
                                                   line: line)
     }
     
-    public func beGreaterThan(_ actualValue: T,
+    public func beGreaterThan(_ expectedValue: T,
                               file: StaticString = #filePath,
                               line: UInt = #line) where T: Comparable {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeGreaterThan().beGreaterThan(value,
-                                      actualValue,
+        BeGreaterThan().beGreaterThan(actualValue.value,
+                                      expectedValue,
                                       to: to,
                                       file: file,
                                       line: line)
     }
     
-    public func beGreaterThanOrEqualTo(_ actualValue: T,
+    public func beGreaterThanOrEqualTo(_ expectedValue: T,
                                        file: StaticString = #filePath,
                                        line: UInt = #line) where T: Comparable {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeGreaterThanOrEqualTo().beGreaterThanOrEqualTo(value,
-                                                        actualValue,
+        BeGreaterThanOrEqualTo().beGreaterThanOrEqualTo(actualValue.value,
+                                                        expectedValue,
                                                         to: to,
                                                         file: file,
                                                         line: line)
@@ -253,23 +151,15 @@ public struct Matcher<T> {
     public func throwError(file: StaticString = #filePath,
                            line: UInt = #line,
                            errorHandler: ((Error) -> Void)? = nil) {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value block is nil",
+        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
             
             return
         }
-                
-        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
-            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
-                    file: file,
-                    line: line)
-
-            return
-        }
         
-        ThrowError().throwError(throwExceptionBlock,
+        ThrowError().throwError(actualThrowExceptionBlock,
                                 to: to,
                                 file: file,
                                 line: line,
@@ -279,23 +169,15 @@ public struct Matcher<T> {
     public func throwError(specificError: Error,
                            file: StaticString = #filePath,
                            line: UInt = #line) {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value block is nil",
+        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
             
             return
         }
-                
-        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
-            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
-                    file: file,
-                    line: line)
-
-            return
-        }
         
-        ThrowError().throwError(throwExceptionBlock,
+        ThrowError().throwError(actualThrowExceptionBlock,
                                 specificError: specificError,
                                 to: to,
                                 file: file,
@@ -305,23 +187,15 @@ public struct Matcher<T> {
     public func throwError<U>(errorType: U.Type,
                               file: StaticString = #filePath,
                               line: UInt = #line) where U: Error {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value block is nil",
+        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
             
             return
         }
-                
-        guard let throwExceptionBlock = value as? ThrowExceptionBlock else {
-            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
-                    file: file,
-                    line: line)
-
-            return
-        }
         
-        ThrowError().throwError(throwExceptionBlock,
+        ThrowError().throwError(actualThrowExceptionBlock,
                                 errorType: errorType,
                                 to: to,
                                 file: file,
@@ -330,15 +204,7 @@ public struct Matcher<T> {
     
     public func beEmpty(file: StaticString = #filePath,
                         line: UInt = #line) where T: Collection {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeEmpty().beEmpty(value,
+        BeEmpty().beEmpty(actualValue.value,
                           to: to,
                           file:file,
                           line: line)
@@ -346,15 +212,7 @@ public struct Matcher<T> {
     
     public func beEmpty(file: StaticString = #filePath,
                         line: UInt = #line) where T == String {
-        guard let value = expectedValue?.value else {
-            XCTFail("expected value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeEmpty().beEmpty(value,
+        BeEmpty().beEmpty(actualValue.value,
                           to: to,
                           file: file,
                           line: line)

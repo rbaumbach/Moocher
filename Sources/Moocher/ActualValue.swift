@@ -22,10 +22,20 @@
 
 import Foundation
 
-public func expect<T>(_ value: T) -> ActualValue<T> {
-    return ActualValue(value: value)
-}
-
-public func expect<T>(_ value: T?) -> OptionalActualValue<T> {
-    return OptionalActualValue(value: value)
+public struct ActualValue<T> {
+    // MARK: - Readonly properties
+    
+    let value: T
+    
+    // MARK: - Public properties
+    
+    public var to: MatcherEngine<T> {
+        return MatcherEngine(actualValue: self,
+                             to: true)
+    }
+    
+    public var toNot: MatcherEngine<T> {
+        return MatcherEngine(actualValue: self,
+                             to: false)
+    }
 }
