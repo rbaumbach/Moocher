@@ -269,18 +269,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            let assertErrorHandler = errorHandler ?? { _ in }
-            
-            XCTAssertThrowsError(try throwExceptionBlock(),
-                                 file: file,
-                                 line: line,
-                                 assertErrorHandler)
-        } else {
-            XCTAssertNoThrow(try throwExceptionBlock(),
-                             file:file,
-                             line:line)
-        }
+        ThrowError().throwError(throwExceptionBlock,
+                                to: to,
+                                file: file,
+                                line: line,
+                                errorHandler: errorHandler)
     }
     
     public func throwError(specificError: Error,
@@ -302,25 +295,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertThrowsError(try throwExceptionBlock(),
-                                 file: file,
-                                 line: line) { error in
-                if String(reflecting: specificError) != String(reflecting: error) {
-                    XCTFail("expected value does not match throw error",
-                            file: file,
-                            line: line)
-
-                    return
-                }
-            }
-        } else {
-            XCTFail("toNot.throwError should not have a specific error",
-                    file: file,
-                    line: line)
-            
-            return
-        }
+        ThrowError().throwError(throwExceptionBlock,
+                                specificError: specificError,
+                                to: to,
+                                file: file,
+                                line: line)
     }
     
     public func throwError<U>(errorType: U.Type,
@@ -342,25 +321,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertThrowsError(try throwExceptionBlock(),
-                                 file: file,
-                                 line: line) { error in
-                if !(error is U) {
-                    XCTFail("\(errorType) is not of type \(U.self)",
-                            file: file,
-                            line: line)
-                    
-                    return
-                }
-            }
-        } else {
-            XCTFail("toNot.throwError should not have an error to type check",
-                    file: file,
-                    line: line)
-            
-            return
-        }
+        ThrowError().throwError(throwExceptionBlock,
+                                errorType: errorType,
+                                to: to,
+                                file: file,
+                                line: line)
     }
     
     public func beEmpty(file: StaticString = #filePath,
@@ -373,19 +338,10 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            if !value.isEmpty {
-                XCTFail("\(value) is not empty",
-                        file: file,
-                        line: line)
-            }
-        } else {
-            if value.isEmpty {
-                XCTFail("\(value) is empty",
-                        file: file,
-                        line: line)
-            }
-        }
+        BeEmpty().beEmpty(value,
+                          to: to,
+                          file:file,
+                          line: line)
     }
     
     public func beEmpty(file: StaticString = #filePath,
@@ -398,18 +354,9 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            if value != "" {
-                XCTFail("\(value) is not empty",
-                        file: file,
-                        line: line)
-            }
-        } else {
-            if value == "" {
-                XCTFail("\(value) is empty",
-                        file: file,
-                        line: line)
-            }
-        }
+        BeEmpty().beEmpty(value,
+                          to: to,
+                          file: file,
+                          line: line)
     }
 }
