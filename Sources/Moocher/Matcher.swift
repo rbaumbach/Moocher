@@ -32,15 +32,10 @@ public struct Matcher<T> {
     
     public func beNil(file: StaticString = #filePath,
                       line: UInt = #line) {
-        if to {
-            XCTAssertNil(expectedValue?.value,
-                         file: file,
-                         line: line)
-        } else {
-            XCTAssertNotNil(expectedValue?.value,
-                            file: file,
-                            line: line)
-        }
+        BeNil().beNil(expectedValue?.value,
+                      to: to,
+                      file: file,
+                      line: line)
     }
     
     public func beInstanceOf(_ actualValue: AnyObject,
@@ -62,17 +57,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertIdentical(expectedObject,
-                               actualValue,
-                               file: file,
-                               line: line)
-        } else {
-            XCTAssertNotIdentical(expectedObject,
-                                  actualValue,
-                                  file:file,
-                                  line: line)
-        }
+        BeInstanceOf().beInstanceOf(expectedObject,
+                                    actualValue,
+                                    to: to,
+                                    file: file,
+                                    line: line)
     }
     
     public func beKindOf<U>(_ type: U.Type,
@@ -86,43 +75,39 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            if !(expectedValue is U) {
-                XCTFail("expected value does not conform to \(type)",
-                        file: file,
-                        line: line)
-            }
-        } else {
-            if expectedValue is U {
-                XCTFail("expected value conforms to \(type)",
-                        file: file,
-                        line: line)
-            }
-        }
+        BeKindOf().beKindOf(expectedValue,
+                            type,
+                            to: to,
+                            file: file,
+                            line: line)
     }
     
     public func conformTo<U>(_ conformingProtocol: U.Type,
                              file: StaticString = #filePath,
                              line: UInt = #line) {
-        beKindOf(conformingProtocol,
-                 file: file,
-                 line: line)
+        guard let expectedValue = expectedValue?.value else {
+            XCTFail("expected value is nil",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        ConformTo().conformTo(expectedValue,
+                              conformingProtocol,
+                              to: to,
+                              file: file,
+                              line: line)
     }
     
     public func equal(_ actualValue: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: Equatable {
-        if to {
-            XCTAssertEqual(expectedValue?.value,
-                           actualValue,
-                           file: file,
-                           line: line)
-        } else {
-            XCTAssertNotEqual(expectedValue?.value,
-                              actualValue,
-                              file: file,
-                              line: line)
-        }
+        Equal().equal(expectedValue?.value,
+                      actualValue,
+                      to: to,
+                      file: file,
+                      line: line)
     }
     
     public func equal(_ actualValue: T,
@@ -137,19 +122,12 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertEqual(value,
-                           actualValue,
-                           accuracy: accuracy,
-                           file: file,
-                           line: line)
-        } else {
-            XCTAssertNotEqual(value,
-                              actualValue,
-                              accuracy: accuracy,
-                              file: file,
-                              line: line)
-        }
+        Equal().equal(value,
+                      actualValue,
+                      to: to,
+                      within: accuracy,
+                      file: file,
+                      line: line)
     }
     
     public func beTruthy(file: StaticString = #filePath,
@@ -170,15 +148,10 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertTrue(booleanValue,
+        BeTruthy().beTruthy(booleanValue,
+                          to: to,
                           file: file,
                           line: line)
-        } else {
-            XCTAssertFalse(booleanValue,
-                           file: file,
-                           line: line)
-        }
     }
     
     public func beFalsy(file: StaticString = #filePath,
@@ -199,15 +172,10 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertFalse(booleanValue,
-                           file: file,
-                           line: line)
-        } else {
-            XCTAssertTrue(booleanValue,
-                          file: file,
-                          line: line)
-        }
+        BeFalsy().beFalsy(booleanValue,
+                        to: to,
+                        file: file,
+                        line: line)
     }
     
     public func beLessThan(_ actualValue: T,
@@ -221,16 +189,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertLessThan(value,
-                              actualValue,
-                              file: file,
-                              line: line)
-        } else {
-            XCTAssertGreaterThanOrEqual(value, actualValue,
-                                        file: file,
-                                        line: line)
-        }
+        BeLessThan().beLessThan(value,
+                                actualValue,
+                                to: to,
+                                file: file,
+                                line: line)
     }
     
     public func beLessThanOrEqualTo(_ actualValue: T,
@@ -244,17 +207,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertLessThanOrEqual(value,
-                                     actualValue,
-                                     file: file,
-                                     line: line)
-        } else {
-            XCTAssertGreaterThan(value,
-                                 actualValue,
-                                 file: file,
-                                 line: line)
-        }
+        BeLessThanOrEqualTo().beLessThanOrEqualTo(value,
+                                                  actualValue,
+                                                  to: to,
+                                                  file: file,
+                                                  line: line)
     }
     
     public func beGreaterThan(_ actualValue: T,
@@ -268,16 +225,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertGreaterThan(value,
-                                 actualValue,
-                                 file: file,
-                                 line: line)
-        } else {
-            XCTAssertLessThanOrEqual(value, actualValue,
-                                     file: file,
-                                     line: line)
-        }
+        BeGreaterThan().beGreaterThan(value,
+                                      actualValue,
+                                      to: to,
+                                      file: file,
+                                      line: line)
     }
     
     public func beGreaterThanOrEqualTo(_ actualValue: T,
@@ -291,16 +243,11 @@ public struct Matcher<T> {
             return
         }
         
-        if to {
-            XCTAssertGreaterThanOrEqual(value,
-                                        actualValue,
-                                        file: file,
-                                        line: line)
-        } else {
-            XCTAssertLessThan(value, actualValue,
-                              file: file,
-                              line: line)
-        }
+        BeGreaterThanOrEqualTo().beGreaterThanOrEqualTo(value,
+                                                        actualValue,
+                                                        to: to,
+                                                        file: file,
+                                                        line: line)
     }
     
     public func throwError(file: StaticString = #filePath,
