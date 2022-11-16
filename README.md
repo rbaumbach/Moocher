@@ -36,9 +36,14 @@ expect(AnswerToUltimateQuestion.value).to.equal(42)
 
 * `equal`
 
+This matcher works for types that conform to `Equtable`. but also works for types that conform to `FloatingPoint` as well.
+
 ```swift
 expect(99).to.equal(99)
 expect(99).toNot.equal(100)
+
+expect(9.9).to.equal(9.9, within: 0.1)
+expect(9.9).toNot.equal(10.9, within: 0.1)
 ```
 
 ### Types
@@ -63,7 +68,6 @@ class Dog { }
 struct Fish { }
 
 let dog = Dog()
-let fish = Fish()
 
 expect(dog).to.beKindOf(Dog.self)
 expect(dog).toNot.beKindOf(Fish.self)
@@ -86,20 +90,115 @@ expect(dog).toNot.conformTo(Goat.self)
 ### Comparisons
 
 * `beLessThan`
+
+```swift
+expect(9).to.beLessThan(10)
+expect(9).toNot.beLessThan(8)
+```
+
 * `beLessThanOrEqualTo`
+
+```swift
+expect(9).to.beLessThanOrEqualTo(9)
+expect(11).toNot.beLessThanOrEqualTo(10)
+```
+
 * `beGreaterThan`
+
+```swift
+expect(9).to.beGreaterThan(8)
+expect(7).toNot.beGreaterThan(8)
+```
+
 * `beGreaterThanOrEqualTo`
+
+```swift
+expect(9).to.beGreaterThanOrEqualTo(8)
+expect(7).toNot.beGreaterThanOrEqualTo(8)
+```
 
 ### Truthiness
 
 * `beTruthy`
+
+```swift
+expect(true).to.beTruthy()
+expect(false).toNot.beTruthy()
+```
+
 * `beFalsy`
+
+```swift
+expect(false).to.beFalsy()
+expect(true).toNot.beFalsy()
+```
+
 * `beNil`
+
+```swift
+var number: Int?
+
+expect(number).to.beNil()
+
+number = 99
+
+expect(number).toNot.beNil()
+```
 
 ### Error Throwing
 
 * `throwError`
 
+The `throwError` matcher can be used in 4 different ways:
+
+* throwError(block:)
+
+```swift
+expect({try functionThatThrowsAnError() })
+    .to.throwError()
+expect({try functionThatDoesNotThrowAnError() })
+    .toNot.throwError()
+```
+
+* throwError(block:errorHandler:)
+
+```swift
+expect({try functionThatThrowsAnError() })
+    .to.throwError { error in
+        // Do something with error
+        }
+```
+
+* throwError(block:specificError:)
+
+```swift
+expect({try functionThatThrowsABurritoError() })
+    .to.throwError(specificError: BurritoError.beansMissing))
+expect({try functionThatThrowsABurritoError() })
+    .toNot.throwError(specificError: TacoError.salsaMissing))
+```
+
+* throwError(block:errorType:)
+
+```swift
+expect({try functionThatThrowsABurritoError() })
+    .to.throwError(errorType: BurritoError.self))
+expect({try functionThatThrowsABurritoError() })
+    .toNot.throwError(errorType: TacoError.self))
+```
+
 ### Collection
 
 * `beEmpty`
+
+This matcher works for types that conform to `Collection` and are `String`s.
+
+```swift
+let emptyArray: [Int] = []
+
+expect(emptyArray).to.beEmpty()
+expect([1, 2, 3]).toNot.beEmpty()
+
+expect("").to.beEmpty()
+expect("Taco").to.beEmpty()
+```

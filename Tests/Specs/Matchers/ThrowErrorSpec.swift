@@ -40,10 +40,9 @@ final class ThrowErrorSpec: XCTestCase {
                 expect(error as? BarkException).to.equal(.earShrikingBark)
         }
     }
-    
-    // TODO: Determine if "toNot" makes sense for an error handler
-    // The current implementation does not use the errorHandler function at all
-    // with the toNot scenario
+
+    // Note: Since this scenario doesn't really make sense, an
+    // XCTFail is given to the user.
     
     func testToNotThrowErrorWithErrorHandler() {
         XCTExpectFailure("dog should not throw error") {
