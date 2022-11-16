@@ -9,6 +9,10 @@ enum BarkException: Error {
     case deafeningBark
 }
 
+enum MeowException: Error {
+    case purrr
+}
+
 final class Dog: WildAnimal, Wolf, Equatable {
     // MARK: - Public properties
     
