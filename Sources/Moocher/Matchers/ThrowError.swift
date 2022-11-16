@@ -48,7 +48,7 @@ struct ThrowError {
                                  file: file,
                                  line: line,
                                  errorHandler)
-        } else {
+        } else {            
             XCTAssertNoThrow(try block(),
                              file:file,
                              line:line)
@@ -65,7 +65,7 @@ struct ThrowError {
                                  file: file,
                                  line: line) { error in
                 if String(reflecting: specificError) != String(reflecting: error) {
-                    XCTFail("expected value does not match throw error",
+                    XCTFail("actual value does not match throw error",
                             file: file,
                             line: line)
 
@@ -73,11 +73,11 @@ struct ThrowError {
                 }
             }
         } else {
-            XCTAssertThrowsError(try block(),
-                                 file: file,
-                                 line: line) { error in
-                if String(reflecting: specificError) == String(reflecting: error) {
-                    XCTFail("expected value matches throw error",
+            do {
+                try block()
+            } catch {
+                if String(reflecting: error) == String(reflecting: specificError) {
+                    XCTFail("actual value matches throw error",
                             file: file,
                             line: line)
                     
@@ -105,9 +105,9 @@ struct ThrowError {
                 }
             }
         } else {
-            XCTAssertThrowsError(try block(),
-                                 file: file,
-                                 line: line) { error in
+            do {
+                try block()
+            } catch {
                 if (error is T) {
                     XCTFail("\(errorType) is of type \(T.self)",
                             file: file,

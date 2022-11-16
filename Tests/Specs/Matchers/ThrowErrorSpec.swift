@@ -64,13 +64,13 @@ final class ThrowErrorSpec: XCTestCase {
         }
     }
     
-    // TODO: Determine if "toNot" makes sense for a specific error
-    // The current implementation immediately throws and XCAssert error if error
-    // is not thrown by input function
-    
     func testToNotThrowErrorWithSpecificError() {
-        XCTExpectFailure("dog should not throw any error") {
-            expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).toNot.throwError(specificError: BarkException.earShrikingBark)
+        expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).toNot.throwError(specificError: BarkException.earShrikingBark)
+        
+        expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(specificError: MeowException.purrr)
+        
+        XCTExpectFailure("dog should throw BarkException.earShrinkingBark") {
+            expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(specificError: BarkException.earShrikingBark)
         }
     }
     
@@ -86,13 +86,13 @@ final class ThrowErrorSpec: XCTestCase {
         }
     }
     
-    // TODO: Determine if "toNot" makes sense for a specific error
-    // The current implementation immediately throws and XCAssert error if error
-    // is not thrown by input function
-    
     func testToNotThrowErrorWithErrorType() {
-        XCTExpectFailure("dog should not throw any error") {
-            expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).toNot.throwError(specificError: BarkException.earShrikingBark)
+        expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).toNot.throwError(errorType: BarkException.self)
+        
+        expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(errorType: MeowException.self)
+        
+        XCTExpectFailure("dog should throw BarkException") {
+            expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(errorType: BarkException.self)
         }
     }
 }
