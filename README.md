@@ -19,7 +19,7 @@ A set of "rspec-like" test matchers that "mooch" off of XCTest
 1.  Add `.package(url: "https://github.com/rbaumbach/Moocher", from: "0.0.1")`
 2.  [Follow intructions to add](https://swift.org/getting-started/#using-the-package-manager) the `Moocher` package to your project.
 
-Note: Since `Moocher` requires the library `XCTest`, when you add `Moocher` to your project, that it's only added to your unit testing target.
+Note: Since `Moocher` requires the library `XCTest`, when you add `Moocher` to your project, be sure that it's added to your unit testing target.
 
 ### Clone from Github
 
