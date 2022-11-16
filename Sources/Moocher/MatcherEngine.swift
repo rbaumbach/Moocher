@@ -32,6 +32,8 @@ public struct MatcherEngine<T> {
     
     // MARK: - Public methods
     
+    // MARK: - Type matchers
+    
     public func beInstanceOf(_ expectedObject: AnyObject,
                              file: StaticString = #filePath,
                              line: UInt = #line) where T: AnyObject {
@@ -70,6 +72,8 @@ public struct MatcherEngine<T> {
                               line: line)
     }
     
+    // MARK: - Equality matchers
+    
     public func equal(_ expectedValue: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: Equatable {
@@ -79,6 +83,8 @@ public struct MatcherEngine<T> {
                       file: file,
                       line: line)
     }
+    
+    // MARK: - Floating Point matcher
     
     public func equal(_ expectedValue: T,
                       within accuracy: T,
@@ -91,6 +97,8 @@ public struct MatcherEngine<T> {
                       file: file,
                       line: line)
     }
+    
+    // MARK: - Boolean matchers
     
     public func beTruthy(file: StaticString = #filePath,
                          line: UInt = #line) where T == Bool {
@@ -107,6 +115,8 @@ public struct MatcherEngine<T> {
                           file: file,
                           line: line)
     }
+    
+    // MARK: - Comparable matchers
     
     public func beLessThan(_ expectedValue: T,
                            file: StaticString = #filePath,
@@ -147,6 +157,8 @@ public struct MatcherEngine<T> {
                                                         file: file,
                                                         line: line)
     }
+    
+    // MARK: - Throw Error matchers
     
     public func throwError(file: StaticString = #filePath,
                            line: UInt = #line) {
@@ -217,6 +229,8 @@ public struct MatcherEngine<T> {
                                 file: file,
                                 line: line)
     }
+    
+    // MARK: - Collection matchers
     
     public func beEmpty(file: StaticString = #filePath,
                         line: UInt = #line) where T: Collection {

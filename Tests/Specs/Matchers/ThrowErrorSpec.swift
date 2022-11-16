@@ -46,9 +46,11 @@ final class ThrowErrorSpec: XCTestCase {
     // with the toNot scenario
     
     func testToNotThrowErrorWithErrorHandler() {
-        expect { try _ = self.dog.bark(shouldThroughExceptionalBark: false) }
-            .toNot.throwError { error in
-                expect(error as? BarkException).to.equal(.earShrikingBark)
+        XCTExpectFailure("dog should not throw error") {
+            expect { try _ = self.dog.bark(shouldThroughExceptionalBark: false) }
+                .toNot.throwError { error in
+                    expect(error as? BarkException).to.equal(.earShrikingBark)
+            }
         }
     }
     
