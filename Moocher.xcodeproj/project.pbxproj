@@ -33,6 +33,19 @@
 		94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB0292350DB00411CCB /* BeEmpty.swift */; };
 		94F1DEB32924056000411CCB /* OptionalMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */; };
 		94F1DEB5292405A300411CCB /* OptionalActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB4292405A300411CCB /* OptionalActualValue.swift */; };
+		94F1DEB82924488000411CCB /* BeNilSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB72924488000411CCB /* BeNilSpec.swift */; };
+		94F1DEBA2924490D00411CCB /* BeEmptySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEB92924490D00411CCB /* BeEmptySpec.swift */; };
+		94F1DEBC29248B9C00411CCB /* BeFalsySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEBB29248B9C00411CCB /* BeFalsySpec.swift */; };
+		94F1DEBE29248CA200411CCB /* BeGreaterThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEBD29248CA200411CCB /* BeGreaterThanSpec.swift */; };
+		94F1DEC029248F0400411CCB /* BeGreaterThanOrEqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEBF29248F0400411CCB /* BeGreaterThanOrEqualSpec.swift */; };
+		94F1DEC2292492E900411CCB /* BeInstanceOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEC1292492E900411CCB /* BeInstanceOfSpec.swift */; };
+		94F1DEC42924964300411CCB /* BeKindOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEC32924964300411CCB /* BeKindOfSpec.swift */; };
+		94F1DEC62924976F00411CCB /* BeLessThanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEC52924976F00411CCB /* BeLessThanSpec.swift */; };
+		94F1DEC829253E0200411CCB /* BeLessThanOrEqualToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DEC729253E0200411CCB /* BeLessThanOrEqualToSpec.swift */; };
+		94F1DECB29253EF400411CCB /* BeTruthySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DECA29253EF400411CCB /* BeTruthySpec.swift */; };
+		94F1DECD29253F8100411CCB /* ConformToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DECC29253F8100411CCB /* ConformToSpec.swift */; };
+		94F1DECF2925403500411CCB /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DECE2925403500411CCB /* EqualSpec.swift */; };
+		94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +87,19 @@
 		94F1DEB0292350DB00411CCB /* BeEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmpty.swift; sourceTree = "<group>"; };
 		94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalMatcherEngine.swift; sourceTree = "<group>"; };
 		94F1DEB4292405A300411CCB /* OptionalActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalActualValue.swift; sourceTree = "<group>"; };
+		94F1DEB72924488000411CCB /* BeNilSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeNilSpec.swift; sourceTree = "<group>"; };
+		94F1DEB92924490D00411CCB /* BeEmptySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeEmptySpec.swift; sourceTree = "<group>"; };
+		94F1DEBB29248B9C00411CCB /* BeFalsySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeFalsySpec.swift; sourceTree = "<group>"; };
+		94F1DEBD29248CA200411CCB /* BeGreaterThanSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanSpec.swift; sourceTree = "<group>"; };
+		94F1DEBF29248F0400411CCB /* BeGreaterThanOrEqualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualSpec.swift; sourceTree = "<group>"; };
+		94F1DEC1292492E900411CCB /* BeInstanceOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeInstanceOfSpec.swift; sourceTree = "<group>"; };
+		94F1DEC32924964300411CCB /* BeKindOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeKindOfSpec.swift; sourceTree = "<group>"; };
+		94F1DEC52924976F00411CCB /* BeLessThanSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanSpec.swift; sourceTree = "<group>"; };
+		94F1DEC729253E0200411CCB /* BeLessThanOrEqualToSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualToSpec.swift; sourceTree = "<group>"; };
+		94F1DECA29253EF400411CCB /* BeTruthySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeTruthySpec.swift; sourceTree = "<group>"; };
+		94F1DECC29253F8100411CCB /* ConformToSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConformToSpec.swift; sourceTree = "<group>"; };
+		94F1DECE2925403500411CCB /* EqualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
+		94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowErrorSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +134,7 @@
 		9499BD5C291EA84A004C2244 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				94F1DEB62924487300411CCB /* Matchers */,
 				9499BD5D291EA84A004C2244 /* Spec.swift */,
 			);
 			path = Specs;
@@ -200,6 +227,26 @@
 				94F1DEA4291E09AD00411CCB /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94F1DEB62924487300411CCB /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				94F1DEB92924490D00411CCB /* BeEmptySpec.swift */,
+				94F1DEBB29248B9C00411CCB /* BeFalsySpec.swift */,
+				94F1DEBF29248F0400411CCB /* BeGreaterThanOrEqualSpec.swift */,
+				94F1DEBD29248CA200411CCB /* BeGreaterThanSpec.swift */,
+				94F1DEC1292492E900411CCB /* BeInstanceOfSpec.swift */,
+				94F1DEC32924964300411CCB /* BeKindOfSpec.swift */,
+				94F1DEC729253E0200411CCB /* BeLessThanOrEqualToSpec.swift */,
+				94F1DEC52924976F00411CCB /* BeLessThanSpec.swift */,
+				94F1DEB72924488000411CCB /* BeNilSpec.swift */,
+				94F1DECA29253EF400411CCB /* BeTruthySpec.swift */,
+				94F1DECC29253F8100411CCB /* ConformToSpec.swift */,
+				94F1DECE2925403500411CCB /* EqualSpec.swift */,
+				94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */,
+			);
+			path = Matchers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,10 +384,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F1DECD29253F8100411CCB /* ConformToSpec.swift in Sources */,
 				9499BD65291EBA03004C2244 /* Dog.swift in Sources */,
+				94F1DECF2925403500411CCB /* EqualSpec.swift in Sources */,
+				94F1DEBE29248CA200411CCB /* BeGreaterThanSpec.swift in Sources */,
+				94F1DEB82924488000411CCB /* BeNilSpec.swift in Sources */,
+				94F1DEBA2924490D00411CCB /* BeEmptySpec.swift in Sources */,
+				94F1DEC62924976F00411CCB /* BeLessThanSpec.swift in Sources */,
 				9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */,
 				9499BD6C291F1E9E004C2244 /* BJJBelt.swift in Sources */,
+				94F1DEC42924964300411CCB /* BeKindOfSpec.swift in Sources */,
+				94F1DEC829253E0200411CCB /* BeLessThanOrEqualToSpec.swift in Sources */,
+				94F1DEC2292492E900411CCB /* BeInstanceOfSpec.swift in Sources */,
 				9499BD68291EC21D004C2244 /* Fish.swift in Sources */,
+				94F1DECB29253EF400411CCB /* BeTruthySpec.swift in Sources */,
+				94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */,
+				94F1DEBC29248B9C00411CCB /* BeFalsySpec.swift in Sources */,
+				94F1DEC029248F0400411CCB /* BeGreaterThanOrEqualSpec.swift in Sources */,
 				9499BD61291EA897004C2244 /* Spec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
