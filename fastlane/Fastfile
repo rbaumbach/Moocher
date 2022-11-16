@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    puts "Doin' some fastlane..."
+  end
+
+  desc "Runs the specs"
+  lane :specs do
+    scan(scheme: "Moocher",
+         output_style: "rspec")
+  end
+
+  after_all do |lane|
+      puts "🌮 🌮 🌮  Taco Time! 🌮 🌮 🌮"
+  end
+
+  error do |lane, exception|
+    puts "uh oh...."
+  end
+
+end
