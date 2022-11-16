@@ -151,7 +151,7 @@ expect(number).toNot.beNil()
 
 The `throwError` matcher can be used in 4 different ways:
 
-* throwError(block:)
+* `throwError(block:)`
 
 ```swift
 expect({try functionThatThrowsAnError() })
@@ -160,7 +160,7 @@ expect({try functionThatDoesNotThrowAnError() })
     .toNot.throwError()
 ```
 
-* throwError(block:errorHandler:)
+* `throwError(block:errorHandler:)`
 
 ```swift
 expect({try functionThatThrowsAnError() })
@@ -169,7 +169,7 @@ expect({try functionThatThrowsAnError() })
     }
 ```
 
-* throwError(block:specificError:)
+* `throwError(block:specificError:)`
 
 ```swift
 expect({try functionThatThrowsABurritoError() })
@@ -178,7 +178,7 @@ expect({try functionThatThrowsABurritoError() })
     .toNot.throwError(specificError: TacoError.salsaMissing))
 ```
 
-* throwError(block:errorType:)
+* `throwError(block:errorType:)`
 
 ```swift
 expect({try functionThatThrowsABurritoError() })
