@@ -191,7 +191,7 @@ expect({try functionThatThrowsABurritoError() })
 
 * `beEmpty`
 
-This matcher works for types that conform to `Collection` and are `String`s.
+This matcher works for types that conform to `Collection` or are `String`s.
 
 ```swift
 let emptyArray: [Int] = []
