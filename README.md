@@ -24,24 +24,82 @@ A set of "rspec-like" test matchers that "mooch" off of XCTest
 1.  Clone repository from github and copy files directly, or add it as a git submodule.
 2.  Add all files from `Source` directory to your project.
 
-## Expectations Using expect(...).to
+## Usage
+
+Moocher matchers are inspired by [RSpec](https://rspec.info):
 
 ```swift
 expect(AnswerToUltimateQuestion.value).to.equal(42)
 ```
 
-## Current matchers
+### Equivalence and Identity
 
-* `beNil`
-* `beInstance`
-* `beKindOf`
-* `conformTo`
 * `equal`
-* `beTruthy`
-* `beFalsy`
+
+```swift
+expect(99).to.equal(99)
+expect(99).toNot.equal(100)
+```
+
+### Types
+
+* `beInstanceOf`
+
+```swift
+class Dog { }
+
+let chihuahua = Dog()
+let pancho = chihuahua
+let miniPinscher = Dog()
+
+expect(chihuahua).to.beInstanceOf(pancho)
+expect(chihuahua).toNot.beInstanceOf(miniPinscher)
+```
+
+* `beKindOf`
+
+```swift
+class Dog { }
+struct Fish { }
+
+let dog = Dog()
+let fish = Fish()
+
+expect(dog).to.beKindOf(Dog.self)
+expect(dog).toNot.beKindOf(Fish.self)
+```
+
+* `conformTo`
+
+```swift
+protocol Wolf { }
+class Dog: Wolf { }
+
+protocol Goat { }
+
+let dog = Dog()
+
+expect(dog).to.conformTo(Wolf.self)
+expect(dog).toNot.conformTo(Goat.self)
+```
+
+### Comparisons
+
 * `beLessThan`
 * `beLessThanOrEqualTo`
 * `beGreaterThan`
 * `beGreaterThanOrEqualTo`
+
+### Truthiness
+
+* `beTruthy`
+* `beFalsy`
+* `beNil`
+
+### Error Throwing
+
 * `throwError`
+
+### Collection
+
 * `beEmpty`
