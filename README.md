@@ -36,7 +36,7 @@ expect(AnswerToUltimateQuestion.value).to.equal(42)
 
 * `equal`
 
-This matcher works for types that conform to `Equtable`. but also works for types that conform to `FloatingPoint` as well.
+This matcher works for types that conform to `Equtable`, but also works for types that conform to `FloatingPoint` as well.
 
 ```swift
 expect(99).to.equal(99)
