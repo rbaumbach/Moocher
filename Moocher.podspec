@@ -10,4 +10,6 @@ Pod::Spec.new do |spec|
   spec.platform              = :ios
   spec.ios.deployment_target = '11.0'
   spec.source_files          = 'Sources/Moocher/**/*.{swift}'
+  spec.framework             = 'XCTest'
+  spec.swift_version         = '5.0'
 end
