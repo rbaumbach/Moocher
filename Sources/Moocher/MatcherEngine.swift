@@ -149,8 +149,24 @@ public struct MatcherEngine<T> {
     }
     
     public func throwError(file: StaticString = #filePath,
+                           line: UInt = #line) {
+        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+            XCTFail("expected value does not match throw exception block contract: () throws -> Void",
+                    file: file,
+                    line: line)
+            
+            return
+        }
+        
+        ThrowError().throwError(actualThrowExceptionBlock,
+                                to: to,
+                                file: file,
+                                line: line)
+    }
+    
+    public func throwError(file: StaticString = #filePath,
                            line: UInt = #line,
-                           errorHandler: ((Error) -> Void)? = nil) {
+                           errorHandler: (Error) -> Void) {
         guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
             XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,

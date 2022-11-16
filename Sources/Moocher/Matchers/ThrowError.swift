@@ -26,15 +26,28 @@ struct ThrowError {
     func throwError(_ block: () throws -> Void,
                     to: Bool,
                     file: StaticString = #filePath,
-                    line: UInt = #line,
-                    errorHandler: ((Error) -> Void)? = nil) {
+                    line: UInt = #line) {
         if to {
-            let assertErrorHandler = errorHandler ?? { _ in }
-            
+            XCTAssertThrowsError(try block(),
+                                 file: file,
+                                 line: line)
+        } else {
+            XCTAssertNoThrow(try block(),
+                             file:file,
+                             line:line)
+        }
+    }
+    
+    func throwError(_ block: () throws -> Void,
+                    to: Bool,
+                    file: StaticString = #filePath,
+                    line: UInt = #line,
+                    errorHandler: (Error) -> Void) {
+        if to {
             XCTAssertThrowsError(try block(),
                                  file: file,
                                  line: line,
-                                 assertErrorHandler)
+                                 errorHandler)
         } else {
             XCTAssertNoThrow(try block(),
                              file:file,
