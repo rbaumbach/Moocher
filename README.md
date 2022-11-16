@@ -166,7 +166,7 @@ expect({try functionThatDoesNotThrowAnError() })
 expect({try functionThatThrowsAnError() })
     .to.throwError { error in
         // Do something with error
-        }
+    }
 ```
 
 * throwError(block:specificError:)
