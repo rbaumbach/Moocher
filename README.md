@@ -202,5 +202,5 @@ expect(emptyArray).to.beEmpty()
 expect([1, 2, 3]).toNot.beEmpty()
 
 expect("").to.beEmpty()
-expect("Taco").to.beEmpty()
+expect("Taco").toNot.beEmpty()
 ```
