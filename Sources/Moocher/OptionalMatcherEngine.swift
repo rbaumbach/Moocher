@@ -38,4 +38,3 @@ public struct OptionalMatcherEngine<T> {
                       line: line)
     }
 }
-

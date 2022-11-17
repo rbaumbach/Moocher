@@ -33,8 +33,8 @@ struct ThrowError {
                                  line: line)
         } else {
             XCTAssertNoThrow(try block(),
-                             file:file,
-                             line:line)
+                             file: file,
+                             line: line)
         }
     }
     
@@ -110,7 +110,7 @@ struct ThrowError {
             do {
                 try block()
             } catch {
-                if (error is T) {
+                if error is T {
                     XCTFail("\(errorType) is of type \(T.self)",
                             file: file,
                             line: line)

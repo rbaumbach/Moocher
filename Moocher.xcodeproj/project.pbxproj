@@ -266,6 +266,7 @@
 			buildPhases = (
 				94F1DE7F291E054900411CCB /* Headers */,
 				94F1DE80291E054900411CCB /* Sources */,
+				94F1DED22925DC3B00411CCB /* SwiftLint Run Script */,
 				94F1DE81291E054900411CCB /* Frameworks */,
 				94F1DE82291E054900411CCB /* Resources */,
 			);
@@ -350,6 +351,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94F1DED22925DC3B00411CCB /* SwiftLint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/SwiftLintOutputFile",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/SwiftLint/swiftlint-0.49.1\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94F1DE80291E054900411CCB /* Sources */ = {

@@ -36,7 +36,7 @@ struct BeInstanceOf {
         } else {
             XCTAssertNotIdentical(actualObject,
                                   expectedObject,
-                                  file:file,
+                                  file: file,
                                   line: line)
         }
     }
