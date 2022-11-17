@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEC73E480E3477D37857E7B /* libPods-Moocher.a */; };
 		9499BD65291EBA03004C2244 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD63291EBA00004C2244 /* Dog.swift */; };
 		9499BD68291EC21D004C2244 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD66291EC210004C2244 /* Fish.swift */; };
 		9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD69291ECD42004C2244 /* GrizzlyBear.swift */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.debug.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.debug.xcconfig"; sourceTree = "<group>"; };
+		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
 		9499BD5F291EA859004C2244 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		9499BD63291EBA00004C2244 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		9499BD66291EC210004C2244 /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		94F1DECC29253F8100411CCB /* ConformToSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConformToSpec.swift; sourceTree = "<group>"; };
 		94F1DECE2925403500411CCB /* EqualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
 		94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowErrorSpec.swift; sourceTree = "<group>"; };
+		AFEC73E480E3477D37857E7B /* libPods-Moocher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moocher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F1DEA5291E09AD00411CCB /* XCTest.framework in Frameworks */,
+				3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8835B4E8EF8059212D19ECD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */,
+				57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9499BD5B291EA84A004C2244 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +191,7 @@
 				9499BD5B291EA84A004C2244 /* Tests */,
 				94F1DE85291E054900411CCB /* Products */,
 				94F1DEA3291E09AD00411CCB /* Frameworks */,
+				8835B4E8EF8059212D19ECD0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				94F1DEA4291E09AD00411CCB /* XCTest.framework */,
+				AFEC73E480E3477D37857E7B /* libPods-Moocher.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -264,6 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94F1DE8B291E054900411CCB /* Build configuration list for PBXNativeTarget "Moocher" */;
 			buildPhases = (
+				959FAA3DE5C8480CE22AE059 /* [CP] Check Pods Manifest.lock */,
 				94F1DE7F291E054900411CCB /* Headers */,
 				94F1DE80291E054900411CCB /* Sources */,
 				94F1DED22925DC3B00411CCB /* SwiftLint Run Script */,
@@ -355,6 +372,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		94F1DED22925DC3B00411CCB /* SwiftLint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -366,11 +384,32 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/SwiftLintOutputFile",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/SwiftLint/swiftlint-0.49.1\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		959FAA3DE5C8480CE22AE059 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Moocher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -557,6 +596,7 @@
 		};
 		94F1DE8C291E054900411CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -587,6 +627,7 @@
 		};
 		94F1DE8D291E054900411CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
