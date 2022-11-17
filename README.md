@@ -6,11 +6,11 @@ A set of "rspec-like" test matchers that "mooch" off of XCTest
 
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is the recommended way to add Utensils to your project.
+[CocoaPods](http://cocoapods.org) is the recommended way to add `Moocher` to your project.
 
 1.  Add Moocher to your Podfile `pod 'Moocher'`.
 2.  Install the pod(s) by running `pod install`.
-3.  Add Utensils to your files with `import Moocher`.
+3.  Add `Moocher` to your files with `import Moocher`.
 
 ### Swift Package manager
 
