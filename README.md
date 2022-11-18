@@ -193,14 +193,36 @@ expect({try functionThatThrowsABurritoError() })
 
 * `beEmpty`
 
-This matcher works for types that conform to `Collection` or are `String`s.
+This matcher works for types that conform to `Collection`.
 
 ```swift
 let emptyArray: [Int] = []
 
 expect(emptyArray).to.beEmpty()
 expect([1, 2, 3]).toNot.beEmpty()
+```
 
+This matcher also works for `String`s as well.
+
+```swift
 expect("").to.beEmpty()
 expect("Taco").toNot.beEmpty()
+```
+
+### Sequence
+
+* `contain`
+
+This matcher works for types that conform to `Sequence`.
+
+```swift
+expect(["uno", "dos", "tres"]).to.contain("tres")
+expect("Billy Goat").toNot.contain("$")
+```
+
+This matcher also works for finding a substring within a `String`.
+
+```swift
+expect("Corey and Trevor").to.contain("and")
+expect("Richard LaFleur").toNot.contain("Smart")
 ```

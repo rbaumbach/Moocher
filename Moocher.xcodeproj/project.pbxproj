@@ -23,6 +23,8 @@
 		9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD802922FFC8004C2244 /* BeLessThanOrEqualTo.swift */; };
 		9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD822923009B004C2244 /* BeGreaterThan.swift */; };
 		9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */; };
+		94CFFAC72926C7BC00D0C0FF /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC62926C7BC00D0C0FF /* Contain.swift */; };
+		94CFFACA292747AB00D0C0FF /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */; };
 		94F1DE88291E054900411CCB /* Moocher.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F1DE87291E054900411CCB /* Moocher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94F1DE98291E071900411CCB /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
 		94F1DE9F291E08E900411CCB /* ActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DE9E291E08E900411CCB /* ActualValue.swift */; };
@@ -77,6 +79,8 @@
 		9499BD802922FFC8004C2244 /* BeLessThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualTo.swift; sourceTree = "<group>"; };
 		9499BD822923009B004C2244 /* BeGreaterThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
 		9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
+		94CFFAC62926C7BC00D0C0FF /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
+		94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
 		94F1DE94291E071900411CCB /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +180,7 @@
 				9499BD6E2922EF02004C2244 /* BeNil.swift */,
 				9499BD7A2922FCF1004C2244 /* BeTruthy.swift */,
 				9499BD762922F3A4004C2244 /* ConformTo.swift */,
+				94CFFAC62926C7BC00D0C0FF /* Contain.swift */,
 				9499BD782922F4DF004C2244 /* Equal.swift */,
 				94F1DEAE29234AF600411CCB /* ThrowError.swift */,
 			);
@@ -256,6 +261,7 @@
 				94F1DEB72924488000411CCB /* BeNilSpec.swift */,
 				94F1DECA29253EF400411CCB /* BeTruthySpec.swift */,
 				94F1DECC29253F8100411CCB /* ConformToSpec.swift */,
+				94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */,
 				94F1DECE2925403500411CCB /* EqualSpec.swift */,
 				94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */,
 			);
@@ -432,6 +438,7 @@
 				9499BD732922F1A6004C2244 /* BeInstanceOf.swift in Sources */,
 				9499BD7D2922FD64004C2244 /* BeFalsy.swift in Sources */,
 				94F1DEAF29234AF600411CCB /* ThrowError.swift in Sources */,
+				94CFFAC72926C7BC00D0C0FF /* Contain.swift in Sources */,
 				9499BD792922F4DF004C2244 /* Equal.swift in Sources */,
 				94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */,
 				94F1DEB32924056000411CCB /* OptionalMatcherEngine.swift in Sources */,
@@ -460,6 +467,7 @@
 				94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */,
 				94F1DEBC29248B9C00411CCB /* BeFalsySpec.swift in Sources */,
 				94F1DEC029248F0400411CCB /* BeGreaterThanOrEqualSpec.swift in Sources */,
+				94CFFACA292747AB00D0C0FF /* ContainSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -247,4 +247,26 @@ public struct MatcherEngine<T> {
                           file: file,
                           line: line)
     }
+    
+    // MARK: - Sequence matchers
+    
+    public func contain<U>(_ element: U,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) where T: Sequence, T.Element: Equatable, T.Element == U {
+        Contain().contain(actualValue.value,
+                          element,
+                          to: to,
+                          file: file,
+                          line: line)
+    }
+    
+    public func contain(_ element: T,
+                        file: StaticString = #filePath,
+                        line: UInt = #line) where T == String {
+        Contain().contain(actualValue.value,
+                          element,
+                          to: to,
+                          file: file,
+                          line: line)
+    }
 }
