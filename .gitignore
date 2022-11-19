@@ -33,6 +33,8 @@ Carthage
 # Swift Package Manager
 
 .build
+.swiftpm/
+
 
 # Fastlane
 

@@ -22,49 +22,35 @@
 
 import XCTest
 
-struct Contain {
-    // MARK: - Public methods
-    
-    func contain<T, U>(_ value: T,
+struct EndWith {
+    func endWith<T, U>(_ value: T,
                        _ item: U,
                        to: Bool,
                        file: StaticString = #filePath,
-                       line: UInt = #line) where T: Sequence, T.Element: Equatable, T.Element == U {
-        let hasElement = value.contains(item)
+                       line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
+        guard let lastItem = value.reversed().first else {
+            XCTFail("\(value) is empty",
+                    file: file,
+                    line: line)
+            
+            return
+        }
         
         if to {
-            if !hasElement {
-                XCTFail("\(value) does not contain \(item)",
+            if lastItem != item {
+                XCTFail("\(value) does not end with \(item)",
                         file: file,
                         line: line)
-            }
-        } else {
-            if hasElement {
-                XCTFail("\(value) contains \(item)",
-                        file: file,
-                        line: line)
-            }
-        }
-    }
-    
-    func contain(_ value: String,
-                 _ substring: String,
-                 to: Bool,
-                 file: StaticString = #filePath,
-                 line: UInt = #line) {
-        let hasSubstring = value.contains(substring)
 
-        if to {
-            if !hasSubstring {
-                XCTFail("\(value) does not contain \(substring)",
-                        file: file,
-                        line: line)
+                return
             }
         } else {
-            if hasSubstring {
-                XCTFail("\(value) contains \(substring)",
+            if lastItem == item {
+                XCTFail("\(value) ends with \(item)",
                         file: file,
                         line: line)
+
+                return
             }
         }
     }

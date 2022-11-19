@@ -248,23 +248,43 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
-    // MARK: - Sequence matchers
+    public func startWith<U>(_ item: U,
+                             file: StaticString = #filePath,
+                             line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
+        StartWith().startWith(actualValue.value,
+                              item,
+                              to: to,
+                              file: file,
+                              line: line)
+    }
     
-    public func contain<U>(_ element: U,
+    public func endWith<U>(_ item: U,
                            file: StaticString = #filePath,
-                           line: UInt = #line) where T: Sequence, T.Element: Equatable, T.Element == U {
-        Contain().contain(actualValue.value,
-                          element,
+                           line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
+        EndWith().endWith(actualValue.value,
+                          item,
                           to: to,
                           file: file,
                           line: line)
     }
     
-    public func contain(_ element: T,
+    // MARK: - Sequence matchers
+    
+    public func contain<U>(_ item: U,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) where T: Sequence, T.Element: Equatable, T.Element == U {
+        Contain().contain(actualValue.value,
+                          item,
+                          to: to,
+                          file: file,
+                          line: line)
+    }
+    
+    public func contain(_ item: T,
                         file: StaticString = #filePath,
                         line: UInt = #line) where T == String {
         Contain().contain(actualValue.value,
-                          element,
+                          item,
                           to: to,
                           file: file,
                           line: line)
