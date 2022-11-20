@@ -20,6 +20,11 @@ platform :ios do
 
   desc "Runs the specs"
   lane :specs do
+    swiftlint(strict: true,
+              quiet: true,
+              config_file: ".swiftlint.yml",
+              executable: "Pods/SwiftLint/swiftlint")
+
     scan(scheme: "Moocher",
          output_style: "rspec")
   end
