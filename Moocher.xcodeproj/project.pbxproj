@@ -52,6 +52,9 @@
 		94F1DECD29253F8100411CCB /* ConformToSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DECC29253F8100411CCB /* ConformToSpec.swift */; };
 		94F1DECF2925403500411CCB /* EqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DECE2925403500411CCB /* EqualSpec.swift */; };
 		94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */; };
+		94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */; };
+		94F91F71292A9E52005B0D76 /* HaveSizeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */; };
+		94F91F74292A9FE4005B0D76 /* HaveSizeOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,9 @@
 		94F1DECC29253F8100411CCB /* ConformToSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConformToSpec.swift; sourceTree = "<group>"; };
 		94F1DECE2925403500411CCB /* EqualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSpec.swift; sourceTree = "<group>"; };
 		94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowErrorSpec.swift; sourceTree = "<group>"; };
+		94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundEngine.swift; sourceTree = "<group>"; };
+		94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveSizeOf.swift; sourceTree = "<group>"; };
+		94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveSizeOfSpec.swift; sourceTree = "<group>"; };
 		AFEC73E480E3477D37857E7B /* libPods-Moocher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moocher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,10 +195,11 @@
 				9499BD7A2922FCF1004C2244 /* BeTruthy.swift */,
 				9499BD762922F3A4004C2244 /* ConformTo.swift */,
 				94CFFAC62926C7BC00D0C0FF /* Contain.swift */,
+				9491131D2928502600B60941 /* EndWith.swift */,
 				9499BD782922F4DF004C2244 /* Equal.swift */,
+				94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */,
 				9491131829284C5900B60941 /* StartWith.swift */,
 				94F1DEAE29234AF600411CCB /* ThrowError.swift */,
-				9491131D2928502600B60941 /* EndWith.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 				94F1DEA6291E09CA00411CCB /* MatcherEngine.swift */,
 				94F1DEB4292405A300411CCB /* OptionalActualValue.swift */,
 				94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */,
+				94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */,
 			);
 			path = Moocher;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 				94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */,
 				9491131F2929287A00B60941 /* EndWithSpec.swift */,
 				94F1DECE2925403500411CCB /* EqualSpec.swift */,
+				94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */,
 				9491131A29284E6600B60941 /* StartWithSpec.swift */,
 				94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */,
 			);
@@ -441,11 +450,13 @@
 				9491131E2928502600B60941 /* EndWith.swift in Sources */,
 				9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */,
 				9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */,
+				94F91F71292A9E52005B0D76 /* HaveSizeOf.swift in Sources */,
 				9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */,
 				9499BD752922F1E9004C2244 /* BeKindOf.swift in Sources */,
 				9499BD7B2922FCF1004C2244 /* BeTruthy.swift in Sources */,
 				9499BD7F2922FECC004C2244 /* BeLessThan.swift in Sources */,
 				94F1DEA1291E091100411CCB /* Expect.swift in Sources */,
+				94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */,
 				9499BD772922F3A4004C2244 /* ConformTo.swift in Sources */,
 				94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */,
 				9499BD732922F1A6004C2244 /* BeInstanceOf.swift in Sources */,
@@ -473,6 +484,7 @@
 				94F1DEC62924976F00411CCB /* BeLessThanSpec.swift in Sources */,
 				9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */,
 				9499BD6C291F1E9E004C2244 /* BJJBelt.swift in Sources */,
+				94F91F74292A9FE4005B0D76 /* HaveSizeOfSpec.swift in Sources */,
 				94F1DEC42924964300411CCB /* BeKindOfSpec.swift in Sources */,
 				949113212929287E00B60941 /* EndWithSpec.swift in Sources */,
 				94F1DEC829253E0200411CCB /* BeLessThanOrEqualToSpec.swift in Sources */,
