@@ -29,6 +29,10 @@
 		9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */; };
 		94CFFAC72926C7BC00D0C0FF /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC62926C7BC00D0C0FF /* Contain.swift */; };
 		94CFFACA292747AB00D0C0FF /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */; };
+		94CFFACC292ADD0600D0C0FF /* HaveMaxValueOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFACB292ADD0600D0C0FF /* HaveMaxValueOf.swift */; };
+		94CFFACF292ADFB500D0C0FF /* HaveMaxValueOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFACD292ADF9400D0C0FF /* HaveMaxValueOfSpec.swift */; };
+		94CFFAD2292AE2AF00D0C0FF /* HaveMinValueOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAD0292AE2A800D0C0FF /* HaveMinValueOfSpec.swift */; };
+		94CFFAD4292AE31B00D0C0FF /* HaveMinValueOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */; };
 		94F1DE88291E054900411CCB /* Moocher.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F1DE87291E054900411CCB /* Moocher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		94F1DE98291E071900411CCB /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
 		94F1DE9F291E08E900411CCB /* ActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F1DE9E291E08E900411CCB /* ActualValue.swift */; };
@@ -92,6 +96,10 @@
 		9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
 		94CFFAC62926C7BC00D0C0FF /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
+		94CFFACB292ADD0600D0C0FF /* HaveMaxValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMaxValueOf.swift; sourceTree = "<group>"; };
+		94CFFACD292ADF9400D0C0FF /* HaveMaxValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMaxValueOfSpec.swift; sourceTree = "<group>"; };
+		94CFFAD0292AE2A800D0C0FF /* HaveMinValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOfSpec.swift; sourceTree = "<group>"; };
+		94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOf.swift; sourceTree = "<group>"; };
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
 		94F1DE94291E071900411CCB /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +205,8 @@
 				94CFFAC62926C7BC00D0C0FF /* Contain.swift */,
 				9491131D2928502600B60941 /* EndWith.swift */,
 				9499BD782922F4DF004C2244 /* Equal.swift */,
+				94CFFACB292ADD0600D0C0FF /* HaveMaxValueOf.swift */,
+				94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */,
 				94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */,
 				9491131829284C5900B60941 /* StartWith.swift */,
 				94F1DEAE29234AF600411CCB /* ThrowError.swift */,
@@ -282,6 +292,8 @@
 				94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */,
 				9491131F2929287A00B60941 /* EndWithSpec.swift */,
 				94F1DECE2925403500411CCB /* EqualSpec.swift */,
+				94CFFACD292ADF9400D0C0FF /* HaveMaxValueOfSpec.swift */,
+				94CFFAD0292AE2A800D0C0FF /* HaveMinValueOfSpec.swift */,
 				94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */,
 				9491131A29284E6600B60941 /* StartWithSpec.swift */,
 				94F1DED0292540CB00411CCB /* ThrowErrorSpec.swift */,
@@ -451,6 +463,7 @@
 				9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */,
 				9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */,
 				94F91F71292A9E52005B0D76 /* HaveSizeOf.swift in Sources */,
+				94CFFAD4292AE31B00D0C0FF /* HaveMinValueOf.swift in Sources */,
 				9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */,
 				9499BD752922F1E9004C2244 /* BeKindOf.swift in Sources */,
 				9499BD7B2922FCF1004C2244 /* BeTruthy.swift in Sources */,
@@ -464,6 +477,7 @@
 				9499BD7D2922FD64004C2244 /* BeFalsy.swift in Sources */,
 				94F1DEAF29234AF600411CCB /* ThrowError.swift in Sources */,
 				94CFFAC72926C7BC00D0C0FF /* Contain.swift in Sources */,
+				94CFFACC292ADD0600D0C0FF /* HaveMaxValueOf.swift in Sources */,
 				9499BD792922F4DF004C2244 /* Equal.swift in Sources */,
 				94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */,
 				94F1DEB32924056000411CCB /* OptionalMatcherEngine.swift in Sources */,
@@ -477,12 +491,14 @@
 			files = (
 				94F1DECD29253F8100411CCB /* ConformToSpec.swift in Sources */,
 				9499BD65291EBA03004C2244 /* Dog.swift in Sources */,
+				94CFFAD2292AE2AF00D0C0FF /* HaveMinValueOfSpec.swift in Sources */,
 				94F1DECF2925403500411CCB /* EqualSpec.swift in Sources */,
 				94F1DEBE29248CA200411CCB /* BeGreaterThanSpec.swift in Sources */,
 				94F1DEB82924488000411CCB /* BeNilSpec.swift in Sources */,
 				94F1DEBA2924490D00411CCB /* BeEmptySpec.swift in Sources */,
 				94F1DEC62924976F00411CCB /* BeLessThanSpec.swift in Sources */,
 				9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */,
+				94CFFACF292ADFB500D0C0FF /* HaveMaxValueOfSpec.swift in Sources */,
 				9499BD6C291F1E9E004C2244 /* BJJBelt.swift in Sources */,
 				94F91F74292A9FE4005B0D76 /* HaveSizeOfSpec.swift in Sources */,
 				94F1DEC42924964300411CCB /* BeKindOfSpec.swift in Sources */,
