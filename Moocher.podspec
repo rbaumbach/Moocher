@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'Moocher'
-  spec.version               = '0.0.2'
+  spec.version               = '0.1.0'
   spec.summary               = 'A set of "rspec-like" test matchers that "mooch" off of XCTest'
   spec.homepage              = 'https://github.com/rbaumbach/Moocher'
   spec.license               = { :type => 'MIT', :file => 'MIT-LICENSE.txt' }
