@@ -274,6 +274,19 @@ public struct MatcherEngine<T> {
         return CompoundEngine(previousMatcherEngine: self)
     }
     
+    @discardableResult
+    public func haveSizeOf(_ size: Int,
+                           file: StaticString = #filePath,
+                           line: UInt = #line) -> CompoundEngine<T> where T: Collection {
+        HaveSizeOf().haveSizeOf(actualValue.value,
+                                size,
+                                to: to,
+                                file: file,
+                                line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
+    }
+    
     // MARK: - Sequence matchers
     
     @discardableResult
