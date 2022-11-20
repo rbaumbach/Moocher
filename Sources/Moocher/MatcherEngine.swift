@@ -248,24 +248,30 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
+    @discardableResult
     public func startWith<U>(_ item: U,
                              file: StaticString = #filePath,
-                             line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
+                             line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         StartWith().startWith(actualValue.value,
                               item,
                               to: to,
                               file: file,
                               line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
     }
     
+    @discardableResult
     public func endWith<U>(_ item: U,
                            file: StaticString = #filePath,
-                           line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
+                           line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         EndWith().endWith(actualValue.value,
                           item,
                           to: to,
                           file: file,
                           line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
     }
     
     // MARK: - Sequence matchers
