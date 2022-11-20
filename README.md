@@ -263,3 +263,5 @@ The following matchers can be used compoundly:
 * `endWith`
 * `contain`
 * `haveSizeOf`
+* `haveMinValueOf`
+* `haveMaxValueOf`
