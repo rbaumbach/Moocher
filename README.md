@@ -223,6 +223,13 @@ expect(["a", "b", "c"]).to.endWith("c")
 expect([2, 4, 8]).toNot.endWith(7)
 ```
 
+* `haveSizeOf`
+
+```swift
+expect(["taco", "burrito"]).to.haveSizeOf(2)
+expect([2, 4, 8]).toNot.haveSizeOf(7)
+```
+
 ### Sequence
 
 * `contain`

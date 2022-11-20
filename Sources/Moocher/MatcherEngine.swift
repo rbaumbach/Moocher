@@ -287,6 +287,32 @@ public struct MatcherEngine<T> {
         return CompoundEngine(previousMatcherEngine: self)
     }
     
+    @discardableResult
+    public func haveMinValueOf<U>(_ minValue: U,
+                                  file: StaticString = #filePath,
+                                  line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Comparable, T.Element == U {
+        HaveMinValueOf().haveMinValueOf(actualValue.value,
+                                        minValue,
+                                        to: to,
+                                        file: file,
+                                        line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
+    }
+    
+    @discardableResult
+    public func haveMaxValueOf<U>(_ maxValue: U,
+                                  file: StaticString = #filePath,
+                                  line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Comparable, T.Element == U {
+        HaveMaxValueOf().haveMaxValueOf(actualValue.value,
+                                        maxValue,
+                                        to: to,
+                                        file: file,
+                                        line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
+    }
+    
     // MARK: - Sequence matchers
     
     @discardableResult
