@@ -156,16 +156,16 @@ The `throwError` matcher can be used in 4 different ways:
 * `throwError(block:)`
 
 ```swift
-expect({try functionThatThrowsAnError() })
+expect({ try functionThatThrowsAnError() })
     .to.throwError()
-expect({try functionThatDoesNotThrowAnError() })
+expect({ try functionThatDoesNotThrowAnError() })
     .toNot.throwError()
 ```
 
 * `throwError(block:errorHandler:)`
 
 ```swift
-expect({try functionThatThrowsAnError() })
+expect({ try functionThatThrowsAnError() })
     .to.throwError { error in
         // Do something with error
     }
@@ -174,18 +174,18 @@ expect({try functionThatThrowsAnError() })
 * `throwError(block:specificError:)`
 
 ```swift
-expect({try functionThatThrowsABurritoError() })
+expect({ try functionThatThrowsABurritoError() })
     .to.throwError(specificError: BurritoError.beansMissing))
-expect({try functionThatThrowsABurritoError() })
+expect({ try functionThatThrowsABurritoError() })
     .toNot.throwError(specificError: TacoError.salsaMissing))
 ```
 
 * `throwError(block:errorType:)`
 
 ```swift
-expect({try functionThatThrowsABurritoError() })
+expect({ try functionThatThrowsABurritoError() })
     .to.throwError(errorType: BurritoError.self))
-expect({try functionThatThrowsABurritoError() })
+expect({ try functionThatThrowsABurritoError() })
     .toNot.throwError(errorType: TacoError.self))
 ```
 
