@@ -24,7 +24,7 @@ Note: Since `Moocher` requires the library `XCTest`, when you add `Moocher` to y
 ### Clone from Github
 
 1.  Clone repository from github and copy files directly, or add it as a git submodule.
-2.  Add all files from `Source` directory to your project.
+2.  Add all files from `Sources/Moocher` directory to your project.
 
 ## Usage
 
