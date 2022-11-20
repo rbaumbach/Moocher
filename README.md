@@ -12,7 +12,7 @@ A set of "rspec-like" test matchers that "mooch" off of `XCTest`.
 2.  Install the pod(s) by running `pod install`.
 3.  Add `Moocher` to your files with `import Moocher`.
 
-### Swift Package manager
+### Swift Package Manager
 
 [Swift Package Manager](https://swift.org/package-manager/) can be used to add `Moocher` the to your project:
 
@@ -240,3 +240,19 @@ This matcher also works for finding a substring within a `String`.
 expect("Corey and Trevor").to.contain("and")
 expect("Richard LaFleur").toNot.contain("Smart")
 ```
+
+### Compound matchers
+
+Some of the matchers allow for compounding assertions:
+
+```swift
+expect([1, 2, 3]).to.contain(1).and.startWith(1).and.endWith(3)
+expect([1, 2, 3]]).toNot.haveSizeOf(4).and.contain(7)
+```
+
+The following matchers can be used compoundly:
+
+* `startWith`
+* `endWith`
+* `contain`
+* `haveSizeOf`
