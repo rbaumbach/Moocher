@@ -209,6 +209,20 @@ expect("").to.beEmpty()
 expect("Taco").toNot.beEmpty()
 ```
 
+* `startWith`
+
+```swift
+expect(["a", "b", "c"]).to.startWith("a")
+expect([2, 4, 8]).toNot.startWith(1)
+```
+
+* `endWith`
+
+```swift
+expect(["a", "b", "c"]).to.endWith("c")
+expect([2, 4, 8]).toNot.endWith(7)
+```
+
 ### Sequence
 
 * `contain`
