@@ -39,7 +39,7 @@ public enum Time {
     }
 }
 
-public func hangOn(for timeRepresentation: Time, work: (@escaping () -> Void) -> Void) {
+public func hangOn(for time: Time, work: (@escaping () -> Void) -> Void) {
     let testCase = XCTestCase()
     
     let expectation = testCase.expectation(description: "complete")
@@ -50,5 +50,5 @@ public func hangOn(for timeRepresentation: Time, work: (@escaping () -> Void) ->
     
     work(complete)
     
-    testCase.waitForExpectations(timeout: timeRepresentation.toTimeInterval())
+    testCase.waitForExpectations(timeout: time.toTimeInterval())
 }

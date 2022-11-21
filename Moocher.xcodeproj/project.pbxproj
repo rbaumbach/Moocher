@@ -357,18 +357,10 @@
 		94F91F7B292BC650005B0D76 /* MoocherPolling */ = {
 			isa = PBXGroup;
 			children = (
-				94F91F89292BC81B005B0D76 /* Matchers */,
+				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
 				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
 			);
 			path = MoocherPolling;
-			sourceTree = "<group>";
-		};
-		94F91F89292BC81B005B0D76 /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
-				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
-			);
-			path = Matchers;
 			sourceTree = "<group>";
 		};
 		94F91F8C292BCA01005B0D76 /* Moocher */ = {
