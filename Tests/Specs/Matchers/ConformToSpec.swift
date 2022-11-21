@@ -16,7 +16,7 @@ final class ConformTo: XCTestCase {
     func testToConformTo() {
         expect(dog).to.conformTo(Wolf.self)
         
-        XCTExpectFailure("true should not not be truthy") {
+        expectFailure("true should not not be truthy") {
             expect(dog).to.conformTo(Bear.self)
         }
     }
@@ -24,7 +24,7 @@ final class ConformTo: XCTestCase {
     func testToNotConformTo() {
         expect(dog).toNot.conformTo(Bear.self)
         
-        XCTExpectFailure("true should not not be truthy") {
+        expectFailure("true should not not be truthy") {
             expect(grizzlyBear).toNot.conformTo(Bear.self)
         }
     }

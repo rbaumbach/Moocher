@@ -8,11 +8,11 @@ final class BeLessThanOrEqualToSpec: XCTestCase {
         expect(BJJBelt.white).to.beLessThanOrEqualTo(BJJBelt.white)
         expect(BJJBelt.white).to.beLessThanOrEqualTo(BJJBelt.blue)
         
-        XCTExpectFailure("9 should not be less than or equal to 8") {
+        expectFailure("9 should not be less than or equal to 8") {
             expect(9).to.beLessThanOrEqualTo(8)
         }
         
-        XCTExpectFailure("black belt should not be less than or equal to white belt") {
+        expectFailure("black belt should not be less than or equal to white belt") {
             expect(BJJBelt.black).to.beLessThanOrEqualTo(BJJBelt.white)
         }
     }
@@ -21,11 +21,11 @@ final class BeLessThanOrEqualToSpec: XCTestCase {
         expect(9).toNot.beLessThanOrEqualTo(8)
         expect(BJJBelt.blue).toNot.beLessThanOrEqualTo(BJJBelt.white)
         
-        XCTExpectFailure("9 should be less than or equal to 10") {
+        expectFailure("9 should be less than or equal to 10") {
             expect(9).toNot.beLessThanOrEqualTo(10)
         }
         
-        XCTExpectFailure("white belt should be less than or equal to blue belt") {
+        expectFailure("white belt should be less than or equal to blue belt") {
             expect(BJJBelt.white).toNot.beLessThanOrEqualTo(BJJBelt.blue)
         }
     }

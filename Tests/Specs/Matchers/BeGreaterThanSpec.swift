@@ -6,11 +6,11 @@ final class BeGreaterThanSpec: XCTestCase {
         expect(10).to.beGreaterThan(9)
         expect(BJJBelt.black).to.beGreaterThan(BJJBelt.purple)
         
-        XCTExpectFailure("9 is not greater than 9") {
+        expectFailure("9 is not greater than 9") {
             expect(9).to.beGreaterThan(9)
         }
         
-        XCTExpectFailure("white belt is not greater than brown belt") {
+        expectFailure("white belt is not greater than brown belt") {
             expect(BJJBelt.white).to.beGreaterThan(BJJBelt.brown)
         }
     }
@@ -21,11 +21,11 @@ final class BeGreaterThanSpec: XCTestCase {
         
         expect(BJJBelt.blue).toNot.beGreaterThan(BJJBelt.purple)
         
-        XCTExpectFailure("10 should not not be greater than 9") {
+        expectFailure("10 should not not be greater than 9") {
             expect(10).toNot.beGreaterThan(9)
         }
         
-        XCTExpectFailure("brown belt is not not greater than blue belt") {
+        expectFailure("brown belt is not not greater than blue belt") {
             expect(BJJBelt.brown).toNot.beGreaterThan(BJJBelt.blue)
         }
     }

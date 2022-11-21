@@ -14,7 +14,7 @@ final class BeTruthySpec: XCTestCase {
     func testToBeTruthy() {
         expect(true).to.beTruthy()
         
-        XCTExpectFailure("false should not be truthy") {
+        expectFailure("false should not be truthy") {
             expect(false).to.beTruthy()
         }
     }
@@ -22,7 +22,7 @@ final class BeTruthySpec: XCTestCase {
     func testToNotBeTruthy() {
         expect(false).toNot.beTruthy()
         
-        XCTExpectFailure("true should not not be truthy") {
+        expectFailure("true should not not be truthy") {
             expect(true).toNot.beTruthy()
         }
     }
