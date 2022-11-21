@@ -16,7 +16,7 @@ final class EqualSpec: XCTestCase {
     func testToEqual() {
         expect(99).to.equal(99)
         
-        XCTExpectFailure("99 should not equal 100") {
+        expectFailure("99 should not equal 100") {
             expect(99).to.equal(100)
         }
     }
@@ -24,7 +24,7 @@ final class EqualSpec: XCTestCase {
     func testToNotEqual() {
         expect(99).toNot.equal(100)
         
-        XCTExpectFailure("99 should equal 99") {
+        expectFailure("99 should equal 99") {
             expect(99).toNot.equal(99)
         }
     }
@@ -32,7 +32,7 @@ final class EqualSpec: XCTestCase {
     func testToEqualWithAccuracy() {
         expect(9.9).to.equal(9.9, within: 0.1)
         
-        XCTExpectFailure("9.9 should not equal 10.9 within 0.1") {
+        expectFailure("9.9 should not equal 10.9 within 0.1") {
             expect(9.9).to.equal(10.9, within: 0.1)
         }
     }
@@ -40,7 +40,7 @@ final class EqualSpec: XCTestCase {
     func testToNotEqualWithAccuracy() {
         expect(9.9).to.equal(9.9, within: 0.1)
         
-        XCTExpectFailure("9.9 should equal 9.9 within 0.1") {
+        expectFailure("9.9 should equal 9.9 within 0.1") {
             expect(9.9).toNot.equal(9.9, within: 0.1)
         }
     }

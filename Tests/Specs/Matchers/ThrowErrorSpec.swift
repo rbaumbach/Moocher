@@ -17,11 +17,11 @@ final class ThrowErrorSpec: XCTestCase {
         // Note: This expect has a function type of () throws-> String
         // instead of () throws -> Void
         
-        XCTExpectFailure("expect should have proper closure structure") {
+        expectFailure("expect should have proper closure structure") {
             expect({ try self.dog.bark(shouldThroughExceptionalBark: true) }).to.throwError()
         }
         
-        XCTExpectFailure("dog should not throw error") {
+        expectFailure("dog should not throw error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).to.throwError()
         }
     }
@@ -29,13 +29,13 @@ final class ThrowErrorSpec: XCTestCase {
     func testToNotThrowError() {
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).toNot.throwError()
         
-        XCTExpectFailure("dog should not throw error") {
+        expectFailure("dog should not throw error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError()
         }
     }
     
     func testToThrowErrorWithErrorHandler() {
-        expect { try _ = self.dog.bark(shouldThroughExceptionalBark: true) }
+        expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) })
             .to.throwError { error in
                 expect(error as? BarkException).to.equal(.earShrikingBark)
         }
@@ -46,7 +46,7 @@ final class ThrowErrorSpec: XCTestCase {
     
     func testToNotThrowErrorWithErrorHandler() {
         XCTExpectFailure("dog should not throw error") {
-            expect { try _ = self.dog.bark(shouldThroughExceptionalBark: false) }
+            expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) })
                 .toNot.throwError { error in
                     expect(error as? BarkException).to.equal(.earShrikingBark)
             }
@@ -56,11 +56,11 @@ final class ThrowErrorSpec: XCTestCase {
     func testToThrowErrorWithSpecificError() {
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).to.throwError(specificError: BarkException.earShrikingBark)
         
-        XCTExpectFailure("dog should not throw error") {
+        expectFailure("dog should not throw error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).to.throwError(specificError: BarkException.deafeningBark)
         }
         
-        XCTExpectFailure("dog should not throw deafeningBark error") {
+        expectFailure("dog should not throw deafeningBark error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).to.throwError(specificError: BarkException.deafeningBark)
         }
     }
@@ -70,7 +70,7 @@ final class ThrowErrorSpec: XCTestCase {
         
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(specificError: MeowException.purrr)
         
-        XCTExpectFailure("dog should throw BarkException.earShrinkingBark") {
+        expectFailure("dog should throw BarkException.earShrinkingBark") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(specificError: BarkException.earShrikingBark)
         }
     }

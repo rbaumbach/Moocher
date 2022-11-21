@@ -20,7 +20,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import Foundation
+import XCTest
 
 public func expect<T>(_ value: T) -> ActualValue<T> {
     return ActualValue(value: value)
@@ -28,4 +28,11 @@ public func expect<T>(_ value: T) -> ActualValue<T> {
 
 public func expect<T>(_ value: T?) -> OptionalActualValue<T> {
     return OptionalActualValue(value: value)
+}
+
+public func expectFailure(_ failureReason: String,
+                          failingBlock: () throws -> Void) {
+    XCTExpectFailure(failureReason) {
+        try? failingBlock()
+    }
 }

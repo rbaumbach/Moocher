@@ -16,11 +16,11 @@ final class BeKindOfSpec: XCTestCase {
         expect(fish).to.beKindOf(Fish.self)
         expect(dog).to.beKindOf(WildAnimal.self)
         
-        XCTExpectFailure("dog should not be a Fish") {
+        expectFailure("dog should not be a Fish") {
             expect(dog).to.beKindOf(Fish.self)
         }
         
-        XCTExpectFailure("dog should not be a Bear") {
+        expectFailure("dog should not be a Bear") {
             expect(dog).to.beKindOf(Bear.self)
         }
     }
@@ -29,11 +29,11 @@ final class BeKindOfSpec: XCTestCase {
         expect(fish).toNot.beKindOf(WildAnimal.self)
         expect(dog).toNot.beKindOf(Bear.self)
         
-        XCTExpectFailure("dog should be a wolf") {
+        expectFailure("dog should be a wolf") {
             expect(dog).toNot.beKindOf(Wolf.self)
         }
         
-        XCTExpectFailure("dog should be a WildAnimal") {
+        expectFailure("dog should be a WildAnimal") {
             expect(dog).toNot.beKindOf(WildAnimal.self)
         }
     }

@@ -15,7 +15,7 @@ final class BeEmptySpec: XCTestCase {
     func testToBeEmptyWithCollection() {
         expect(emptyArray).to.beEmpty()
         
-        XCTExpectFailure("non empty array should not be empty") {
+        expectFailure("non empty array should not be empty") {
             expect([1, 2, 3]).to.beEmpty()
         }
     }
@@ -23,7 +23,7 @@ final class BeEmptySpec: XCTestCase {
     func testToNotBeEmptyWithCollection() {
         expect([1, 2, 3]).toNot.beEmpty()
         
-        XCTExpectFailure("emptyArray should not be empty") {
+        expectFailure("emptyArray should not be empty") {
             expect(emptyArray).toNot.beEmpty()
         }
     }
@@ -31,7 +31,7 @@ final class BeEmptySpec: XCTestCase {
     func testToBeEmptyWithString() {
         expect(emptyString).to.beEmpty()
         
-        XCTExpectFailure("non empty string should not be empty") {
+        expectFailure("non empty string should not be empty") {
             expect("DeLorean").to.beEmpty()
         }
     }
@@ -39,7 +39,7 @@ final class BeEmptySpec: XCTestCase {
     func testToNotBeEmptyWithString() {
         expect("flux capacitor").toNot.beEmpty()
         
-        XCTExpectFailure("emptyString should not be empty") {
+        expectFailure("emptyString should not be empty") {
             expect(emptyString).toNot.beEmpty()
         }
     }

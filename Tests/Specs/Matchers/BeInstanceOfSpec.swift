@@ -17,7 +17,7 @@ final class BeInstanceOfSpec: XCTestCase {
     func testToBeInstanceOf() {
         expect(dog1).to.beInstanceOf(dog2)
         
-        XCTExpectFailure("dog1 should not be instance of dog3") {
+        expectFailure("dog1 should not be instance of dog3") {
             expect(dog1).to.beInstanceOf(dog3)
         }
     }
@@ -25,7 +25,7 @@ final class BeInstanceOfSpec: XCTestCase {
     func testToNotBeInstanceOf() {
         expect(dog1).toNot.beInstanceOf(dog3)
         
-        XCTExpectFailure("dog1 should be instance of dog2") {
+        expectFailure("dog1 should be instance of dog2") {
             expect(dog1).toNot.beInstanceOf(dog2)
         }
     }
