@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B44A05A4C1AE75F8D13AB7C /* libPods-MoocherPolling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */; };
 		3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEC73E480E3477D37857E7B /* libPods-Moocher.a */; };
 		9491131929284C5900B60941 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131829284C5900B60941 /* StartWith.swift */; };
 		9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131A29284E6600B60941 /* StartWithSpec.swift */; };
@@ -59,6 +60,13 @@
 		94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */; };
 		94F91F71292A9E52005B0D76 /* HaveSizeOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */; };
 		94F91F74292A9FE4005B0D76 /* HaveSizeOfSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */; };
+		94F91F7D292BC650005B0D76 /* MoocherPolling.h in Headers */ = {isa = PBXBuildFile; fileRef = 94F91F7C292BC650005B0D76 /* MoocherPolling.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94F91F82292BC790005B0D76 /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
+		94F91F83292BC790005B0D76 /* Moocher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94F91F87292BC79D005B0D76 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; };
+		94F91F88292BC79D005B0D76 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8A292BC86B005B0D76 /* HangOn.swift */; };
+		94F91F91292BCA3E005B0D76 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,10 +77,33 @@
 			remoteGlobalIDString = 94F1DE83291E054900411CCB;
 			remoteInfo = Moocher;
 		};
+		94F91F84292BC790005B0D76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94F1DE7B291E054900411CCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94F1DE83291E054900411CCB;
+			remoteInfo = Moocher;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94F91F86292BC790005B0D76 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94F91F83292BC790005B0D76 /* Moocher.framework in Embed Frameworks */,
+				94F91F88292BC79D005B0D76 /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.debug.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.debug.xcconfig"; sourceTree = "<group>"; };
+		42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoocherPolling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
 		9491131829284C5900B60941 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
 		9491131A29284E6600B60941 /* StartWithSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithSpec.swift; sourceTree = "<group>"; };
@@ -127,7 +158,13 @@
 		94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundEngine.swift; sourceTree = "<group>"; };
 		94F91F70292A9E52005B0D76 /* HaveSizeOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveSizeOf.swift; sourceTree = "<group>"; };
 		94F91F72292A9FBC005B0D76 /* HaveSizeOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveSizeOfSpec.swift; sourceTree = "<group>"; };
+		94F91F7A292BC650005B0D76 /* MoocherPolling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoocherPolling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94F91F7C292BC650005B0D76 /* MoocherPolling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoocherPolling.h; sourceTree = "<group>"; };
+		94F91F8A292BC86B005B0D76 /* HangOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangOn.swift; sourceTree = "<group>"; };
+		94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangOnSpec.swift; sourceTree = "<group>"; };
 		AFEC73E480E3477D37857E7B /* libPods-Moocher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moocher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B88678D562CD7D2AB5126678 /* Pods-MoocherPolling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoocherPolling.release.xcconfig"; path = "Target Support Files/Pods-MoocherPolling/Pods-MoocherPolling.release.xcconfig"; sourceTree = "<group>"; };
+		F62AD5C86C122149444FDAA5 /* Pods-MoocherPolling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoocherPolling.debug.xcconfig"; path = "Target Support Files/Pods-MoocherPolling/Pods-MoocherPolling.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +185,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94F91F77292BC650005B0D76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F91F82292BC790005B0D76 /* Moocher.framework in Frameworks */,
+				94F91F87292BC79D005B0D76 /* XCTest.framework in Frameworks */,
+				1B44A05A4C1AE75F8D13AB7C /* libPods-MoocherPolling.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -156,6 +203,8 @@
 			children = (
 				00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */,
 				57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */,
+				F62AD5C86C122149444FDAA5 /* Pods-MoocherPolling.debug.xcconfig */,
+				B88678D562CD7D2AB5126678 /* Pods-MoocherPolling.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -172,7 +221,8 @@
 		9499BD5C291EA84A004C2244 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				94F1DEB62924487300411CCB /* Matchers */,
+				94F91F8C292BCA01005B0D76 /* Moocher */,
+				94F91F8D292BCA0A005B0D76 /* MoocherPolling */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -221,6 +271,7 @@
 				94F1DE8F291E067900411CCB /* Moocher */,
 				94F1DE8E291E05D200411CCB /* Sources */,
 				9499BD5B291EA84A004C2244 /* Tests */,
+				94F91F7B292BC650005B0D76 /* MoocherPolling */,
 				94F1DE85291E054900411CCB /* Products */,
 				94F1DEA3291E09AD00411CCB /* Frameworks */,
 				8835B4E8EF8059212D19ECD0 /* Pods */,
@@ -232,6 +283,7 @@
 			children = (
 				94F1DE84291E054900411CCB /* Moocher.framework */,
 				94F1DE94291E071900411CCB /* Specs.xctest */,
+				94F91F7A292BC650005B0D76 /* MoocherPolling.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,6 +323,7 @@
 			children = (
 				94F1DEA4291E09AD00411CCB /* XCTest.framework */,
 				AFEC73E480E3477D37857E7B /* libPods-Moocher.a */,
+				42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,6 +354,47 @@
 			path = Matchers;
 			sourceTree = "<group>";
 		};
+		94F91F7B292BC650005B0D76 /* MoocherPolling */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F89292BC81B005B0D76 /* Matchers */,
+				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
+			);
+			path = MoocherPolling;
+			sourceTree = "<group>";
+		};
+		94F91F89292BC81B005B0D76 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
+		94F91F8C292BCA01005B0D76 /* Moocher */ = {
+			isa = PBXGroup;
+			children = (
+				94F1DEB62924487300411CCB /* Matchers */,
+			);
+			path = Moocher;
+			sourceTree = "<group>";
+		};
+		94F91F8D292BCA0A005B0D76 /* MoocherPolling */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F8E292BCA15005B0D76 /* Matchers */,
+			);
+			path = MoocherPolling;
+			sourceTree = "<group>";
+		};
+		94F91F8E292BCA15005B0D76 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */,
+			);
+			path = Matchers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -309,6 +403,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F1DE88291E054900411CCB /* Moocher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94F91F75292BC650005B0D76 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F91F7D292BC650005B0D76 /* MoocherPolling.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +455,28 @@
 			productReference = 94F1DE94291E071900411CCB /* Specs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		94F91F79292BC650005B0D76 /* MoocherPolling */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94F91F80292BC650005B0D76 /* Build configuration list for PBXNativeTarget "MoocherPolling" */;
+			buildPhases = (
+				D6161875E2D9E2F20BD88428 /* [CP] Check Pods Manifest.lock */,
+				94F91F75292BC650005B0D76 /* Headers */,
+				94F91F76292BC650005B0D76 /* Sources */,
+				94F91F81292BC6AC005B0D76 /* SwiftLint Run Script */,
+				94F91F77292BC650005B0D76 /* Frameworks */,
+				94F91F78292BC650005B0D76 /* Resources */,
+				94F91F86292BC790005B0D76 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94F91F85292BC790005B0D76 /* PBXTargetDependency */,
+			);
+			name = MoocherPolling;
+			productName = MoocherPolling;
+			productReference = 94F91F7A292BC650005B0D76 /* MoocherPolling.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -370,6 +494,10 @@
 					94F1DE93291E071900411CCB = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
+					94F91F79292BC650005B0D76 = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+					};
 				};
 			};
 			buildConfigurationList = 94F1DE7E291E054900411CCB /* Build configuration list for PBXProject "Moocher" */;
@@ -386,6 +514,7 @@
 			projectRoot = "";
 			targets = (
 				94F1DE83291E054900411CCB /* Moocher */,
+				94F91F79292BC650005B0D76 /* MoocherPolling */,
 				94F1DE93291E071900411CCB /* Specs */,
 			);
 		};
@@ -406,10 +535,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94F91F78292BC650005B0D76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		94F1DED22925DC3B00411CCB /* SwiftLint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		94F91F81292BC6AC005B0D76 /* SwiftLint Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -444,6 +599,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Moocher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6161875E2D9E2F20BD88428 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoocherPolling-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -506,12 +683,21 @@
 				94F1DEC829253E0200411CCB /* BeLessThanOrEqualToSpec.swift in Sources */,
 				94F1DEC2292492E900411CCB /* BeInstanceOfSpec.swift in Sources */,
 				9499BD68291EC21D004C2244 /* Fish.swift in Sources */,
+				94F91F91292BCA3E005B0D76 /* HangOnSpec.swift in Sources */,
 				9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */,
 				94F1DECB29253EF400411CCB /* BeTruthySpec.swift in Sources */,
 				94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */,
 				94F1DEBC29248B9C00411CCB /* BeFalsySpec.swift in Sources */,
 				94F1DEC029248F0400411CCB /* BeGreaterThanOrEqualSpec.swift in Sources */,
 				94CFFACA292747AB00D0C0FF /* ContainSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94F91F76292BC650005B0D76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +708,11 @@
 			isa = PBXTargetDependency;
 			target = 94F1DE83291E054900411CCB /* Moocher */;
 			targetProxy = 94F1DE99291E071900411CCB /* PBXContainerItemProxy */;
+		};
+		94F91F85292BC790005B0D76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94F1DE83291E054900411CCB /* Moocher */;
+			targetProxy = 94F91F84292BC790005B0D76 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -749,6 +940,71 @@
 			};
 			name = Release;
 		};
+		94F91F7E292BC650005B0D76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F62AD5C86C122149444FDAA5 /* Pods-MoocherPolling.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94F91F7F292BC650005B0D76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B88678D562CD7D2AB5126678 /* Pods-MoocherPolling.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -775,6 +1031,15 @@
 			buildConfigurations = (
 				94F1DE9C291E071900411CCB /* Debug */,
 				94F1DE9D291E071900411CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94F91F80292BC650005B0D76 /* Build configuration list for PBXNativeTarget "MoocherPolling" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94F91F7E292BC650005B0D76 /* Debug */,
+				94F91F7F292BC650005B0D76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
