@@ -29,10 +29,10 @@ public enum Time {
     
     func toTimeInterval() -> TimeInterval {
         switch self {
-        case .seconds(let value):
-            return TimeInterval(value)
         case .miliseconds(let value):
             return TimeInterval(value / 1000)
+        case .seconds(let value):
+            return TimeInterval(value)
         case .minutes(let value):
             return TimeInterval(value / 60)
         }

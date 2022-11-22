@@ -357,8 +357,8 @@
 		94F91F7B292BC650005B0D76 /* MoocherPolling */ = {
 			isa = PBXGroup;
 			children = (
-				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
 				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
+				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
 			);
 			path = MoocherPolling;
 			sourceTree = "<group>";
@@ -374,17 +374,9 @@
 		94F91F8D292BCA0A005B0D76 /* MoocherPolling */ = {
 			isa = PBXGroup;
 			children = (
-				94F91F8E292BCA15005B0D76 /* Matchers */,
-			);
-			path = MoocherPolling;
-			sourceTree = "<group>";
-		};
-		94F91F8E292BCA15005B0D76 /* Matchers */ = {
-			isa = PBXGroup;
-			children = (
 				94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */,
 			);
-			path = Matchers;
+			path = MoocherPolling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
