@@ -47,12 +47,29 @@ public struct PollingMatcherEngine<T> {
         }
     }
     
+    public func beNil() {
+        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
+        let timeout = pollingActualValue.timingInfo.timeout
+
+        waitForExpectation(pollingInterval: pollingInterval,
+                           timeout: timeout,
+                           isInverted: isInverted) { complete in
+            let updatedValue = pollingActualValue.value()
+            
+            if case Optional<Any>.none = updatedValue as Any {
+                complete()
+                
+                return
+            }
+        }
+    }
+    
     // MARK: - Private methods
     
     private func waitForExpectation(pollingInterval: Time,
                                     timeout: Time,
                                     isInverted: Bool,
-                                    matcherBlock: @escaping (@escaping () -> Void) -> Void) where T: Equatable {
+                                    matcherBlock: @escaping (@escaping () -> Void) -> Void) {
         let testCase = XCTestCase()
         
         let expectation = testCase.expectation(description: "polling expectation")
