@@ -22,12 +22,15 @@
 
 import XCTest
 
-public func expectPolling<T: Equatable>(_ block: @autoclosure @escaping () -> T, _ expectedValue: T, time: Time) {
+public func expectPolling<T: Equatable>(_ block: @autoclosure @escaping () -> T,
+                                        _ expectedValue: T,
+                                        timeout: Time = .seconds(5),
+                                        pollingInterval: Time = .miliseconds(100)) {
     let testCase = XCTestCase()
     
     let expectation = testCase.expectation(description: "polling expectation")
     
-    Timer.scheduledTimer(withTimeInterval: time.toTimeInterval(),
+    Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
                                      repeats: true) { timer in
         let updatedValue = block()
         
@@ -39,5 +42,7 @@ public func expectPolling<T: Equatable>(_ block: @autoclosure @escaping () -> T,
         }
     }
     
-    testCase.waitForExpectations(timeout: time.toTimeInterval())
+    // TODO: Investigate handler for better failure description with timeout
+    
+    testCase.waitForExpectations(timeout: timeout.toTimeInterval())
 }
