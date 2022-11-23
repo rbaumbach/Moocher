@@ -20,18 +20,23 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import XCTest
+import Foundation
 
-public func hangOn(for time: Time, work: (@escaping () -> Void) -> Void) {
-    let testCase = XCTestCase()
+public struct PollingActualValue<T> {
+    // MARK: - Readonly properties
     
-    let expectation = testCase.expectation(description: "complete")
+    let value: () -> T
+    let timingInfo: (timeout: Time, pollingInterval: Time)
     
-    let complete = {
-        expectation.fulfill()
+    // MARK: - Public properties
+    
+    public var toSomeday: PollingMatcherEngine<T> {
+        return PollingMatcherEngine(pollingActualValue: self,
+                                    isInverted: false)
     }
     
-    work(complete)
-    
-    testCase.waitForExpectations(timeout: time.toTimeInterval())
+    public var toNever: PollingMatcherEngine<T> {
+        return PollingMatcherEngine(pollingActualValue: self,
+                                    isInverted: true)
+    }
 }

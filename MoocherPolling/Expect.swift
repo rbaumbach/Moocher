@@ -20,29 +20,11 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import XCTest
+import Foundation
 
-public func expectPolling<T: Equatable>(_ block: @autoclosure @escaping () -> T,
-                                        _ expectedValue: T,
-                                        timeout: Time = .seconds(5),
-                                        pollingInterval: Time = .miliseconds(100)) {
-    let testCase = XCTestCase()
-    
-    let expectation = testCase.expectation(description: "polling expectation")
-    
-    Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
-                                     repeats: true) { timer in
-        let updatedValue = block()
-        
-        if updatedValue == expectedValue {
-            expectation.fulfill()
-            timer.invalidate()
-            
-            return
-        }
-    }
-    
-    // TODO: Investigate handler for better failure description with timeout
-    
-    testCase.waitForExpectations(timeout: timeout.toTimeInterval())
+public func expect<T>(_ block: @autoclosure @escaping () -> T,
+                      timeout: Time = .seconds(5),
+                      pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
+    return PollingActualValue(value: block,
+                              timingInfo: (timeout, pollingInterval))
 }

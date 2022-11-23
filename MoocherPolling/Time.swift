@@ -20,18 +20,21 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import XCTest
+import Foundation
 
-public func hangOn(for time: Time, work: (@escaping () -> Void) -> Void) {
-    let testCase = XCTestCase()
+public enum Time {
+    case seconds(Int)
+    case miliseconds(Int)
+    case minutes(Int)
     
-    let expectation = testCase.expectation(description: "complete")
-    
-    let complete = {
-        expectation.fulfill()
+    func toTimeInterval() -> TimeInterval {
+        switch self {
+        case .miliseconds(let value):
+            return TimeInterval(value / 1000)
+        case .seconds(let value):
+            return TimeInterval(value)
+        case .minutes(let value):
+            return TimeInterval(value / 60)
+        }
     }
-    
-    work(complete)
-    
-    testCase.waitForExpectations(timeout: time.toTimeInterval())
 }
