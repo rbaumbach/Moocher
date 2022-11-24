@@ -151,7 +151,7 @@
 		94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOf.swift; sourceTree = "<group>"; };
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
-		94F1DE94291E071900411CCB /* Specs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Specs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94F1DE94291E071900411CCB /* MoocherSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE9E291E08E900411CCB /* ActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualValue.swift; sourceTree = "<group>"; };
 		94F1DEA0291E091100411CCB /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		94F1DEA4291E09AD00411CCB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -323,7 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				94F1DE84291E054900411CCB /* Moocher.framework */,
-				94F1DE94291E071900411CCB /* Specs.xctest */,
+				94F1DE94291E071900411CCB /* MoocherSpecs.xctest */,
 				94F91F7A292BC650005B0D76 /* MoocherPolling.framework */,
 			);
 			name = Products;
@@ -470,9 +470,9 @@
 			productReference = 94F1DE84291E054900411CCB /* Moocher.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		94F1DE93291E071900411CCB /* Specs */ = {
+		94F1DE93291E071900411CCB /* MoocherSpecs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94F1DE9B291E071900411CCB /* Build configuration list for PBXNativeTarget "Specs" */;
+			buildConfigurationList = 94F1DE9B291E071900411CCB /* Build configuration list for PBXNativeTarget "MoocherSpecs" */;
 			buildPhases = (
 				94F1DE90291E071900411CCB /* Sources */,
 				94F1DE91291E071900411CCB /* Frameworks */,
@@ -483,9 +483,9 @@
 			dependencies = (
 				94F1DE9A291E071900411CCB /* PBXTargetDependency */,
 			);
-			name = Specs;
+			name = MoocherSpecs;
 			productName = Specs;
-			productReference = 94F1DE94291E071900411CCB /* Specs.xctest */;
+			productReference = 94F1DE94291E071900411CCB /* MoocherSpecs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		94F91F79292BC650005B0D76 /* MoocherPolling */ = {
@@ -548,7 +548,7 @@
 			targets = (
 				94F1DE83291E054900411CCB /* Moocher */,
 				94F91F79292BC650005B0D76 /* MoocherPolling */,
-				94F1DE93291E071900411CCB /* Specs */,
+				94F1DE93291E071900411CCB /* MoocherSpecs */,
 			);
 		};
 /* End PBXProject section */
@@ -1070,7 +1070,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94F1DE9B291E071900411CCB /* Build configuration list for PBXNativeTarget "Specs" */ = {
+		94F1DE9B291E071900411CCB /* Build configuration list for PBXNativeTarget "MoocherSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94F1DE9C291E071900411CCB /* Debug */,

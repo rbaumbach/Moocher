@@ -41,7 +41,7 @@ let package = Package(
             name: "Moocher"
         ),
         .testTarget(
-            name: "Specs",
+            name: "MoocherSpecs",
             dependencies: ["Moocher"]
         )
     ],
