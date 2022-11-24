@@ -10,6 +10,9 @@
 		1B44A05A4C1AE75F8D13AB7C /* libPods-MoocherPolling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */; };
 		3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEC73E480E3477D37857E7B /* libPods-Moocher.a */; };
 		9438688E292FE3EE00D079A9 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438688D292FE3EE00D079A9 /* Contain.swift */; };
+		94386897292FEC1100D079A9 /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
+		9438689D292FEC7E00D079A9 /* ExpectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */; };
+		9438689E292FEC8100D079A9 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
 		945E843F292DE8CB000339B8 /* PollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E843E292DE8CB000339B8 /* PollingActualValue.swift */; };
 		945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
@@ -73,14 +76,19 @@
 		94F91F87292BC79D005B0D76 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; };
 		94F91F88292BC79D005B0D76 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8A292BC86B005B0D76 /* HangOn.swift */; };
-		94F91F91292BCA3E005B0D76 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
 		94F91F93292D9945005B0D76 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F92292D9945005B0D76 /* Expect.swift */; };
-		94F91F96292D9AFA005B0D76 /* ExpectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */; };
 		94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */; };
 		94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		94386898292FEC1100D079A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94F1DE7B291E054900411CCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94F1DE83291E054900411CCB;
+			remoteInfo = Moocher;
+		};
 		94F1DE99291E071900411CCB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94F1DE7B291E054900411CCB /* Project object */;
@@ -117,6 +125,7 @@
 		42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoocherPolling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
 		9438688D292FE3EE00D079A9 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
+		94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherPollingSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		945E843E292DE8CB000339B8 /* PollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingActualValue.swift; sourceTree = "<group>"; };
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -190,6 +199,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		94386890292FEC1100D079A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94386897292FEC1100D079A9 /* Moocher.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94F1DE81291E054900411CCB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +248,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		94386894292FEC1100D079A9 /* MoocherPollingSpecs */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */,
+				94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */,
+			);
+			path = MoocherPollingSpecs;
+			sourceTree = "<group>";
+		};
 		945E8447292F1833000339B8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,19 +279,19 @@
 		9499BD5B291EA84A004C2244 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9499BD62291EB9E7004C2244 /* Filez */,
-				9499BD5C291EA84A004C2244 /* Specs */,
+				9499BD5C291EA84A004C2244 /* MoocherSpecs */,
+				94386894292FEC1100D079A9 /* MoocherPollingSpecs */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		9499BD5C291EA84A004C2244 /* Specs */ = {
+		9499BD5C291EA84A004C2244 /* MoocherSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				9499BD62291EB9E7004C2244 /* Filez */,
 				94F91F8C292BCA01005B0D76 /* Moocher */,
-				94F91F8D292BCA0A005B0D76 /* MoocherPolling */,
 			);
-			path = Specs;
+			path = MoocherSpecs;
 			sourceTree = "<group>";
 		};
 		9499BD62291EB9E7004C2244 /* Filez */ = {
@@ -325,6 +351,7 @@
 				94F1DE84291E054900411CCB /* Moocher.framework */,
 				94F1DE94291E071900411CCB /* MoocherSpecs.xctest */,
 				94F91F7A292BC650005B0D76 /* MoocherPolling.framework */,
+				94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,15 +446,6 @@
 			path = Moocher;
 			sourceTree = "<group>";
 		};
-		94F91F8D292BCA0A005B0D76 /* MoocherPolling */ = {
-			isa = PBXGroup;
-			children = (
-				94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */,
-				94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */,
-			);
-			path = MoocherPolling;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -450,6 +468,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		94386892292FEC1100D079A9 /* MoocherPollingSpecs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9438689A292FEC1100D079A9 /* Build configuration list for PBXNativeTarget "MoocherPollingSpecs" */;
+			buildPhases = (
+				9438688F292FEC1100D079A9 /* Sources */,
+				94386890292FEC1100D079A9 /* Frameworks */,
+				94386891292FEC1100D079A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94386899292FEC1100D079A9 /* PBXTargetDependency */,
+			);
+			name = MoocherPollingSpecs;
+			productName = MoocherPollingSpecs;
+			productReference = 94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		94F1DE83291E054900411CCB /* Moocher */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94F1DE8B291E054900411CCB /* Build configuration list for PBXNativeTarget "Moocher" */;
@@ -517,9 +553,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					94386892292FEC1100D079A9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					94F1DE83291E054900411CCB = {
 						CreatedOnToolsVersion = 14.0.1;
 						LastSwiftMigration = 1400;
@@ -549,11 +588,19 @@
 				94F1DE83291E054900411CCB /* Moocher */,
 				94F91F79292BC650005B0D76 /* MoocherPolling */,
 				94F1DE93291E071900411CCB /* MoocherSpecs */,
+				94386892292FEC1100D079A9 /* MoocherPollingSpecs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		94386891292FEC1100D079A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94F1DE82291E054900411CCB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,6 +710,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9438688F292FEC1100D079A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9438689D292FEC7E00D079A9 /* ExpectSpec.swift in Sources */,
+				9438689E292FEC8100D079A9 /* HangOnSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94F1DE80291E054900411CCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,7 +761,6 @@
 				94F1DECF2925403500411CCB /* EqualSpec.swift in Sources */,
 				94F1DEBE29248CA200411CCB /* BeGreaterThanSpec.swift in Sources */,
 				94F1DEB82924488000411CCB /* BeNilSpec.swift in Sources */,
-				94F91F96292D9AFA005B0D76 /* ExpectSpec.swift in Sources */,
 				94F1DEBA2924490D00411CCB /* BeEmptySpec.swift in Sources */,
 				94F1DEC62924976F00411CCB /* BeLessThanSpec.swift in Sources */,
 				9499BD6A291ECD42004C2244 /* GrizzlyBear.swift in Sources */,
@@ -717,7 +772,6 @@
 				94F1DEC829253E0200411CCB /* BeLessThanOrEqualToSpec.swift in Sources */,
 				94F1DEC2292492E900411CCB /* BeInstanceOfSpec.swift in Sources */,
 				9499BD68291EC21D004C2244 /* Fish.swift in Sources */,
-				94F91F91292BCA3E005B0D76 /* HangOnSpec.swift in Sources */,
 				9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */,
 				94F1DECB29253EF400411CCB /* BeTruthySpec.swift in Sources */,
 				94F1DED1292540CB00411CCB /* ThrowErrorSpec.swift in Sources */,
@@ -748,6 +802,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		94386899292FEC1100D079A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94F1DE83291E054900411CCB /* Moocher */;
+			targetProxy = 94386898292FEC1100D079A9 /* PBXContainerItemProxy */;
+		};
 		94F1DE9A291E071900411CCB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 94F1DE83291E054900411CCB /* Moocher */;
@@ -761,6 +820,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		9438689B292FEC1100D079A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPollingSpecs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9438689C292FEC1100D079A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPollingSpecs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		94F1DE89291E054900411CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1052,6 +1147,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9438689A292FEC1100D079A9 /* Build configuration list for PBXNativeTarget "MoocherPollingSpecs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9438689B292FEC1100D079A9 /* Debug */,
+				9438689C292FEC1100D079A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		94F1DE7E291E054900411CCB /* Build configuration list for PBXProject "Moocher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

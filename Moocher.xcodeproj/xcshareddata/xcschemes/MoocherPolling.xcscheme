@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94F1DE93291E071900411CCB"
-               BuildableName = "MoocherSpecs.xctest"
-               BlueprintName = "MoocherSpecs"
+               BlueprintIdentifier = "94386892292FEC1100D079A9"
+               BuildableName = "MoocherPollingSpecs.xctest"
+               BlueprintName = "MoocherPollingSpecs"
                ReferencedContainer = "container:Moocher.xcodeproj">
             </BuildableReference>
          </TestableReference>
