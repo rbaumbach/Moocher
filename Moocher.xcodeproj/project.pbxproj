@@ -13,6 +13,8 @@
 		945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
 		945E8449292F1843000339B8 /* Waiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8448292F1843000339B8 /* Waiter.swift */; };
+		945E844C292F2048000339B8 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* BeNil.swift */; };
+		945E844E292F2346000339B8 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* Equal.swift */; };
 		9491131929284C5900B60941 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131829284C5900B60941 /* StartWith.swift */; };
 		9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131A29284E6600B60941 /* StartWithSpec.swift */; };
 		9491131E2928502600B60941 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131D2928502600B60941 /* EndWith.swift */; };
@@ -117,6 +119,8 @@
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		945E8448292F1843000339B8 /* Waiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiter.swift; sourceTree = "<group>"; };
+		945E844B292F2048000339B8 /* BeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeNil.swift; sourceTree = "<group>"; };
+		945E844D292F2346000339B8 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		9491131829284C5900B60941 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
 		9491131A29284E6600B60941 /* StartWithSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithSpec.swift; sourceTree = "<group>"; };
 		9491131D2928502600B60941 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
@@ -232,6 +236,15 @@
 				945E8448292F1843000339B8 /* Waiter.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		945E844A292F203C000339B8 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				945E844B292F2048000339B8 /* BeNil.swift */,
+				945E844D292F2346000339B8 /* Equal.swift */,
+			);
+			path = Matchers;
 			sourceTree = "<group>";
 		};
 		9499BD5B291EA84A004C2244 /* Tests */ = {
@@ -383,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
+				945E844A292F203C000339B8 /* Matchers */,
 				945E8447292F1833000339B8 /* Utils */,
 				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
 				94F91F92292D9945005B0D76 /* Expect.swift */,
@@ -715,6 +729,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */,
+				945E844C292F2048000339B8 /* BeNil.swift in Sources */,
+				945E844E292F2346000339B8 /* Equal.swift in Sources */,
 				94F91F93292D9945005B0D76 /* Expect.swift in Sources */,
 				94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */,
 				945E8449292F1843000339B8 /* Waiter.swift in Sources */,

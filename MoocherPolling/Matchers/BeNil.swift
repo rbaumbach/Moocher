@@ -20,30 +20,23 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import XCTest
+import Foundation
 
-struct Waiter {
-    func waitForExpectation(timeout: Time,
-                            pollingInterval: Time,
-                            isInverted: Bool,
-                            matcherBlock: @escaping (@escaping () -> Void) -> Void) {
-        let testCase = XCTestCase()
-        
-        let expectation = testCase.expectation(description: "polling expectation")
-        expectation.isInverted = isInverted
-        
-        Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
-                             repeats: true) { timer in
-            let complete = {
-                expectation.fulfill()
-                timer.invalidate()
+struct BeNil {
+    func beNil<T>(_ actualValueBlock: @escaping () -> T?,
+                  timeout: Time,
+                  pollingInterval: Time,
+                  isInverted: Bool) {
+        Waiter().waitForExpectation(timeout: timeout,
+                                    pollingInterval: pollingInterval,
+                                    isInverted: isInverted) { complete in
+            let updatedValue = actualValueBlock()
+            
+            if updatedValue == nil {
+                complete()
                 
                 return
             }
-            
-            matcherBlock(complete)
         }
-        
-        testCase.waitForExpectations(timeout: timeout.toTimeInterval())
     }
 }

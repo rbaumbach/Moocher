@@ -31,19 +31,12 @@ public struct OptionalPollingMatcherEngine<T> {
     // MARK: - Public methods
     
     public func beNil() {
-        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
         let timeout = pollingActualValue.timingInfo.timeout
+        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
         
-        Waiter().waitForExpectation(pollingInterval: pollingInterval,
-                                    timeout: timeout,
-                                    isInverted: isInverted) { complete in
-            let updatedValue = pollingActualValue.value()
-            
-            if case Optional<Any>.none = updatedValue as Any {
-                complete()
-                
-                return
-            }
-        }
+        BeNil().beNil(pollingActualValue.value,
+                      timeout: timeout,
+                      pollingInterval: pollingInterval,
+                      isInverted: isInverted)
     }
 }

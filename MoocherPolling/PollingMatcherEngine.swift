@@ -31,19 +31,13 @@ public struct PollingMatcherEngine<T> {
     // MARK: - Public methods
     
     public func equal(_ expectedValue: T) where T: Equatable {
-        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
         let timeout = pollingActualValue.timingInfo.timeout
+        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
         
-        Waiter().waitForExpectation(pollingInterval: pollingInterval,
-                                    timeout: timeout,
-                                    isInverted: isInverted) { complete in
-            let updatedValue = pollingActualValue.value()
-            
-            if updatedValue == expectedValue {
-                complete()
-                
-                return
-            }
-        }
+        Equal().equal(pollingActualValue.value,
+                      expectedValue,
+                      timeout: timeout,
+                      pollingInterval: pollingInterval,
+                      isInverted: isInverted)
     }
 }
