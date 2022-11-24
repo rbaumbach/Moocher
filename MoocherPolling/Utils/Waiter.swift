@@ -22,28 +22,28 @@
 
 import XCTest
 
-public struct PollingMatcherEngine<T> {
-    // MARK: - Readonly properties
-    
-    let pollingActualValue: PollingActualValue<T>
-    let isInverted: Bool
-    
-    // MARK: - Public methods
-    
-    public func equal(_ expectedValue: T) where T: Equatable {
-        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
-        let timeout = pollingActualValue.timingInfo.timeout
+struct Waiter {
+    func waitForExpectation(pollingInterval: Time,
+                            timeout: Time,
+                            isInverted: Bool,
+                            matcherBlock: @escaping (@escaping () -> Void) -> Void) {
+        let testCase = XCTestCase()
         
-        Waiter().waitForExpectation(pollingInterval: pollingInterval,
-                                    timeout: timeout,
-                                    isInverted: isInverted) { complete in
-            let updatedValue = pollingActualValue.value()
-            
-            if updatedValue == expectedValue {
-                complete()
+        let expectation = testCase.expectation(description: "polling expectation")
+        expectation.isInverted = isInverted
+        
+        Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
+                             repeats: true) { timer in
+            let complete = {
+                expectation.fulfill()
+                timer.invalidate()
                 
                 return
             }
+            
+            matcherBlock(complete)
         }
+        
+        testCase.waitForExpectations(timeout: timeout.toTimeInterval())
     }
 }

@@ -25,7 +25,7 @@ import XCTest
 public struct OptionalPollingMatcherEngine<T> {
     // MARK: - Readonly properties
     
-    let pollingActualValue: OptionalPollingActualValue<T>?
+    let pollingActualValue: OptionalPollingActualValue<T>
     let isInverted: Bool
     
     // MARK: - Public methods
@@ -33,10 +33,10 @@ public struct OptionalPollingMatcherEngine<T> {
     public func beNil() {
         let pollingInterval = pollingActualValue.timingInfo.pollingInterval
         let timeout = pollingActualValue.timingInfo.timeout
-
-        waitForExpectation(pollingInterval: pollingInterval,
-                           timeout: timeout,
-                           isInverted: isInverted) { complete in
+        
+        Waiter().waitForExpectation(pollingInterval: pollingInterval,
+                                    timeout: timeout,
+                                    isInverted: isInverted) { complete in
             let updatedValue = pollingActualValue.value()
             
             if case Optional<Any>.none = updatedValue as Any {
@@ -45,31 +45,5 @@ public struct OptionalPollingMatcherEngine<T> {
                 return
             }
         }
-    }
-    
-    // MARK: - Private methods
-    
-    private func waitForExpectation(pollingInterval: Time,
-                                    timeout: Time,
-                                    isInverted: Bool,
-                                    matcherBlock: @escaping (@escaping () -> Void) -> Void) {
-        let testCase = XCTestCase()
-        
-        let expectation = testCase.expectation(description: "polling expectation")
-        expectation.isInverted = isInverted
-
-        Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
-                             repeats: true) { timer in
-            let complete = {
-                expectation.fulfill()
-                timer.invalidate()
-                
-                return
-            }
-
-            matcherBlock(complete)
-        }
-
-        testCase.waitForExpectations(timeout: timeout.toTimeInterval())
     }
 }
