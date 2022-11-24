@@ -92,4 +92,52 @@ final class ExpectPollingSpec: XCTestCase {
 //
 //        expect(self.number).toNever.beNil()
 //    }
+    
+    func testExpectToSomedayContain() {
+        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+        
+        DispatchQueue.global(qos: .background).async {
+            sleep(1)
+
+            dogArray.append("German Shepard")
+        }
+        
+        expect(dogArray).toSomeday.contain("German Shepard")
+    }
+    
+//    func testExpectToSomedayContainFailure() {
+//        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+//
+//        DispatchQueue.global(qos: .background).async {
+//            sleep(1)
+//
+//            dogArray.append("German Shepard")
+//        }
+//
+//        expect(dogArray).toSomeday.contain("Bloodhound")
+//    }
+    
+    func testExpectToNeverContain() {
+        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+        
+        DispatchQueue.global(qos: .background).async {
+            sleep(1)
+
+            dogArray.append("German Shepard")
+        }
+        
+        expect(dogArray).toNever.contain("Bloodhound")
+    }
+    
+//    func testExpectToNeverContainFailure() {
+//        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+//
+//        DispatchQueue.global(qos: .background).async {
+//            sleep(1)
+//
+//            dogArray.append("German Shepard")
+//        }
+//
+//        expect(dogArray).toNever.contain("German Shepard")
+//    }
 }

@@ -15,33 +15,29 @@
 //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHERlet hasElement = value.contains(item)
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
 import Foundation
 
-public struct OptionalPollingMatcherEngine<T> {
-    // MARK: - Readonly properties
-    
-    let pollingActualValue: OptionalPollingActualValue<T>
-    let isInverted: Bool
-    
-    var timeout: Time {
-        return pollingActualValue.timingInfo.timeout
-    }
-    
-    var pollingInterval: Time {
-        return pollingActualValue.timingInfo.pollingInterval
-    }
-    
-    // MARK: - Public methods
-    
-    public func beNil() {
-        BeNil().beNil(pollingActualValue.value,
-                      timeout: timeout,
-                      pollingInterval: pollingInterval,
-                      isInverted: isInverted)
+struct Contain {
+    func contain<T, U>(_ actualValueBlock: @escaping () -> T,
+                       _ item: U,
+                       timeout: Time,
+                       pollingInterval: Time,
+                       isInverted: Bool) where T: Sequence, T.Element: Equatable, T.Element == U {
+        Waiter().waitForExpectation(timeout: timeout,
+                                    pollingInterval: pollingInterval,
+                                    isInverted: isInverted) { complete in
+            let updatedValue = actualValueBlock()
+            
+            if updatedValue.contains(item) {
+                complete()
+                
+                return
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B44A05A4C1AE75F8D13AB7C /* libPods-MoocherPolling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */; };
 		3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEC73E480E3477D37857E7B /* libPods-Moocher.a */; };
+		9438688E292FE3EE00D079A9 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438688D292FE3EE00D079A9 /* Contain.swift */; };
 		945E843F292DE8CB000339B8 /* PollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E843E292DE8CB000339B8 /* PollingActualValue.swift */; };
 		945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
@@ -115,6 +116,7 @@
 		00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.debug.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.debug.xcconfig"; sourceTree = "<group>"; };
 		42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoocherPolling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
+		9438688D292FE3EE00D079A9 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		945E843E292DE8CB000339B8 /* PollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingActualValue.swift; sourceTree = "<group>"; };
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				945E844B292F2048000339B8 /* BeNil.swift */,
+				9438688D292FE3EE00D079A9 /* Contain.swift */,
 				945E844D292F2346000339B8 /* Equal.swift */,
 			);
 			path = Matchers;
@@ -734,6 +737,7 @@
 				94F91F93292D9945005B0D76 /* Expect.swift in Sources */,
 				94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */,
 				945E8449292F1843000339B8 /* Waiter.swift in Sources */,
+				9438688E292FE3EE00D079A9 /* Contain.swift in Sources */,
 				945E8443292DE969000339B8 /* Time.swift in Sources */,
 				94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */,
 				94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */,

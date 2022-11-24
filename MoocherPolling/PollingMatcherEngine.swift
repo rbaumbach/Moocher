@@ -28,16 +28,29 @@ public struct PollingMatcherEngine<T> {
     let pollingActualValue: PollingActualValue<T>
     let isInverted: Bool
     
+    var timeout: Time {
+        return pollingActualValue.timingInfo.timeout
+    }
+    
+    var pollingInterval: Time {
+        return pollingActualValue.timingInfo.pollingInterval
+    }
+    
     // MARK: - Public methods
     
     public func equal(_ expectedValue: T) where T: Equatable {
-        let timeout = pollingActualValue.timingInfo.timeout
-        let pollingInterval = pollingActualValue.timingInfo.pollingInterval
-        
         Equal().equal(pollingActualValue.value,
                       expectedValue,
                       timeout: timeout,
                       pollingInterval: pollingInterval,
                       isInverted: isInverted)
+    }
+        
+    public func contain<U>(_ item: U) where T: Sequence, T.Element: Equatable, T.Element == U {
+        Contain().contain(pollingActualValue.value,
+                          item,
+                          timeout: timeout,
+                          pollingInterval: pollingInterval,
+                          isInverted: isInverted)
     }
 }
