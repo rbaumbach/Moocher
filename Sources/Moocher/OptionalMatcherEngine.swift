@@ -25,14 +25,14 @@ import Foundation
 public struct OptionalMatcherEngine<T> {
     // MARK: - Readonly properties
     
-    let actualValue: OptionalActualValue<T>?
+    let actualValue: OptionalActualValue<T>
     let to: Bool
     
     // MARK: - Public methods
     
     public func beNil(file: StaticString = #filePath,
                       line: UInt = #line) {
-        BeNil().beNil(actualValue?.value,
+        BeNil().beNil(actualValue.value,
                       to: to,
                       file: file,
                       line: line)
