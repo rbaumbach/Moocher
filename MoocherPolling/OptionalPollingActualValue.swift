@@ -22,16 +22,21 @@
 
 import Foundation
 
-public func expect<T>(_ block: @autoclosure @escaping () -> T,
-                      timeout: Time = .seconds(5),
-                      pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
-    return PollingActualValue(value: block,
-                              timingInfo: (timeout, pollingInterval))
-}
-
-public func expect<T>(_ block: @autoclosure @escaping () -> T?,
-                      timeout: Time = .seconds(5),
-                      pollingInterval: Time = .miliseconds(100)) -> OptionalPollingActualValue<T> {
-    return OptionalPollingActualValue(value: block,
-                                      timingInfo: (timeout, pollingInterval))
+public struct OptionalPollingActualValue<T> {
+    // MARK: - Readonly properties
+    
+    let value: () -> T?
+    let timingInfo: (timeout: Time, pollingInterval: Time)
+    
+    // MARK: - Public properties
+    
+    public var toSomeday: OptionalPollingMatcherEngine<T> {
+        return OptionalPollingMatcherEngine(pollingActualValue: self,
+                                            isInverted: false)
+    }
+    
+    public var toNever: OptionalPollingMatcherEngine<T> {
+        return OptionalPollingMatcherEngine(pollingActualValue: self,
+                                            isInverted: true)
+    }
 }

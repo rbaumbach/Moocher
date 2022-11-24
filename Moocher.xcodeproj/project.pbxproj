@@ -72,6 +72,8 @@
 		94F91F91292BCA3E005B0D76 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
 		94F91F93292D9945005B0D76 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F92292D9945005B0D76 /* Expect.swift */; };
 		94F91F96292D9AFA005B0D76 /* ExpectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */; };
+		94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */; };
+		94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangOnSpec.swift; sourceTree = "<group>"; };
 		94F91F92292D9945005B0D76 /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
 		94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectSpec.swift; sourceTree = "<group>"; };
+		94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPollingActualValue.swift; sourceTree = "<group>"; };
+		94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPollingMatcherEngine.swift; sourceTree = "<group>"; };
 		AFEC73E480E3477D37857E7B /* libPods-Moocher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moocher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B88678D562CD7D2AB5126678 /* Pods-MoocherPolling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoocherPolling.release.xcconfig"; path = "Target Support Files/Pods-MoocherPolling/Pods-MoocherPolling.release.xcconfig"; sourceTree = "<group>"; };
 		F62AD5C86C122149444FDAA5 /* Pods-MoocherPolling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoocherPolling.debug.xcconfig"; path = "Target Support Files/Pods-MoocherPolling/Pods-MoocherPolling.debug.xcconfig"; sourceTree = "<group>"; };
@@ -369,10 +373,12 @@
 			children = (
 				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
 				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
+				945E8442292DE969000339B8 /* Time.swift */,
 				94F91F92292D9945005B0D76 /* Expect.swift */,
 				945E843E292DE8CB000339B8 /* PollingActualValue.swift */,
 				945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */,
-				945E8442292DE969000339B8 /* Time.swift */,
+				94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */,
+				94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */,
 			);
 			path = MoocherPolling;
 			sourceTree = "<group>";
@@ -699,8 +705,10 @@
 			files = (
 				945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */,
 				94F91F93292D9945005B0D76 /* Expect.swift in Sources */,
+				94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */,
 				945E8443292DE969000339B8 /* Time.swift in Sources */,
 				94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */,
+				94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */,
 				945E843F292DE8CB000339B8 /* PollingActualValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
