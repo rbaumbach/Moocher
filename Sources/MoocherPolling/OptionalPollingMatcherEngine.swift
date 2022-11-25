@@ -1,6 +1,3 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 //MIT License
 //
 //Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
@@ -23,39 +20,28 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "Moocher",
-    platforms: [
-        .iOS(.v11)
-    ],
-    products: [
-        .library(
-            name: "Moocher",
-            targets: ["Moocher"]
-        ),
-        .library(
-            name: "MoocherPolling",
-            targets: ["MoocherPolling"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Moocher"
-        ),
-        .target(
-            name: "MoocherPolling",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherSpecs",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherPollingSpecs",
-            dependencies: ["Moocher", "MoocherPolling"]
-        )
-    ],
-    swiftLanguageVersions: [.v5]
-)
+public struct OptionalPollingMatcherEngine<T> {
+    // MARK: - Readonly properties
+    
+    let pollingActualValue: OptionalPollingActualValue<T>
+    let isInverted: Bool
+    
+    var timeout: Time {
+        return pollingActualValue.timingInfo.timeout
+    }
+    
+    var pollingInterval: Time {
+        return pollingActualValue.timingInfo.pollingInterval
+    }
+    
+    // MARK: - Public methods
+    
+    public func beNil() {
+        PollingBeNil().beNil(pollingActualValue.value,
+                             timeout: timeout,
+                             pollingInterval: pollingInterval,
+                             isInverted: isInverted)
+    }
+}

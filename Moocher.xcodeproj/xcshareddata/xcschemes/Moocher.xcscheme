@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "94F1DE93291E071900411CCB"
-               BuildableName = "Specs.xctest"
-               BlueprintName = "Specs"
+               BuildableName = "MoocherSpecs.xctest"
+               BlueprintName = "MoocherSpecs"
                ReferencedContainer = "container:Moocher.xcodeproj">
             </BuildableReference>
          </TestableReference>

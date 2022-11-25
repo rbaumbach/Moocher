@@ -1,6 +1,3 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 //MIT License
 //
 //Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
@@ -23,39 +20,37 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "Moocher",
-    platforms: [
-        .iOS(.v11)
-    ],
-    products: [
-        .library(
-            name: "Moocher",
-            targets: ["Moocher"]
-        ),
-        .library(
-            name: "MoocherPolling",
-            targets: ["MoocherPolling"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Moocher"
-        ),
-        .target(
-            name: "MoocherPolling",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherSpecs",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherPollingSpecs",
-            dependencies: ["Moocher", "MoocherPolling"]
-        )
-    ],
-    swiftLanguageVersions: [.v5]
-)
+public struct PollingMatcherEngine<T> {
+    // MARK: - Readonly properties
+    
+    let pollingActualValue: PollingActualValue<T>
+    let isInverted: Bool
+    
+    var timeout: Time {
+        return pollingActualValue.timingInfo.timeout
+    }
+    
+    var pollingInterval: Time {
+        return pollingActualValue.timingInfo.pollingInterval
+    }
+    
+    // MARK: - Public methods
+    
+    public func equal(_ expectedValue: T) where T: Equatable {
+        PollingEqual().equal(pollingActualValue.value,
+                             expectedValue,
+                             timeout: timeout,
+                             pollingInterval: pollingInterval,
+                             isInverted: isInverted)
+    }
+    
+    public func contain<U>(_ item: U) where T: Sequence, T.Element: Equatable, T.Element == U {
+        PollingContain().contain(pollingActualValue.value,
+                                 item,
+                                 timeout: timeout,
+                                 pollingInterval: pollingInterval,
+                                 isInverted: isInverted)
+    }
+}

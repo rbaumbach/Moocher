@@ -1,6 +1,3 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 //MIT License
 //
 //Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
@@ -23,39 +20,12 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import PackageDescription
+#import <Foundation/Foundation.h>
 
-let package = Package(
-    name: "Moocher",
-    platforms: [
-        .iOS(.v11)
-    ],
-    products: [
-        .library(
-            name: "Moocher",
-            targets: ["Moocher"]
-        ),
-        .library(
-            name: "MoocherPolling",
-            targets: ["MoocherPolling"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Moocher"
-        ),
-        .target(
-            name: "MoocherPolling",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherSpecs",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherPollingSpecs",
-            dependencies: ["Moocher", "MoocherPolling"]
-        )
-    ],
-    swiftLanguageVersions: [.v5]
-)
+//! Project version number for MoocherPolling.
+FOUNDATION_EXPORT double MoocherPollingVersionNumber;
+
+//! Project version string for MoocherPolling.
+FOUNDATION_EXPORT const unsigned char MoocherPollingVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <MoocherPolling/PublicHeader.h>

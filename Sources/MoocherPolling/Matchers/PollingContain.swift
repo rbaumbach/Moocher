@@ -1,6 +1,3 @@
-// swift-tools-version:5.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
 //MIT License
 //
 //Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
@@ -18,44 +15,29 @@
 //THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHERlet hasElement = value.contains(item)
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-import PackageDescription
+import Foundation
 
-let package = Package(
-    name: "Moocher",
-    platforms: [
-        .iOS(.v11)
-    ],
-    products: [
-        .library(
-            name: "Moocher",
-            targets: ["Moocher"]
-        ),
-        .library(
-            name: "MoocherPolling",
-            targets: ["MoocherPolling"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Moocher"
-        ),
-        .target(
-            name: "MoocherPolling",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherSpecs",
-            dependencies: ["Moocher"]
-        ),
-        .testTarget(
-            name: "MoocherPollingSpecs",
-            dependencies: ["Moocher", "MoocherPolling"]
-        )
-    ],
-    swiftLanguageVersions: [.v5]
-)
+struct PollingContain {
+    func contain<T, U>(_ actualValueBlock: @escaping () -> T,
+                       _ item: U,
+                       timeout: Time,
+                       pollingInterval: Time,
+                       isInverted: Bool) where T: Sequence, T.Element: Equatable, T.Element == U {
+        Waiter().waitForExpectation(timeout: timeout,
+                                    pollingInterval: pollingInterval,
+                                    isInverted: isInverted) { complete in
+            let updatedValue = actualValueBlock()
+            
+            if updatedValue.contains(item) {
+                complete()
+                
+                return
+            }
+        }
+    }
+}

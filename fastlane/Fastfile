@@ -27,6 +27,9 @@ platform :ios do
 
     scan(scheme: "Moocher",
          output_style: "rspec")
+         
+    scan(scheme: "MoocherPolling",
+         output_style: "rspec")
   end
 
   after_all do |lane|
