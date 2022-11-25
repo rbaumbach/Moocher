@@ -28,21 +28,33 @@ import PackageDescription
 let package = Package(
     name: "Moocher",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v11)
     ],
     products: [
         .library(
             name: "Moocher",
             targets: ["Moocher"]
+        ),
+        .library(
+            name: "MoocherPolling",
+            targets: ["MoocherPolling"]
         )
     ],
     targets: [
         .target(
             name: "Moocher"
         ),
+        .target(
+            name: "MoocherPolling",
+            dependencies: ["Moocher"]
+        ),
         .testTarget(
             name: "MoocherSpecs",
             dependencies: ["Moocher"]
+        ),
+        .testTarget(
+            name: "MoocherPollingSpecs",
+            dependencies: ["Moocher", "MoocherPolling"]
         )
     ],
     swiftLanguageVersions: [.v5]
