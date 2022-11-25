@@ -124,6 +124,7 @@
 		00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.debug.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.debug.xcconfig"; sourceTree = "<group>"; };
 		42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoocherPolling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
+		9417CFC629310A0500295A0E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9438688D292FE3EE00D079A9 /* PollingContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingContain.swift; sourceTree = "<group>"; };
 		94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherPollingSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438689F292FEE8500D079A9 /* Moocher.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moocher.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -353,6 +354,7 @@
 				94ED33D9293104BB009B67B7 /* Podfile */,
 				94ED33D7293104A7009B67B7 /* Fastfile */,
 				94ED33DA29310511009B67B7 /* .swiftlint.yml */,
+				9417CFC629310A0500295A0E /* README.md */,
 			);
 			name = Project;
 			sourceTree = "<group>";

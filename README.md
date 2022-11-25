@@ -8,7 +8,7 @@ A set of "rspec-like" test matchers that "mooch" off of `XCTest`.
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add `Moocher` to your project.
 
-1.  Add Moocher to your Podfile `pod 'Moocher'`.
+1.  Add `Moocher` to your Podfile `pod 'Moocher'`.
 2.  Install the pod(s) by running `pod install`.
 3.  Add `Moocher` to your files with `import Moocher`.
 
@@ -265,3 +265,82 @@ The following matchers can be used compoundly:
 * `haveSizeOf`
 * `haveMinValueOf`
 * `haveMaxValueOf`
+
+## Moocher Polling
+
+This repo also contains an additional library for polling values when writing integration tests that have to "wait" for assertions.
+
+This can be added to your project:
+
+### CocoaPods
+
+1.  Add `MoocherPolling` to your Podfile `pod 'Moocher/Polling'`.
+2.  Install the pod(s) by running `pod install`.
+3.  Add `MoocherPolling` to your files with `import MoocherPolling`.
+
+### Swift Package Manager
+
+1. Add `MoocherPolling` to your target: `Build Phases` -> `Link Binary With Libraries`.
+2. Add `MoocherPolling` to your files with `import MoocherPolling`.
+
+### HangOn
+
+`HangOn` is a function that allows block input that will wait for an assertion given a specific timeframe.
+
+```swift
+hangOn(for: .seconds(10)) { complete in
+    DispatchQueue.global(qos: .background).async { [weak self] in
+        sleep(3)
+        
+        self?.number = 99
+        
+        DispatchQueue.main.async {
+            expect(self?.number).to.equal(99)
+            
+            complete()
+        }
+    }
+}
+```
+
+### Someday and Never
+
+Values can be constantly polled using familiar `expect` syntax using `toSomeday` and `toNever`.
+
+```swift
+var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+
+DispatchQueue.global(qos: .background).async {
+    sleep(3)
+
+    dogArray.append("German Shepard")
+}
+
+expect(dogArray).toSomeday.contain("German Shepard")
+```
+
+```swift
+var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+
+DispatchQueue.global(qos: .background).async {
+    sleep(3)
+
+    dogArray.append("German Shepard")
+}
+
+expect(dogArray).toNever.contain("Poodle")
+```
+
+The `expect` clause will block tests from running until either a timeout has been hit, or the assertion you expect is true.  The default timeout is `5` seconds.  This can be set by providing a `timeout` value.
+
+The interval in which the polling is done on the value being asserted has a default interval of `100` milliseconds.  This can be set by providing a `pollingInterval` value.
+
+```swift
+expect(dogArray, timeout: .seconds(10), pollingInterval: .miliseconds(500)).toSomeday.contain("German Shepard")
+```
+
+The following matchers can be used for `toSomeday` and `toNever`:
+
+* `beNil`
+* `equal`
+* `contain`

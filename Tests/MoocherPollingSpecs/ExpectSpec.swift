@@ -127,6 +127,8 @@ final class ExpectPollingSpec: XCTestCase {
         }
         
         expect(dogArray).toNever.contain("Bloodhound")
+        
+        expect(dogArray, timeout: .seconds(10), pollingInterval: .miliseconds(500))
     }
     
 //    func testExpectToNeverContainFailure() {
