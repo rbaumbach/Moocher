@@ -289,10 +289,12 @@ This can be added to your project:
 
 ```swift
 hangOn(for: .seconds(10)) { complete in
+    var number = 100
+    
     DispatchQueue.global(qos: .background).async { [weak self] in
         sleep(3)
         
-        self?.number = 99
+        number = 99
         
         DispatchQueue.main.async {
             expect(self?.number).to.equal(99)
@@ -303,7 +305,7 @@ hangOn(for: .seconds(10)) { complete in
 }
 ```
 
-### Someday and Never
+### toSomeday and toNever
 
 Values can be constantly polled using familiar `expect` syntax using `toSomeday` and `toNever`.
 
