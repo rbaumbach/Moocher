@@ -22,7 +22,7 @@
 
 import Foundation
 
-struct Contain {
+struct PollingContain {
     func contain<T, U>(_ actualValueBlock: @escaping () -> T,
                        _ item: U,
                        timeout: Time,

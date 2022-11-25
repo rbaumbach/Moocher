@@ -39,9 +39,9 @@ public struct OptionalPollingMatcherEngine<T> {
     // MARK: - Public methods
     
     public func beNil() {
-        BeNil().beNil(pollingActualValue.value,
-                      timeout: timeout,
-                      pollingInterval: pollingInterval,
-                      isInverted: isInverted)
+        PollingBeNil().beNil(pollingActualValue.value,
+                             timeout: timeout,
+                             pollingInterval: pollingInterval,
+                             isInverted: isInverted)
     }
 }

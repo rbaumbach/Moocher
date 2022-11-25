@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B44A05A4C1AE75F8D13AB7C /* libPods-MoocherPolling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */; };
 		3EB8EBAD3FE1F8D1D0784F9A /* libPods-Moocher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEC73E480E3477D37857E7B /* libPods-Moocher.a */; };
-		9438688E292FE3EE00D079A9 /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438688D292FE3EE00D079A9 /* Contain.swift */; };
+		9438688E292FE3EE00D079A9 /* PollingContain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9438688D292FE3EE00D079A9 /* PollingContain.swift */; };
 		94386897292FEC1100D079A9 /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
 		9438689D292FEC7E00D079A9 /* ExpectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */; };
 		9438689E292FEC8100D079A9 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
@@ -17,8 +17,8 @@
 		945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
 		945E8449292F1843000339B8 /* Waiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8448292F1843000339B8 /* Waiter.swift */; };
-		945E844C292F2048000339B8 /* BeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* BeNil.swift */; };
-		945E844E292F2346000339B8 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* Equal.swift */; };
+		945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* PollingBeNil.swift */; };
+		945E844E292F2346000339B8 /* PollingEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* PollingEqual.swift */; };
 		9491131929284C5900B60941 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131829284C5900B60941 /* StartWith.swift */; };
 		9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131A29284E6600B60941 /* StartWithSpec.swift */; };
 		9491131E2928502600B60941 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131D2928502600B60941 /* EndWith.swift */; };
@@ -76,7 +76,7 @@
 		94F91F87292BC79D005B0D76 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; };
 		94F91F88292BC79D005B0D76 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DEA4291E09AD00411CCB /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8A292BC86B005B0D76 /* HangOn.swift */; };
-		94F91F93292D9945005B0D76 /* Expect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F92292D9945005B0D76 /* Expect.swift */; };
+		94F91F93292D9945005B0D76 /* PollingExpect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F92292D9945005B0D76 /* PollingExpect.swift */; };
 		94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */; };
 		94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */; };
 /* End PBXBuildFile section */
@@ -124,15 +124,15 @@
 		00BC454C19C33986ED647BA1 /* Pods-Moocher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.debug.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.debug.xcconfig"; sourceTree = "<group>"; };
 		42F27F2A90B81EC40BEE8787 /* libPods-MoocherPolling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MoocherPolling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
-		9438688D292FE3EE00D079A9 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
+		9438688D292FE3EE00D079A9 /* PollingContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingContain.swift; sourceTree = "<group>"; };
 		94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherPollingSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438689F292FEE8500D079A9 /* Moocher.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moocher.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		945E843E292DE8CB000339B8 /* PollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingActualValue.swift; sourceTree = "<group>"; };
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		945E8448292F1843000339B8 /* Waiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiter.swift; sourceTree = "<group>"; };
-		945E844B292F2048000339B8 /* BeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeNil.swift; sourceTree = "<group>"; };
-		945E844D292F2346000339B8 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
+		945E844B292F2048000339B8 /* PollingBeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeNil.swift; sourceTree = "<group>"; };
+		945E844D292F2346000339B8 /* PollingEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEqual.swift; sourceTree = "<group>"; };
 		9491131829284C5900B60941 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
 		9491131A29284E6600B60941 /* StartWithSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithSpec.swift; sourceTree = "<group>"; };
 		9491131D2928502600B60941 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		94F91F7C292BC650005B0D76 /* MoocherPolling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoocherPolling.h; sourceTree = "<group>"; };
 		94F91F8A292BC86B005B0D76 /* HangOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangOn.swift; sourceTree = "<group>"; };
 		94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangOnSpec.swift; sourceTree = "<group>"; };
-		94F91F92292D9945005B0D76 /* Expect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expect.swift; sourceTree = "<group>"; };
+		94F91F92292D9945005B0D76 /* PollingExpect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingExpect.swift; sourceTree = "<group>"; };
 		94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectSpec.swift; sourceTree = "<group>"; };
 		94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPollingActualValue.swift; sourceTree = "<group>"; };
 		94FBA5F4292EDA5300C9742D /* OptionalPollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalPollingMatcherEngine.swift; sourceTree = "<group>"; };
@@ -270,9 +270,9 @@
 		945E844A292F203C000339B8 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				945E844B292F2048000339B8 /* BeNil.swift */,
-				9438688D292FE3EE00D079A9 /* Contain.swift */,
-				945E844D292F2346000339B8 /* Equal.swift */,
+				945E844B292F2048000339B8 /* PollingBeNil.swift */,
+				9438688D292FE3EE00D079A9 /* PollingContain.swift */,
+				945E844D292F2346000339B8 /* PollingEqual.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -431,7 +431,7 @@
 				945E844A292F203C000339B8 /* Matchers */,
 				945E8447292F1833000339B8 /* Utils */,
 				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
-				94F91F92292D9945005B0D76 /* Expect.swift */,
+				94F91F92292D9945005B0D76 /* PollingExpect.swift */,
 				945E843E292DE8CB000339B8 /* PollingActualValue.swift */,
 				945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */,
 				94FBA5F2292EDA1300C9742D /* OptionalPollingActualValue.swift */,
@@ -788,12 +788,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */,
-				945E844C292F2048000339B8 /* BeNil.swift in Sources */,
-				945E844E292F2346000339B8 /* Equal.swift in Sources */,
-				94F91F93292D9945005B0D76 /* Expect.swift in Sources */,
+				945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */,
+				945E844E292F2346000339B8 /* PollingEqual.swift in Sources */,
+				94F91F93292D9945005B0D76 /* PollingExpect.swift in Sources */,
 				94FBA5F3292EDA1300C9742D /* OptionalPollingActualValue.swift in Sources */,
 				945E8449292F1843000339B8 /* Waiter.swift in Sources */,
-				9438688E292FE3EE00D079A9 /* Contain.swift in Sources */,
+				9438688E292FE3EE00D079A9 /* PollingContain.swift in Sources */,
 				945E8443292DE969000339B8 /* Time.swift in Sources */,
 				94F91F8B292BC86B005B0D76 /* HangOn.swift in Sources */,
 				94FBA5F5292EDA5300C9742D /* OptionalPollingMatcherEngine.swift in Sources */,

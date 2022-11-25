@@ -22,17 +22,18 @@
 
 import Foundation
 
-struct BeNil {
-    func beNil<T>(_ actualValueBlock: @escaping () -> T?,
+struct PollingEqual {
+    func equal<T>(_ actualValueBlock: @escaping () -> T,
+                  _ expectedValue: T,
                   timeout: Time,
                   pollingInterval: Time,
-                  isInverted: Bool) {
+                  isInverted: Bool) where T: Equatable {
         Waiter().waitForExpectation(timeout: timeout,
                                     pollingInterval: pollingInterval,
                                     isInverted: isInverted) { complete in
             let updatedValue = actualValueBlock()
             
-            if updatedValue == nil {
+            if updatedValue == expectedValue {
                 complete()
                 
                 return
