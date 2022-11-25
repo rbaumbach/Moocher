@@ -126,6 +126,7 @@
 		57158842E9BCE7892E49748A /* Pods-Moocher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moocher.release.xcconfig"; path = "Target Support Files/Pods-Moocher/Pods-Moocher.release.xcconfig"; sourceTree = "<group>"; };
 		9438688D292FE3EE00D079A9 /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherPollingSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9438689F292FEE8500D079A9 /* Moocher.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moocher.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		945E843E292DE8CB000339B8 /* PollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingActualValue.swift; sourceTree = "<group>"; };
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -335,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				9499BD5F291EA859004C2244 /* Package.swift */,
+				9438689F292FEE8500D079A9 /* Moocher.podspec */,
 				94F1DE8F291E067900411CCB /* Moocher */,
 				94F1DE8E291E05D200411CCB /* Sources */,
 				9499BD5B291EA84A004C2244 /* Tests */,

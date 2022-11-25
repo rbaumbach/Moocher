@@ -9,7 +9,15 @@ Pod::Spec.new do |spec|
   spec.requires_arc          = true
   spec.platform              = :ios
   spec.ios.deployment_target = '11.0'
-  spec.source_files          = 'Sources/Moocher/**/*.{swift}'
   spec.framework             = 'XCTest'
   spec.swift_version         = '5.0'
+  spec.default_subspec       = 'Basic'
+
+  spec.subspec 'Basic' do |basic|
+    basic.source_files        = 'Sources/Moocher/**/*.{swift}'
+  end
+
+  spec.subspec 'Polling' do |polling|
+    polling.source_files        = 'Sources/MoocherPolling/**/*.{swift}'
+  end
 end
