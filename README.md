@@ -297,7 +297,7 @@ hangOn(for: .seconds(10)) { complete in
         number = 99
         
         DispatchQueue.main.async {
-            expect(self?.number).to.equal(99)
+            expect(number).to.equal(99)
             
             complete()
         }
