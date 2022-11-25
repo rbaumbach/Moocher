@@ -159,6 +159,10 @@
 		94CFFACD292ADF9400D0C0FF /* HaveMaxValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMaxValueOfSpec.swift; sourceTree = "<group>"; };
 		94CFFAD0292AE2A800D0C0FF /* HaveMinValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOfSpec.swift; sourceTree = "<group>"; };
 		94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOf.swift; sourceTree = "<group>"; };
+		94ED33D7293104A7009B67B7 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		94ED33D8293104BB009B67B7 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		94ED33D9293104BB009B67B7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		94ED33DA29310511009B67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		94F1DE84291E054900411CCB /* Moocher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moocher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F1DE87291E054900411CCB /* Moocher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Moocher.h; sourceTree = "<group>"; };
 		94F1DE94291E071900411CCB /* MoocherSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,14 +336,35 @@
 			path = Matchers;
 			sourceTree = "<group>";
 		};
-		94F1DE7A291E054900411CCB = {
+		94ED33D52931045C009B67B7 /* MoocherPolling */ = {
+			isa = PBXGroup;
+			children = (
+				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
+			);
+			path = MoocherPolling;
+			sourceTree = "<group>";
+		};
+		94ED33D62931047B009B67B7 /* Project */ = {
 			isa = PBXGroup;
 			children = (
 				9499BD5F291EA859004C2244 /* Package.swift */,
 				9438689F292FEE8500D079A9 /* Moocher.podspec */,
+				94ED33D8293104BB009B67B7 /* Gemfile */,
+				94ED33D9293104BB009B67B7 /* Podfile */,
+				94ED33D7293104A7009B67B7 /* Fastfile */,
+				94ED33DA29310511009B67B7 /* .swiftlint.yml */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
+		94F1DE7A291E054900411CCB = {
+			isa = PBXGroup;
+			children = (
 				94F1DE8F291E067900411CCB /* Moocher */,
+				94ED33D52931045C009B67B7 /* MoocherPolling */,
 				94F1DE8E291E05D200411CCB /* Sources */,
 				9499BD5B291EA84A004C2244 /* Tests */,
+				94ED33D62931047B009B67B7 /* Project */,
 				94F1DE85291E054900411CCB /* Products */,
 				94F1DEA3291E09AD00411CCB /* Frameworks */,
 				8835B4E8EF8059212D19ECD0 /* Pods */,
@@ -427,7 +452,6 @@
 		94F91F7B292BC650005B0D76 /* MoocherPolling */ = {
 			isa = PBXGroup;
 			children = (
-				94F91F7C292BC650005B0D76 /* MoocherPolling.h */,
 				945E844A292F203C000339B8 /* Matchers */,
 				945E8447292F1833000339B8 /* Utils */,
 				94F91F8A292BC86B005B0D76 /* HangOn.swift */,
