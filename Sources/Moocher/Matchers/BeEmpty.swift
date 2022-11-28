@@ -42,10 +42,10 @@ struct BeEmpty<T> {
         }
     }
     
-    public func beEmpty(_ value: T,
+    public func beEmpty(_ value: String,
                         to: Bool,
                         file: StaticString = #filePath,
-                        line: UInt = #line) where T == String {
+                        line: UInt = #line) {
         if to {
             if value != "" {
                 XCTFail("\(value) is not empty",
