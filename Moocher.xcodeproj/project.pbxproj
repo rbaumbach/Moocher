@@ -13,6 +13,8 @@
 		94386897292FEC1100D079A9 /* Moocher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F1DE84291E054900411CCB /* Moocher.framework */; };
 		9438689D292FEC7E00D079A9 /* ExpectSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F94292D9AD9005B0D76 /* ExpectSpec.swift */; };
 		9438689E292FEC8100D079A9 /* HangOnSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F91F8F292BCA27005B0D76 /* HangOnSpec.swift */; };
+		944570272935B399009D9202 /* AnyActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944570262935B399009D9202 /* AnyActualValue.swift */; };
+		944570292935B3DE009D9202 /* AnyMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944570282935B3DE009D9202 /* AnyMatcherEngine.swift */; };
 		945E843F292DE8CB000339B8 /* PollingActualValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E843E292DE8CB000339B8 /* PollingActualValue.swift */; };
 		945E8441292DE8FD000339B8 /* PollingMatcherEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
@@ -128,6 +130,8 @@
 		9438688D292FE3EE00D079A9 /* PollingContain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingContain.swift; sourceTree = "<group>"; };
 		94386893292FEC1100D079A9 /* MoocherPollingSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoocherPollingSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9438689F292FEE8500D079A9 /* Moocher.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Moocher.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		944570262935B399009D9202 /* AnyActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyActualValue.swift; sourceTree = "<group>"; };
+		944570282935B3DE009D9202 /* AnyMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMatcherEngine.swift; sourceTree = "<group>"; };
 		945E843E292DE8CB000339B8 /* PollingActualValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingActualValue.swift; sourceTree = "<group>"; };
 		945E8440292DE8FD000339B8 /* PollingMatcherEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingMatcherEngine.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 				94F1DEB4292405A300411CCB /* OptionalActualValue.swift */,
 				94F1DEB22924056000411CCB /* OptionalMatcherEngine.swift */,
 				94F91F6E292A7C23005B0D76 /* CompoundEngine.swift */,
+				944570262935B399009D9202 /* AnyActualValue.swift */,
+				944570282935B3DE009D9202 /* AnyMatcherEngine.swift */,
 			);
 			path = Moocher;
 			sourceTree = "<group>";
@@ -763,10 +769,12 @@
 				9499BD7B2922FCF1004C2244 /* BeTruthy.swift in Sources */,
 				9499BD7F2922FECC004C2244 /* BeLessThan.swift in Sources */,
 				94F1DEA1291E091100411CCB /* Expect.swift in Sources */,
+				944570292935B3DE009D9202 /* AnyMatcherEngine.swift in Sources */,
 				94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */,
 				9499BD772922F3A4004C2244 /* ConformTo.swift in Sources */,
 				94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */,
 				9499BD732922F1A6004C2244 /* BeInstanceOf.swift in Sources */,
+				944570272935B399009D9202 /* AnyActualValue.swift in Sources */,
 				9491131929284C5900B60941 /* StartWith.swift in Sources */,
 				9499BD7D2922FD64004C2244 /* BeFalsy.swift in Sources */,
 				94F1DEAF29234AF600411CCB /* ThrowError.swift in Sources */,

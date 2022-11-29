@@ -30,6 +30,10 @@ public func expect<T>(_ value: T?) -> OptionalActualValue<T> {
     return OptionalActualValue(value: value)
 }
 
+public func expect(_ value: Any?) -> AnyActualValue {
+    return AnyActualValue(value: value)
+}
+
 public func expectFailure(_ failureReason: String,
                           failingBlock: () throws -> Void) {
     XCTExpectFailure(failureReason) {

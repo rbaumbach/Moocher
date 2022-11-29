@@ -20,35 +20,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import XCTest
+import Foundation
 
-struct BeNil {
-    func beNil<T>(_ value: T?,
-                  to: Bool,
-                  file: StaticString = #filePath,
-                  line: UInt = #line) {
-        if to {
-            XCTAssertNil(value,
-                         file: file,
-                         line: line)
-        } else {
-            XCTAssertNotNil(value,
-                            file: file,
-                            line: line)
-        }
-    }
-        
-    func beNil(_ value: Any?,
-               to: Bool, file: StaticString = #filePath,
-               line: UInt = #line) {
-        if to {
-            XCTAssertNil(value,
-                         file: file,
-                         line: line)
-        } else {
-            XCTAssertNotNil(value,
-                            file: file,
-                            line: line)
-        }
+public struct AnyMatcherEngine {
+    // MARK: - Read only properties
+    
+    let actualValue: AnyActualValue
+    let to: Bool
+    
+    // MARK: - Public methods
+    
+    public func beNil(file: StaticString = #filePath,
+                      line: UInt = #line) {
+        BeNil().beNil(actualValue.value,
+                      to: to,
+                      file: file,
+                      line: line)
     }
 }
