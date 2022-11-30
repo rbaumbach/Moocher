@@ -27,7 +27,7 @@ public typealias ThrowExceptionBlock = () throws -> Void
 public struct MatcherEngine<T> {
     // MARK: - Read only properties
     
-    let actualValue: ActualValue<T>
+    let actualValue: T
     let to: Bool
     
     // MARK: - Public methods
@@ -37,7 +37,7 @@ public struct MatcherEngine<T> {
     public func beInstanceOf(_ expectedObject: AnyObject,
                              file: StaticString = #filePath,
                              line: UInt = #line) where T: AnyObject {
-        guard !(actualValue.value is NSNull) else {
+        guard !(actualValue is NSNull) else {
             XCTFail("Expected value is nil (NSNull actually...)",
                     file: file,
                     line: line)
@@ -45,7 +45,7 @@ public struct MatcherEngine<T> {
             return
         }
         
-        BeInstanceOf().beInstanceOf(actualValue.value,
+        BeInstanceOf().beInstanceOf(actualValue,
                                     expectedObject,
                                     to: to,
                                     file: file,
@@ -55,7 +55,7 @@ public struct MatcherEngine<T> {
     public func beKindOf<U>(_ type: U.Type,
                             file: StaticString = #filePath,
                             line: UInt = #line) {
-        BeKindOf().beKindOf(actualValue.value,
+        BeKindOf().beKindOf(actualValue,
                             type,
                             to: to,
                             file: file,
@@ -65,7 +65,7 @@ public struct MatcherEngine<T> {
     public func conformTo<U>(_ conformingProtocol: U.Type,
                              file: StaticString = #filePath,
                              line: UInt = #line) {
-        ConformTo().conformTo(actualValue.value,
+        ConformTo().conformTo(actualValue,
                               conformingProtocol,
                               to: to,
                               file: file,
@@ -77,7 +77,7 @@ public struct MatcherEngine<T> {
     public func equal(_ expectedValue: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: Equatable {
-        Equal().equal(actualValue.value,
+        Equal().equal(actualValue,
                       expectedValue,
                       to: to,
                       file: file,
@@ -90,7 +90,7 @@ public struct MatcherEngine<T> {
                       within accuracy: T,
                       file: StaticString = #filePath,
                       line: UInt = #line) where T: FloatingPoint {
-        Equal().equal(actualValue.value,
+        Equal().equal(actualValue,
                       expectedValue,
                       to: to,
                       within: accuracy,
@@ -102,7 +102,7 @@ public struct MatcherEngine<T> {
     
     public func beTruthy(file: StaticString = #filePath,
                          line: UInt = #line) where T == Bool {
-        BeTruthy().beTruthy(actualValue.value,
+        BeTruthy().beTruthy(actualValue,
                             to: to,
                             file: file,
                             line: line)
@@ -110,7 +110,7 @@ public struct MatcherEngine<T> {
     
     public func beFalsy(file: StaticString = #filePath,
                         line: UInt = #line) where T == Bool {
-        BeFalsy().beFalsy(actualValue.value,
+        BeFalsy().beFalsy(actualValue,
                           to: to,
                           file: file,
                           line: line)
@@ -121,7 +121,7 @@ public struct MatcherEngine<T> {
     public func beLessThan(_ expectedValue: T,
                            file: StaticString = #filePath,
                            line: UInt = #line) where T: Comparable {
-        BeLessThan().beLessThan(actualValue.value,
+        BeLessThan().beLessThan(actualValue,
                                 expectedValue,
                                 to: to,
                                 file: file,
@@ -131,7 +131,7 @@ public struct MatcherEngine<T> {
     public func beLessThanOrEqualTo(_ expectedValue: T,
                                     file: StaticString = #filePath,
                                     line: UInt = #line) where T: Comparable {
-        BeLessThanOrEqualTo().beLessThanOrEqualTo(actualValue.value,
+        BeLessThanOrEqualTo().beLessThanOrEqualTo(actualValue,
                                                   expectedValue,
                                                   to: to,
                                                   file: file,
@@ -141,7 +141,7 @@ public struct MatcherEngine<T> {
     public func beGreaterThan(_ expectedValue: T,
                               file: StaticString = #filePath,
                               line: UInt = #line) where T: Comparable {
-        BeGreaterThan().beGreaterThan(actualValue.value,
+        BeGreaterThan().beGreaterThan(actualValue,
                                       expectedValue,
                                       to: to,
                                       file: file,
@@ -151,7 +151,7 @@ public struct MatcherEngine<T> {
     public func beGreaterThanOrEqualTo(_ expectedValue: T,
                                        file: StaticString = #filePath,
                                        line: UInt = #line) where T: Comparable {
-        BeGreaterThanOrEqualTo().beGreaterThanOrEqualTo(actualValue.value,
+        BeGreaterThanOrEqualTo().beGreaterThanOrEqualTo(actualValue,
                                                         expectedValue,
                                                         to: to,
                                                         file: file,
@@ -162,7 +162,7 @@ public struct MatcherEngine<T> {
     
     public func throwError(file: StaticString = #filePath,
                            line: UInt = #line) {
-        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+        guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
@@ -179,7 +179,7 @@ public struct MatcherEngine<T> {
     public func throwError(file: StaticString = #filePath,
                            line: UInt = #line,
                            errorHandler: (Error) -> Void) {
-        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+        guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
@@ -197,7 +197,7 @@ public struct MatcherEngine<T> {
     public func throwError(specificError: Error,
                            file: StaticString = #filePath,
                            line: UInt = #line) {
-        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+        guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
@@ -215,7 +215,7 @@ public struct MatcherEngine<T> {
     public func throwError<U>(errorType: U.Type,
                               file: StaticString = #filePath,
                               line: UInt = #line) where U: Error {
-        guard let actualThrowExceptionBlock = actualValue.value as? ThrowExceptionBlock else {
+        guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("expected value does not match throw exception block contract: () throws -> Void",
                     file: file,
                     line: line)
@@ -234,7 +234,7 @@ public struct MatcherEngine<T> {
     
     public func beEmpty(file: StaticString = #filePath,
                         line: UInt = #line) where T: Collection {
-        BeEmpty().beEmpty(actualValue.value,
+        BeEmpty().beEmpty(actualValue,
                           to: to,
                           file: file,
                           line: line)
@@ -242,7 +242,7 @@ public struct MatcherEngine<T> {
     
     public func beEmpty(file: StaticString = #filePath,
                         line: UInt = #line) where T == String {
-        BeEmpty().beEmpty(actualValue.value,
+        BeEmpty().beEmpty(actualValue,
                           to: to,
                           file: file,
                           line: line)
@@ -252,7 +252,7 @@ public struct MatcherEngine<T> {
     public func startWith<U>(_ item: U,
                              file: StaticString = #filePath,
                              line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
-        StartWith().startWith(actualValue.value,
+        StartWith().startWith(actualValue,
                               item,
                               to: to,
                               file: file,
@@ -265,7 +265,7 @@ public struct MatcherEngine<T> {
     public func endWith<U>(_ item: U,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
-        EndWith().endWith(actualValue.value,
+        EndWith().endWith(actualValue,
                           item,
                           to: to,
                           file: file,
@@ -278,7 +278,7 @@ public struct MatcherEngine<T> {
     public func haveSizeOf(_ size: Int,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Collection {
-        HaveSizeOf().haveSizeOf(actualValue.value,
+        HaveSizeOf().haveSizeOf(actualValue,
                                 size,
                                 to: to,
                                 file: file,
@@ -291,7 +291,7 @@ public struct MatcherEngine<T> {
     public func haveMinValueOf<U>(_ minValue: U,
                                   file: StaticString = #filePath,
                                   line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Comparable, T.Element == U {
-        HaveMinValueOf().haveMinValueOf(actualValue.value,
+        HaveMinValueOf().haveMinValueOf(actualValue,
                                         minValue,
                                         to: to,
                                         file: file,
@@ -304,7 +304,7 @@ public struct MatcherEngine<T> {
     public func haveMaxValueOf<U>(_ maxValue: U,
                                   file: StaticString = #filePath,
                                   line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Comparable, T.Element == U {
-        HaveMaxValueOf().haveMaxValueOf(actualValue.value,
+        HaveMaxValueOf().haveMaxValueOf(actualValue,
                                         maxValue,
                                         to: to,
                                         file: file,
@@ -319,7 +319,7 @@ public struct MatcherEngine<T> {
     public func contain<U>(_ item: U,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Sequence, T.Element: Equatable, T.Element == U {
-        Contain().contain(actualValue.value,
+        Contain().contain(actualValue,
                           item,
                           to: to,
                           file: file,
@@ -332,7 +332,7 @@ public struct MatcherEngine<T> {
     public func contain(_ item: T,
                         file: StaticString = #filePath,
                         line: UInt = #line) -> CompoundEngine<T> where T == String {
-        Contain().contain(actualValue.value,
+        Contain().contain(actualValue,
                           item,
                           to: to,
                           file: file,
