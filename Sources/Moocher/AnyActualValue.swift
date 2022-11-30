@@ -25,13 +25,13 @@ import Foundation
 public struct AnyActualValue {
     let value: Any?
     
-    var to: AnyMatcherEngine {
-        return AnyMatcherEngine(actualValue: self,
+    var to: NilMatcherEngine<Any> {
+        return NilMatcherEngine(actualValue: value,
                                 to: true)
     }
     
-    var toNot: AnyMatcherEngine {
-        return AnyMatcherEngine(actualValue: self,
+    var toNot: NilMatcherEngine<Any> {
+        return NilMatcherEngine(actualValue: value,
                                 to: false)
     }
 }

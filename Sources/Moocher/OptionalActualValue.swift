@@ -29,13 +29,13 @@ public struct OptionalActualValue<T> {
     
     // MARK: - Public properties
     
-    public var to: OptionalMatcherEngine<T> {
-        return OptionalMatcherEngine(actualValue: self,
-                                     to: true)
+    public var to: NilMatcherEngine<T> {
+        return NilMatcherEngine(actualValue: value,
+                                to: true)
     }
     
-    public var toNot: OptionalMatcherEngine<T> {
-        return OptionalMatcherEngine(actualValue: self,
-                                     to: false)
+    public var toNot: NilMatcherEngine<T> {
+        return NilMatcherEngine(actualValue: value,
+                                to: false)
     }
 }

@@ -22,17 +22,17 @@
 
 import Foundation
 
-public struct AnyMatcherEngine {
-    // MARK: - Read only properties
+public struct NilMatcherEngine<T> {
+    // MARK: - Readonly properties
     
-    let actualValue: AnyActualValue
+    let actualValue: T?
     let to: Bool
     
     // MARK: - Public methods
     
     public func beNil(file: StaticString = #filePath,
                       line: UInt = #line) {
-        BeNil().beNil(actualValue.value,
+        BeNil().beNil(actualValue,
                       to: to,
                       file: file,
                       line: line)
