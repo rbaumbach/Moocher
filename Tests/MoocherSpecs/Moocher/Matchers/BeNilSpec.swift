@@ -11,6 +11,14 @@ final class BeNilSpec: XCTestCase {
         somethingNonNil = 99
     }
     
+    func testBeNilWithNil() {
+        expect(nil).to.beNil()
+        
+        expectFailure("nil is nil") {
+            expect(nil).toNot.beNil()
+        }
+    }
+    
     func testToBeNil() {
         expect(somethingNil).to.beNil()
                 
