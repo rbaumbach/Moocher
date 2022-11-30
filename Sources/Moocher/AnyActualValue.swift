@@ -23,7 +23,11 @@
 import Foundation
 
 public struct AnyActualValue {
+    // MARK: - Readonly properties
+    
     let value: Any?
+    
+    // MARK: - Public properties
     
     var to: NilMatcherEngine<Any> {
         return NilMatcherEngine(actualValue: value,
