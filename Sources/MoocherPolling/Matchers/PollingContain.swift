@@ -23,7 +23,7 @@
 import Foundation
 
 struct PollingContain {
-    func contain<T, U>(_ actualValueBlock: @escaping () -> T,
+    func contain<T, U>(_ actualValueBlock: @escaping () -> T?,
                        _ item: U,
                        timeout: Time,
                        pollingInterval: Time,
@@ -31,12 +31,12 @@ struct PollingContain {
         Waiter().waitForExpectation(timeout: timeout,
                                     pollingInterval: pollingInterval,
                                     isInverted: isInverted) { complete in
-            let updatedValue = actualValueBlock()
-            
-            if updatedValue.contains(item) {
-                complete()
-                
-                return
+            if let updatedValue = actualValueBlock() {
+                if updatedValue.contains(item) {
+                    complete()
+                    
+                    return
+                }
             }
         }
     }

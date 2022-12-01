@@ -23,7 +23,7 @@
 import Foundation
 
 struct PollingEqual {
-    func equal<T>(_ actualValueBlock: @escaping () -> T,
+    func equal<T>(_ actualValueBlock: @escaping () -> T?,
                   _ expectedValue: T,
                   timeout: Time,
                   pollingInterval: Time,
@@ -31,12 +31,12 @@ struct PollingEqual {
         Waiter().waitForExpectation(timeout: timeout,
                                     pollingInterval: pollingInterval,
                                     isInverted: isInverted) { complete in
-            let updatedValue = actualValueBlock()
-            
-            if updatedValue == expectedValue {
-                complete()
-                
-                return
+            if let updatedValue = actualValueBlock() {
+                if updatedValue == expectedValue {
+                    complete()
+                    
+                    return
+                }
             }
         }
     }

@@ -22,26 +22,15 @@
 
 import Foundation
 
-public struct OptionalPollingMatcherEngine<T> {
-    // MARK: - Readonly properties
-    
-    let pollingActualValue: OptionalPollingActualValue<T>
-    let isInverted: Bool
-    
-    var timeout: Time {
-        return pollingActualValue.timingInfo.timeout
-    }
-    
-    var pollingInterval: Time {
-        return pollingActualValue.timingInfo.pollingInterval
-    }
-    
-    // MARK: - Public methods
-    
-    public func beNil() {
-        PollingBeNil().beNil(pollingActualValue.value,
-                             timeout: timeout,
-                             pollingInterval: pollingInterval,
-                             isInverted: isInverted)
+struct LongRunningTaskSimulator {
+    func longRunningTask(_ seconds: Int = 1,
+                         completionHandler: (() -> Void)? = nil) {
+        DispatchQueue.global(qos: .background).async {
+            sleep(UInt32(seconds))
+            
+            DispatchQueue.main.async {
+                completionHandler?()
+            }
+        }
     }
 }

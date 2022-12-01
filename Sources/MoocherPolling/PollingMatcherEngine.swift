@@ -38,6 +38,13 @@ public struct PollingMatcherEngine<T> {
     
     // MARK: - Public methods
     
+    public func beNil() {
+        PollingBeNil().beNil(pollingActualValue.value,
+                             timeout: timeout,
+                             pollingInterval: pollingInterval,
+                             isInverted: isInverted)
+    }
+    
     public func equal(_ expectedValue: T) where T: Equatable {
         PollingEqual().equal(pollingActualValue.value,
                              expectedValue,
