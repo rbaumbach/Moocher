@@ -30,12 +30,12 @@ public struct ActualValue<T> {
     // MARK: - Public properties
     
     public var to: MatcherEngine<T> {
-        return MatcherEngine(actualValue: self,
+        return MatcherEngine(actualValue: value,
                              to: true)
     }
     
     public var toNot: MatcherEngine<T> {
-        return MatcherEngine(actualValue: self,
+        return MatcherEngine(actualValue: value,
                              to: false)
     }
 }

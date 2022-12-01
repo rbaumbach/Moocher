@@ -4,6 +4,7 @@ import XCTest
 final class BeEmptySpec: XCTestCase {
     var emptyArray: [Int]!
     var emptyString: String!
+    var optionalArray: [String]?
     
     override func setUp() {
         super.setUp()
@@ -15,6 +16,8 @@ final class BeEmptySpec: XCTestCase {
     func testToBeEmptyWithCollection() {
         expect(emptyArray).to.beEmpty()
         
+        optionalArray = ["String"]
+                
         expectFailure("non empty array should not be empty") {
             expect([1, 2, 3]).to.beEmpty()
         }

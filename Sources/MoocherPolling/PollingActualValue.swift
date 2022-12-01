@@ -25,7 +25,7 @@ import Foundation
 public struct PollingActualValue<T> {
     // MARK: - Readonly properties
     
-    let value: () -> T
+    let value: () -> T?
     let timingInfo: (timeout: Time, pollingInterval: Time)
     
     // MARK: - Public properties

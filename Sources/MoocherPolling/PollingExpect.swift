@@ -22,21 +22,9 @@
 
 import Foundation
 
-public struct ExpectDefaults {
-    public static let timeout: Time = .seconds(5)
-    public static let pollingInterval: Time = .miliseconds(100)
-}
-
-public func expect<T>(_ block: @autoclosure @escaping () -> T,
-                      timeout: Time = ExpectDefaults.timeout,
-                      pollingInterval: Time = ExpectDefaults.pollingInterval) -> PollingActualValue<T> {
+public func expect<T>(_ block: @autoclosure @escaping () -> T?,
+                      timeout: Time = .seconds(5),
+                      pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
     return PollingActualValue(value: block,
                               timingInfo: (timeout, pollingInterval))
-}
-
-public func expect<T>(_ block: @autoclosure @escaping () -> T?,
-                      timeout: Time = ExpectDefaults.timeout,
-                      pollingInterval: Time = ExpectDefaults.pollingInterval) -> OptionalPollingActualValue<T> {
-    return OptionalPollingActualValue(value: block,
-                                      timingInfo: (timeout, pollingInterval))
 }

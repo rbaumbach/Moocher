@@ -23,15 +23,19 @@
 import Foundation
 
 public struct AnyActualValue {
+    // MARK: - Readonly properties
+    
     let value: Any?
     
-    var to: AnyMatcherEngine {
-        return AnyMatcherEngine(actualValue: self,
+    // MARK: - Public properties
+    
+    var to: NilMatcherEngine<Any> {
+        return NilMatcherEngine(actualValue: value,
                                 to: true)
     }
     
-    var toNot: AnyMatcherEngine {
-        return AnyMatcherEngine(actualValue: self,
+    var toNot: NilMatcherEngine<Any> {
+        return NilMatcherEngine(actualValue: value,
                                 to: false)
     }
 }

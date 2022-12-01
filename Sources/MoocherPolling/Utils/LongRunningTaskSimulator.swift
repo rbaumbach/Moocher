@@ -22,19 +22,15 @@
 
 import Foundation
 
-public struct AnyMatcherEngine {
-    // MARK: - Read only properties
-    
-    let actualValue: AnyActualValue
-    let to: Bool
-    
-    // MARK: - Public methods
-    
-    public func beNil(file: StaticString = #filePath,
-                      line: UInt = #line) {
-        BeNil().beNil(actualValue.value,
-                      to: to,
-                      file: file,
-                      line: line)
+struct LongRunningTaskSimulator {
+    func longRunningTask(_ seconds: Int = 1,
+                         completionHandler: (() -> Void)? = nil) {
+        DispatchQueue.global(qos: .background).async {
+            sleep(UInt32(seconds))
+            
+            DispatchQueue.main.async {
+                completionHandler?()
+            }
+        }
     }
 }
