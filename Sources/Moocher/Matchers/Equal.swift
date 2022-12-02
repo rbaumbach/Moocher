@@ -23,8 +23,8 @@
 import XCTest
 
 struct Equal {
-    func equal<T>(_ actualValue: T,
-                  _ expectedValue: T,
+    func equal<T>(_ actualValue: T?,
+                  _ expectedValue: T?,
                   to: Bool,
                   file: StaticString = #filePath,
                   line: UInt = #line) where T: Equatable {

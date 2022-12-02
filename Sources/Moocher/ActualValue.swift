@@ -25,7 +25,7 @@ import Foundation
 public struct ActualValue<T> {
     // MARK: - Readonly properties
     
-    let value: T
+    let value: T?
     
     // MARK: - Public properties
     

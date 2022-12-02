@@ -22,12 +22,8 @@
 
 import XCTest
 
-public func expect<T>(_ value: T) -> ActualValue<T> {
+public func expect<T>(_ value: T?) -> ActualValue<T> {
     return ActualValue(value: value)
-}
-
-public func expect<T>(_ value: T?) -> OptionalActualValue<T> {
-    return OptionalActualValue(value: value)
 }
 
 public func expect(_ value: Any?) -> AnyActualValue {
