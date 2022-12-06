@@ -336,14 +336,23 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
-    // TODO: The items need to be updated to use optional values
+    // TODO: Update specs to handle optional and nil "items"
+    // (Sequence and Collection)
     
     @discardableResult
-    public func startWith<U>(_ item: U,
+    public func startWith<U>(_ item: U?,
                              file: StaticString = #filePath,
                              line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
                     file: file,
                     line: line)
             
@@ -360,11 +369,19 @@ public struct MatcherEngine<T> {
     }
     
     @discardableResult
-    public func endWith<U>(_ item: U,
+    public func endWith<U>(_ item: U?,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
                     file: file,
                     line: line)
             
@@ -379,7 +396,7 @@ public struct MatcherEngine<T> {
         
         return CompoundEngine(previousMatcherEngine: self)
     }
-    
+
     @discardableResult
     public func haveSizeOf(_ size: Int,
                            file: StaticString = #filePath,
@@ -446,11 +463,19 @@ public struct MatcherEngine<T> {
     // MARK: - Sequence matchers
     
     @discardableResult
-    public func contain<U>(_ item: U,
+    public func contain<U>(_ item: U?,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Sequence, T.Element: Equatable, T.Element == U {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
                     file: file,
                     line: line)
             
@@ -466,16 +491,23 @@ public struct MatcherEngine<T> {
         return CompoundEngine(previousMatcherEngine: self)
     }
     
-    @discardableResult
-    public func contain(_ item: T,
+    public func contain(_ item: String?,
                         file: StaticString = #filePath,
-                        line: UInt = #line) -> CompoundEngine<T> where T == String {
+                        line: UInt = #line) where T == String {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
                     file: file,
                     line: line)
             
-            return CompoundEngine(previousMatcherEngine: self)
+            return
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
+                    file: file,
+                    line: line)
+            
+            return
         }
         
         Contain().contain(actualValue,
@@ -483,7 +515,5 @@ public struct MatcherEngine<T> {
                           to: to,
                           file: file,
                           line: line)
-        
-        return CompoundEngine(previousMatcherEngine: self)
     }
 }
