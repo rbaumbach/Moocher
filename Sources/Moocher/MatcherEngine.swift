@@ -336,9 +336,6 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
-    // TODO: Update specs to handle optional and nil "items"
-    // (Sequence and Collection)
-    
     @discardableResult
     public func startWith<U>(_ item: U?,
                              file: StaticString = #filePath,

@@ -4,6 +4,7 @@ import XCTest
 final class StartWithSpec: XCTestCase {
     var optionalArray: [String]?
     var nilArray: [String]?
+    var nilString: String?
     
     override func setUp() {
         super.setUp()
@@ -33,6 +34,24 @@ final class StartWithSpec: XCTestCase {
         }
     }
     
+    func testToStartWithWithBothOptionals() {
+        let optionalString: String? = "arm bar"
+        
+        expect(optionalArray).to.startWith(optionalString)
+        
+        expectFailure("optional array does not start with gi") {
+            let anotherOptionalString: String? = "gi"
+            
+            expect(optionalArray).to.startWith(anotherOptionalString)
+        }
+    }
+    
+    func testToStartWithWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            expect(optionalArray).to.startWith(nilString)
+        }
+    }
+    
     func testToNotStartWith() {
         expect([4, 5, 6]).toNot.startWith(1)
         
@@ -52,6 +71,24 @@ final class StartWithSpec: XCTestCase {
     func testToNotStartWithWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.startWith("arm bar")
+        }
+    }
+    
+    func testToNotStartWithBothOptionals() {
+        let optionalString: String? = "oma plata"
+        
+        expect(optionalArray).toNot.startWith(optionalString)
+        
+        expectFailure("optional array starts with arm bar") {
+            let anotherOptionalString: String? = "arm bar"
+            
+            expect(optionalArray).toNot.startWith(anotherOptionalString)
+        }
+    }
+    
+    func testToNotStartWithWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            expect(optionalArray).toNot.startWith(nilString)
         }
     }
     
@@ -85,6 +122,35 @@ final class StartWithSpec: XCTestCase {
         }
     }
     
+    func testToStartWithCompoundMatcherWithBothOptionals() {
+        let optionalString: String? = "arm bar"
+        let anotherOptionalString: String? = "oma plata"
+
+        expect(optionalArray).to.startWith(optionalString).and.endWith(anotherOptionalString)
+        
+        expectFailure("optional array does not start with wrist lock") {
+            let anotherOptionalString: String? = "wrist lock"
+            let yetAnotherOptionalString: String? = "oma plata"
+            
+            expect(optionalArray).to.startWith(anotherOptionalString).and.endWith(yetAnotherOptionalString)
+        }
+        
+        expectFailure("optional array does not end with wrist lock") {
+            let anotherOptionalString: String? = "arm bar"
+            let yetAnotherOptionalString: String? = "wrist lock"
+            
+            expect(optionalArray).to.startWith(anotherOptionalString).and.endWith(yetAnotherOptionalString)
+        }
+    }
+        
+    func testToStartWithCompoundMatcherWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            let anotherNilString: String? = nil
+
+            expect(optionalArray).to.startWith(nilString).and.endWith(anotherNilString)
+        }
+    }
+    
     func testToNotStartWithCompoundMatcher() {
         expect([1, 2, 3]).toNot.startWith(7).and.endWith(4)
         
@@ -112,6 +178,35 @@ final class StartWithSpec: XCTestCase {
     func testToNotStartWithCompoundMatcherWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.startWith("one").and.endWith("four")
+        }
+    }
+
+    func testToNotStartWithCompoundMatcherWithBothOptionals() {
+        let optionalString: String? = "triangle"
+        let anotherOptionalString: String? = "arm bar"
+
+        expect(optionalArray).toNot.startWith(optionalString).and.endWith(anotherOptionalString)
+        
+        expectFailure("optional array should not start with arm bar") {
+            let anotherOptionalString: String? = "arm bar"
+            let yetAnotherOptionalString: String? = "wrist lock"
+            
+            expect(optionalArray).toNot.startWith(anotherOptionalString).and.endWith(yetAnotherOptionalString)
+        }
+        
+        expectFailure("optional array does not end with wrist lock") {
+            let anotherOptionalString: String? = "wrist lock"
+            let yetAnotherOptionalString: String? = "oma plata"
+            
+            expect(optionalArray).toNot.startWith(anotherOptionalString).and.endWith(yetAnotherOptionalString)
+        }
+    }
+    
+    func testToNotStartWithCompoundMatcherWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            let anotherNilString: String? = nil
+
+            expect(optionalArray).toNot.startWith(nilString).and.endWith(anotherNilString)
         }
     }
 }

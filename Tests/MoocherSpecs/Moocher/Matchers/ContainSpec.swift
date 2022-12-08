@@ -4,6 +4,7 @@ import XCTest
 final class ContainSpec: XCTestCase {
     var optionalArray: [Int]?
     var nilArray: [Int]?
+    var nilItem: Int?
     
     var optionalString: String?
     var nilString: String?
@@ -40,6 +41,24 @@ final class ContainSpec: XCTestCase {
         }
     }
     
+    func testToContainWithSequenceWithBothOptionals() {
+        let optionalItem: Int? = 77
+        
+        expect(optionalArray).to.contain(optionalItem)
+        
+        expectFailure("optional array does not contain 1") {
+            let anotherOptionalItem: Int? = 1
+            
+            expect(optionalArray).to.contain(anotherOptionalItem)
+        }
+    }
+    
+    func testToContainWithSequenceWithOptionalAndNil() {
+        expectFailure("item is nil") {
+            expect(optionalArray).to.contain(nilItem)
+        }
+    }
+    
     func testToNotContainWithSequence() {
         expect(["tacos", "burritos", "sopes"]).toNot.contain("enchiladas")
         
@@ -61,6 +80,24 @@ final class ContainSpec: XCTestCase {
     func testToNotContainWithSequenceWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.contain(100)
+        }
+    }
+    
+    func testToNotStartWithSequenceWithBothOptionals() {
+        let optionalString: Int? = 1
+        
+        expect(optionalArray).toNot.contain(optionalString)
+        
+        expectFailure("optional array contains 77") {
+            let anotherOptionalString: Int? = 77
+            
+            expect(optionalArray).toNot.contain(anotherOptionalString)
+        }
+    }
+    
+    func testToNotStartWithSequenceWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            expect(optionalArray).toNot.contain(nilItem)
         }
     }
     
@@ -86,7 +123,25 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToNotContainStringUsingCharacter() {
+    func testToContainWithStringUsingCharacterWithBothOptionals() {
+        let anotherOptionalString: Character? = Character("D")
+        
+        expect(optionalString).to.contain(anotherOptionalString)
+        
+        expectFailure("optional string does not contain Z") {
+            let yetAnotherOptionalString: Character? = Character("Z")
+            
+            expect(optionalString).to.contain(yetAnotherOptionalString)
+        }
+    }
+    
+    func testToContainWithStringUsingCharacterWithOptionalAndNil() {
+        expectFailure("item is nil") {
+            expect(optionalString).to.contain(nilString)
+        }
+    }
+    
+    func testToNotContainWithStringUsingCharacter() {
         expect("Wyld Stallyns").toNot.contain("i")
         
         expectFailure("Bogus should contain B") {
@@ -102,9 +157,27 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToNotContainStringUsingCharacterWithOptionalNil() {
+    func testToNotContainWithStringUsingCharacterWithOptionalNil() {
         expectFailure("string is nil") {
             expect(nilString).toNot.contain("1")
+        }
+    }
+    
+    func testToNotContainWithStringUsingCharacterWithBothOptionals() {
+        let anotherOptionalString: Character? = Character("Z")
+        
+        expect(optionalString).toNot.contain(anotherOptionalString)
+        
+        expectFailure("optional string contains with D") {
+            let yetAnotherOptionalString: Character? = Character("D")
+            
+            expect(optionalString).toNot.contain(yetAnotherOptionalString)
+        }
+    }
+    
+    func testToNotContainWithStringUsingCharacterWithOptionalAndNil() {
+        expectFailure("item is nil") {
+            expect(optionalString).toNot.contain(nilString)
         }
     }
     
@@ -138,6 +211,35 @@ final class ContainSpec: XCTestCase {
         }
     }
     
+    func testToContainWithCompoundMatcherWithBothOptionals() {
+        let optionalString: Int? = 99
+        let anotherOptionalString: Int? = 55
+
+        expect(optionalArray).to.contain(optionalString).and.startWith(anotherOptionalString)
+        
+        expectFailure("optional array does not contain 100") {
+            let anotherOptionalString: Int? = 100
+            let yetAnotherOptionalString: Int? = 99
+            
+            expect(optionalArray).to.contain(anotherOptionalString).and.startWith(yetAnotherOptionalString)
+        }
+        
+        expectFailure("optional array does not start with 100") {
+            let anotherOptionalString: Int? = 77
+            let yetAnotherOptionalString: Int? = 100
+            
+            expect(optionalArray).to.contain(anotherOptionalString).and.startWith(yetAnotherOptionalString)
+        }
+    }
+        
+    func testToContainWithCompoundMatcherWithOptionalAndNil() {
+        expectFailure("start with string is nil") {
+            let anotherNilInt: Int? = nil
+
+            expect(optionalArray).to.contain(nilItem).and.startWith(anotherNilInt)
+        }
+    }
+    
     func testToNotContainWithCompoundMatcher() {
         expect([1, 2, 3]).toNot.contain(99).and.startWith(2)
         
@@ -165,6 +267,35 @@ final class ContainSpec: XCTestCase {
     func testToNotContainWithCompoundMatcherWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.contain(88).and.startWith(55)
+        }
+    }
+    
+    func testToNotContainWithCompoundMatcherWithBothOptionals() {
+        let optionalString: Int? = 100
+        let anotherOptionalString: Int? = 99
+
+        expect(optionalArray).toNot.contain(optionalString).and.startWith(anotherOptionalString)
+        
+        expectFailure("optional array contains 55") {
+            let anotherOptionalString: Int? = 55
+            let yetAnotherOptionalString: Int? = 99
+            
+            expect(optionalArray).toNot.contain(anotherOptionalString).and.startWith(yetAnotherOptionalString)
+        }
+        
+        expectFailure("optional array starts with 55") {
+            let anotherOptionalString: Int? = 100
+            let yetAnotherOptionalString: Int? = 55
+            
+            expect(optionalArray).toNot.contain(anotherOptionalString).and.startWith(yetAnotherOptionalString)
+        }
+    }
+        
+    func testToNotContainWithCompoundMatcherWithOptionalAndNil() {
+        expectFailure("contain with string is nil") {
+            let anotherNilInt: Int? = nil
+
+            expect(optionalArray).toNot.contain(nilItem).and.startWith(anotherNilInt)
         }
     }
         
