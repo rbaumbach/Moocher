@@ -29,12 +29,12 @@ public struct AnyActualValue {
     
     // MARK: - Public properties
     
-    var to: NilMatcherEngine<Any> {
+    var to: NilMatcherEngine {
         return NilMatcherEngine(actualValue: value,
                                 to: true)
     }
     
-    var toNot: NilMatcherEngine<Any> {
+    var toNot: NilMatcherEngine {
         return NilMatcherEngine(actualValue: value,
                                 to: false)
     }

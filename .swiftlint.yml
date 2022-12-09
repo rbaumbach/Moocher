@@ -3,10 +3,11 @@ disabled_rules:
   - trailing_whitespace
 
 line_length: 150
+file_length: 777
 
 identifier_name:
   min_length:
     warning: 1
 
 type_body_length:
-  - 500
+  - 777

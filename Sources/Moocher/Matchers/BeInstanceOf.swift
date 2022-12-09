@@ -22,8 +22,8 @@
 import XCTest
 
 struct BeInstanceOf {
-    func beInstanceOf(_ actualObject: AnyObject,
-                      _ expectedObject: AnyObject,
+    func beInstanceOf(_ actualObject: AnyObject?,
+                      _ expectedObject: AnyObject?,
                       to: Bool,
                       file: StaticString = #filePath,
                       line: UInt = #line) {

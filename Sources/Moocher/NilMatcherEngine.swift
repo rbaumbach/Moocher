@@ -22,10 +22,10 @@
 
 import Foundation
 
-public struct NilMatcherEngine<T> {
+public struct NilMatcherEngine {
     // MARK: - Readonly properties
     
-    let actualValue: T?
+    let actualValue: Any?
     let to: Bool
     
     // MARK: - Public methods

@@ -30,13 +30,13 @@ struct BeKindOf {
                         line: UInt = #line) {
         if to {
             if !(value is U) {
-                XCTFail("expected value is not a \(type)",
+                XCTFail("actual value is not a \(type)",
                         file: file,
                         line: line)
             }
         } else {
             if value is U {
-                XCTFail("expected value is a \(type)",
+                XCTFail("actual value is a \(type)",
                         file: file,
                         line: line)
             }
