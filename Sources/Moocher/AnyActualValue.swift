@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2022 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -29,12 +29,12 @@ public struct AnyActualValue {
     
     // MARK: - Public properties
     
-    var to: NilMatcherEngine {
+    public var to: NilMatcherEngine {
         return NilMatcherEngine(actualValue: value,
                                 to: true)
     }
     
-    var toNot: NilMatcherEngine {
+    public var toNot: NilMatcherEngine {
         return NilMatcherEngine(actualValue: value,
                                 to: false)
     }
