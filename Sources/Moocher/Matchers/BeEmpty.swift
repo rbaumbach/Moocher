@@ -23,10 +23,10 @@
 import XCTest
 
 struct BeEmpty<T> {
-    public func beEmpty(_ value: T,
-                        to: Bool,
-                        file: StaticString = #filePath,
-                        line: UInt = #line) where T: Collection {
+    func beEmpty(_ value: T,
+                 to: Bool,
+                 file: StaticString = #filePath,
+                 line: UInt = #line) where T: Collection {
         if to {
             if !value.isEmpty {
                 XCTFail("\(value) is not empty",
@@ -42,10 +42,10 @@ struct BeEmpty<T> {
         }
     }
     
-    public func beEmpty(_ value: String,
-                        to: Bool,
-                        file: StaticString = #filePath,
-                        line: UInt = #line) {
+    func beEmpty(_ value: String,
+                 to: Bool,
+                 file: StaticString = #filePath,
+                 line: UInt = #line) {
         if to {
             if value != "" {
                 XCTFail("\(value) is not empty",
