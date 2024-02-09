@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name                  = 'Moocher'
-  spec.version               = '0.4.0'
+  spec.version               = '0.4.1'
   spec.summary               = 'A set of "rspec-like" test matchers that "mooch" off of XCTest'
   spec.homepage              = 'https://github.com/rbaumbach/Moocher'
   spec.license               = { :type => 'MIT', :file => 'MIT-LICENSE.txt' }
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.platform              = :ios
   spec.ios.deployment_target = '11.0'
   spec.framework             = 'XCTest'
-  spec.swift_version         = '5.0'
+  spec.swift_version         = '5.5'
   spec.default_subspec       = 'Core'
 
   spec.subspec 'Core' do |basic|
