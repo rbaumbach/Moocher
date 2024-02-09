@@ -3,7 +3,9 @@ import XCTest
 
 final class BeEmptySpec: XCTestCase {
     var emptyArray: [Int]!
+    var emptyDictionary: [String: Int]!
     var optionalArray: [String]?
+    var optionalDictionary: [String: Int]?
     var nilArray: [String]?
     
     var emptyString: String!
@@ -15,6 +17,8 @@ final class BeEmptySpec: XCTestCase {
         
         emptyArray = []
         optionalArray = []
+        emptyDictionary = [:]
+        optionalDictionary = [:]
         
         emptyString = ""
         optionalEmptyString = ""
@@ -22,19 +26,31 @@ final class BeEmptySpec: XCTestCase {
     
     func testToBeEmptyWithCollection() {
         expect(emptyArray).to.beEmpty()
+        expect(emptyDictionary).to.beEmpty()
                 
         expectFailure("non empty array should not be empty") {
             expect([1, 2, 3]).to.beEmpty()
+        }
+        
+        expectFailure("non empty dictionary should not be empty") {
+            expect(["one": 1]).to.beEmpty()
         }
     }
     
     func testToBeEmptyWithCollectionWithOptional() {
         expect(optionalArray).to.beEmpty()
+        expect(optionalDictionary).to.beEmpty()
         
         expectFailure("optional array is not empty") {
             optionalArray?.append("Randy BoBandy")
             
             expect(optionalArray).to.beEmpty()
+        }
+        
+        expectFailure("optional dictionary is not empty") {
+            optionalDictionary?["one"] = 1
+            
+            expect(optionalDictionary).to.beEmpty()
         }
     }
     

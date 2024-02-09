@@ -41,23 +41,4 @@ struct BeEmpty<T> {
             }
         }
     }
-    
-    func beEmpty(_ value: String,
-                 to: Bool,
-                 file: StaticString = #filePath,
-                 line: UInt = #line) {
-        if to {
-            if value != "" {
-                XCTFail("\(value) is not empty",
-                        file: file,
-                        line: line)
-            }
-        } else {
-            if value == "" {
-                XCTFail("\(value) is empty",
-                        file: file,
-                        line: line)
-            }
-        }
-    }
 }
