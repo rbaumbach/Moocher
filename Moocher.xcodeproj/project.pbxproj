@@ -21,6 +21,7 @@
 		945E8449292F1843000339B8 /* Waiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8448292F1843000339B8 /* Waiter.swift */; };
 		945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* PollingBeNil.swift */; };
 		945E844E292F2346000339B8 /* PollingEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* PollingEqual.swift */; };
+		9471F4EB2B76E75D0065CD44 /* SpecHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */; };
 		9491131929284C5900B60941 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131829284C5900B60941 /* StartWith.swift */; };
 		9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131A29284E6600B60941 /* StartWithSpec.swift */; };
 		9491131E2928502600B60941 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131D2928502600B60941 /* EndWith.swift */; };
@@ -139,6 +140,7 @@
 		945E844D292F2346000339B8 /* PollingEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEqual.swift; sourceTree = "<group>"; };
 		9471F4E62B76E2BF0065CD44 /* MIT-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = SOURCE_ROOT; };
 		9471F4E82B76E5620065CD44 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecHelpers.swift; sourceTree = "<group>"; };
 		9491131829284C5900B60941 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
 		9491131A29284E6600B60941 /* StartWithSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithSpec.swift; sourceTree = "<group>"; };
 		9491131D2928502600B60941 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
@@ -309,6 +311,14 @@
 			name = "Additional Files";
 			sourceTree = "<group>";
 		};
+		9471F4E92B76E7470065CD44 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9499BD5B291EA84A004C2244 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +410,7 @@
 		94F1DE86291E054900411CCB /* Moocher */ = {
 			isa = PBXGroup;
 			children = (
+				9471F4E92B76E7470065CD44 /* Helpers */,
 				9499BD6D2922EEF3004C2244 /* Matchers */,
 				94F1DEA0291E091100411CCB /* Expect.swift */,
 				94F1DEB4292405A300411CCB /* ActualValue.swift */,
@@ -777,6 +788,7 @@
 				9499BD7B2922FCF1004C2244 /* BeTruthy.swift in Sources */,
 				9499BD7F2922FECC004C2244 /* BeLessThan.swift in Sources */,
 				94F1DEA1291E091100411CCB /* Expect.swift in Sources */,
+				9471F4EB2B76E75D0065CD44 /* SpecHelpers.swift in Sources */,
 				94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */,
 				9499BD772922F3A4004C2244 /* ConformTo.swift in Sources */,
 				94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */,

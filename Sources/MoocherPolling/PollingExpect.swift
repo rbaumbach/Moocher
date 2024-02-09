@@ -22,7 +22,7 @@
 
 import Foundation
 
-public func expect<T>(_ block: @autoclosure @escaping () -> T?,
+public func expect<T>(_ block: @autoclosure @escaping @Sendable () -> T?,
                       timeout: Time = .seconds(5),
                       pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
     return PollingActualValue(value: block,

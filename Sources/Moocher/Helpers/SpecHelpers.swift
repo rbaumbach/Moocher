@@ -20,21 +20,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
+import XCTest
 
-public enum Time {
-    case seconds(Int)
-    case miliseconds(Int)
-    case minutes(Int)
-    
-    public func toTimeInterval() -> TimeInterval {
-        switch self {
-        case .miliseconds(let value):
-            return TimeInterval(value / 1000)
-        case .seconds(let value):
-            return TimeInterval(value)
-        case .minutes(let value):
-            return TimeInterval(value / 60)
-        }
-    }
+public func failSpec() {
+    XCTAssertFalse(true)
+}
+
+public func passSpec() {
+    XCTAssertTrue(true)
 }

@@ -22,12 +22,12 @@
 
 import XCTest
 
-public func hangOn(for time: Time, work: (@escaping () -> Void) -> Void) {
+public func hangOn(for time: Time, work: (@escaping @Sendable () -> Void) -> Void) {
     let testCase = XCTestCase()
     
-    let expectation = testCase.expectation(description: "complete")
+    let expectation = testCase.expectation(description: "moocher.hangon.complete")
     
-    let complete = {
+    let complete: @Sendable () -> Void = {
         expectation.fulfill()
     }
     
