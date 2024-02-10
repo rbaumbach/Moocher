@@ -320,22 +320,6 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
-    public func beEmpty(file: StaticString = #filePath,
-                        line: UInt = #line) where T == String {
-        guard let actualValue = actualValue else {
-            XCTFail("Actual value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeEmpty().beEmpty(actualValue,
-                          to: to,
-                          file: file,
-                          line: line)
-    }
-    
     @discardableResult
     public func startWith<U>(_ item: U?,
                              file: StaticString = #filePath,
