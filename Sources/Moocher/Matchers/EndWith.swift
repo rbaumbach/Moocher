@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -50,6 +50,30 @@ struct EndWith {
                         file: file,
                         line: line)
 
+                return
+            }
+        }
+    }
+    
+    func endWith(_ value: String,
+                 _ item: String,
+                 to: Bool,
+                 file: StaticString = #filePath,
+                 line: UInt = #line) {
+        if to {
+            if !value.hasSuffix(item) {
+                XCTFail("\(value) does not start with \(item)",
+                        file: file,
+                        line: line)
+                
+                return
+            }
+        } else {
+            if value.hasSuffix(item) {
+                XCTFail("\(value) starts with \(item)",
+                        file: file,
+                        line: line)
+                
                 return
             }
         }

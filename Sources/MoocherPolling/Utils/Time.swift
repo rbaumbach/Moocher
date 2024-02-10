@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ public enum Time {
     case miliseconds(Int)
     case minutes(Int)
     
-    func toTimeInterval() -> TimeInterval {
+    public func toTimeInterval() -> TimeInterval {
         switch self {
         case .miliseconds(let value):
             return TimeInterval(value / 1000)

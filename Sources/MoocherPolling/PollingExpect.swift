@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 
 import Foundation
 
-public func expect<T>(_ block: @autoclosure @escaping () -> T?,
+public func expect<T>(_ block: @autoclosure @escaping @Sendable () -> T?,
                       timeout: Time = .seconds(5),
                       pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
     return PollingActualValue(value: block,

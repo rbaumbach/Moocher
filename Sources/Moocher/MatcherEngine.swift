@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -248,9 +248,9 @@ public struct MatcherEngine<T> {
                                 line: line)
     }
     
-    public func throwError(file: StaticString = #filePath,
-                           line: UInt = #line,
-                           errorHandler: (Error) -> Void) {
+    public func throwError<U>(file: StaticString = #filePath,
+                              line: UInt = #line,
+                              errorHandler: (U) -> Void) where U: Error {
         guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("Actual value does not match throw exception block contract: () throws -> Void",
                     file: file,
@@ -266,9 +266,9 @@ public struct MatcherEngine<T> {
                                 errorHandler: errorHandler)
     }
     
-    public func throwError(specificError: Error,
-                           file: StaticString = #filePath,
-                           line: UInt = #line) {
+    public func throwError<U>(specificError: U,
+                              file: StaticString = #filePath,
+                              line: UInt = #line) where U: Error {
         guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("Actual value does not match throw exception block contract: () throws -> Void",
                     file: file,
@@ -320,22 +320,6 @@ public struct MatcherEngine<T> {
                           line: line)
     }
     
-    public func beEmpty(file: StaticString = #filePath,
-                        line: UInt = #line) where T == String {
-        guard let actualValue = actualValue else {
-            XCTFail("Actual value is nil",
-                    file: file,
-                    line: line)
-            
-            return
-        }
-        
-        BeEmpty().beEmpty(actualValue,
-                          to: to,
-                          file: file,
-                          line: line)
-    }
-    
     @discardableResult
     public func startWith<U>(_ item: U?,
                              file: StaticString = #filePath,
@@ -366,9 +350,67 @@ public struct MatcherEngine<T> {
     }
     
     @discardableResult
+    public func startWith(_ item: String?,
+                          file: StaticString = #filePath,
+                          line: UInt = #line) -> CompoundEngine<T> where T == String {
+        guard let actualValue = actualValue else {
+            XCTFail("Actual value is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        StartWith().startWith(actualValue,
+                              item,
+                              to: to,
+                              file: file,
+                              line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
+    }
+    
+    @discardableResult
     public func endWith<U>(_ item: U?,
                            file: StaticString = #filePath,
                            line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
+        guard let actualValue = actualValue else {
+            XCTFail("Actual value is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        guard let item = item else {
+            XCTFail("item is nil",
+                    file: file,
+                    line: line)
+            
+            return CompoundEngine(previousMatcherEngine: self)
+        }
+        
+        EndWith().endWith(actualValue,
+                          item,
+                          to: to,
+                          file: file,
+                          line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
+    }
+    
+    @discardableResult
+    public func endWith(_ item: String?,
+                        file: StaticString = #filePath,
+                        line: UInt = #line) -> CompoundEngine<T> where T == String {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
                     file: file,
@@ -462,7 +504,7 @@ public struct MatcherEngine<T> {
     @discardableResult
     public func contain<U>(_ item: U?,
                            file: StaticString = #filePath,
-                           line: UInt = #line) -> CompoundEngine<T> where T: Sequence, T.Element: Equatable, T.Element == U {
+                           line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
                     file: file,
@@ -488,15 +530,16 @@ public struct MatcherEngine<T> {
         return CompoundEngine(previousMatcherEngine: self)
     }
     
+    @discardableResult
     public func contain(_ item: String?,
                         file: StaticString = #filePath,
-                        line: UInt = #line) where T == String {
+                        line: UInt = #line) -> CompoundEngine<T> where T == String {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
                     file: file,
                     line: line)
             
-            return
+            return CompoundEngine(previousMatcherEngine: self)
         }
         
         guard let item = item else {
@@ -504,7 +547,7 @@ public struct MatcherEngine<T> {
                     file: file,
                     line: line)
             
-            return
+            return CompoundEngine(previousMatcherEngine: self)
         }
         
         Contain().contain(actualValue,
@@ -512,5 +555,7 @@ public struct MatcherEngine<T> {
                           to: to,
                           file: file,
                           line: line)
+        
+        return CompoundEngine(previousMatcherEngine: self)
     }
 }

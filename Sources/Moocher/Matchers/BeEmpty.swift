@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -35,25 +35,6 @@ struct BeEmpty<T> {
             }
         } else {
             if value.isEmpty {
-                XCTFail("\(value) is empty",
-                        file: file,
-                        line: line)
-            }
-        }
-    }
-    
-    func beEmpty(_ value: String,
-                 to: Bool,
-                 file: StaticString = #filePath,
-                 line: UInt = #line) {
-        if to {
-            if value != "" {
-                XCTFail("\(value) is not empty",
-                        file: file,
-                        line: line)
-            }
-        } else {
-            if value == "" {
                 XCTFail("\(value) is empty",
                         file: file,
                         line: line)

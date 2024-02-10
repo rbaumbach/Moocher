@@ -1,4 +1,4 @@
-# Moocher [![Cocoapod Version](https://img.shields.io/cocoapods/v/Moocher.svg)](https://github.com/rbaumbach/Moocher) [![SPM Compatible](https://img.shields.io/badge/SPM-Compatible-blue)](https://swift.org/package-manager/) [![Cocoapod Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://github.com/rbaumbach/Moocher) [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/rbaumbach/Moocher/blob/master/MIT-LICENSE.txt)
+# Moocher [![Cocoapod Version](https://img.shields.io/cocoapods/v/Moocher.svg)](https://github.com/rbaumbach/Moocher) [![Swift Version](https://img.shields.io/badge/Swift-5.5-blue)](https://github.com/rbaumbach/Utensils/blob/master/Package.swift) [![SPM Compatible](https://img.shields.io/badge/SPM-Compatible-blue)](https://swift.org/package-manager/) [![Cocoapod Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://github.com/rbaumbach/Moocher) ![iOS Deployment Target](https://img.shields.io/badge/iOS_Deployment_Target-11.0-964B00) [![License](https://img.shields.io/dub/l/vibe-d.svg)](https://github.com/rbaumbach/Moocher/blob/master/MIT-LICENSE.txt)
 
 A set of "rspec-like" test matchers that "mooch" off of `XCTest`.
 
@@ -16,7 +16,7 @@ A set of "rspec-like" test matchers that "mooch" off of `XCTest`.
 
 [Swift Package Manager](https://swift.org/package-manager/) can be used to add `Moocher` the to your project:
 
-1.  Add `.package(url: "https://github.com/rbaumbach/Moocher", from: "0.4.0")`
+1.  Add `.package(url: "https://github.com/rbaumbach/Moocher", from: "0.4.1")`
 2.  [Follow intructions to add](https://swift.org/getting-started/#using-the-package-manager) the `Moocher` package to your project.
 
 Note: Since `Moocher` requires the library `XCTest`, when you add `Moocher` to your project, be sure that it's added to your unit testing target.

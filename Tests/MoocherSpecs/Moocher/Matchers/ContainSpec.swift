@@ -4,7 +4,11 @@ import XCTest
 final class ContainSpec: XCTestCase {
     var optionalArray: [Int]?
     var nilArray: [Int]?
-    var nilItem: Int?
+    var nilArrayItem: Int?
+    
+    var optionalDictionary: [String: Int]?
+    var nilDictionary: [String: Int]?
+    var nilDictionaryItem: Int?
     
     var optionalString: String?
     var nilString: String?
@@ -17,9 +21,9 @@ final class ContainSpec: XCTestCase {
         optionalString = "De La Riva"
     }
     
-    // MARK: - Sequence
+    // MARK: - Collection
     
-    func testToContainWithSequence() {
+    func testToContainWithCollection() {
         expect([1, 2, 3]).to.contain(1)
 
         expectFailure("array should not contain 99") {
@@ -27,7 +31,7 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToContainWithSequenceWithOptional() {
+    func testToContainWithCollectionWithOptional() {
         expect(optionalArray).to.contain(77)
         
         expectFailure("array should not contain 99") {
@@ -35,13 +39,13 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToContainWithSequenceWithOptionalNil() {
+    func testToContainWithCollectionWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).to.contain(100)
         }
     }
     
-    func testToContainWithSequenceWithBothOptionals() {
+    func testToContainWithCollectionWithBothOptionals() {
         let optionalItem: Int? = 77
         
         expect(optionalArray).to.contain(optionalItem)
@@ -53,13 +57,13 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToContainWithSequenceWithOptionalAndNil() {
+    func testToContainWithCollectionWithOptionalAndNil() {
         expectFailure("item is nil") {
-            expect(optionalArray).to.contain(nilItem)
+            expect(optionalArray).to.contain(nilArrayItem)
         }
     }
     
-    func testToNotContainWithSequence() {
+    func testToNotContainWithCollection() {
         expect(["tacos", "burritos", "sopes"]).toNot.contain("enchiladas")
         
         expectFailure("the set should contain 8") {
@@ -69,7 +73,7 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToNotContainWithSequenceWithOptional() {
+    func testToNotContainWithCollectionWithOptional() {
         expect(optionalArray).toNot.contain(100)
         
         expectFailure("array should contain 99") {
@@ -77,13 +81,13 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToNotContainWithSequenceWithOptionalNil() {
+    func testToNotContainWithCollectionWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.contain(100)
         }
     }
     
-    func testToNotStartWithSequenceWithBothOptionals() {
+    func testToNotStartWithCollectionWithBothOptionals() {
         let optionalString: Int? = 1
         
         expect(optionalArray).toNot.contain(optionalString)
@@ -95,11 +99,19 @@ final class ContainSpec: XCTestCase {
         }
     }
     
-    func testToNotStartWithSequenceWithOptionalAndNil() {
+    func testToNotStartWithCollectionWithOptionalAndNil() {
         expectFailure("start with string is nil") {
-            expect(optionalArray).toNot.contain(nilItem)
+            expect(optionalArray).toNot.contain(nilArrayItem)
         }
     }
+    
+    // MARK: - String
+    
+    // Note: String is a bit special.  If attempting to use as a Collection using the current logic:
+    // where T: Collection, T.Element: Equatable, T.Element == U
+    // The T.Element is actually the Character type.  This means the compiler will throw an error if you use
+    // another string (more than one character). For this particular scenariom, we will just add another
+    // generic method contain for String type only to handle this.
     
     func testToContainWithStringUsingCharacter() {
         expect("Bill and Ted").to.contain("d")
@@ -181,6 +193,52 @@ final class ContainSpec: XCTestCase {
         }
     }
     
+    func testToContainWithStringUsingSubstring() {
+        expect("Bob and Doug").to.contain("Doug")
+
+        expectFailure("McKenzie should not contain Hoser") {
+            expect("McKenzie").to.contain("Hoser")
+        }
+    }
+    
+    func testToContainWithStringUsingSubstringWithOptional() {
+        expect(optionalString).to.contain("La Riva")
+
+        expectFailure("McKenzie should not contain Hoser") {
+            expect(optionalString).to.contain("El")
+        }
+    }
+    
+    func testToContainWithStringUsingSubstringWithOptionalNil() {
+        expectFailure("string is nil") {
+            expect(nilString).to.contain("hosehead")
+        }
+    }
+
+    func testToNotContainStringUsingSubstring() {
+        expect("Canada").toNot.contain("Maple Leaf")
+
+        expectFailure("The Great White North should contain North") {
+            expect("The Great White North").toNot.contain("North")
+        }
+    }
+    
+    func testToNotContainStringUsingSubstringWithOptional() {
+        expect(optionalString).toNot.contain("El")
+
+        expectFailure("McKenzie should not contain Hoser") {
+            expect(optionalString).toNot.contain("Riva")
+        }
+    }
+    
+    func testToNotContainStringUsingSubstringWithOptionalNil() {
+        expectFailure("string is nil") {
+            expect(nilString).toNot.contain("hosehead")
+        }
+    }
+    
+    // MARK: - Compound Matcher
+    
     func testToContainWithCompoundMatcher() {
         expect([1, 2, 3]).to.contain(1).and.startWith(1)
         
@@ -236,7 +294,7 @@ final class ContainSpec: XCTestCase {
         expectFailure("start with string is nil") {
             let anotherNilInt: Int? = nil
 
-            expect(optionalArray).to.contain(nilItem).and.startWith(anotherNilInt)
+            expect(optionalArray).to.contain(nilArrayItem).and.startWith(anotherNilInt)
         }
     }
     
@@ -295,51 +353,31 @@ final class ContainSpec: XCTestCase {
         expectFailure("contain with string is nil") {
             let anotherNilInt: Int? = nil
 
-            expect(optionalArray).toNot.contain(nilItem).and.startWith(anotherNilInt)
+            expect(optionalArray).toNot.contain(nilArrayItem).and.startWith(anotherNilInt)
         }
     }
         
-    func testToContainWithStringUsingSubstring() {
-        expect("Bob and Doug").to.contain("Doug")
-
-        expectFailure("McKenzie should not contain Hoser") {
-            expect("McKenzie").to.contain("Hoser")
+    func testToContainWithStringWithCompoundMatcher() {
+        expect("Indiana Jones").to.contain("Indiana").and.contain("Jones")
+        
+        expectFailure("string should not contain Smith") {
+            expect("Indiana Jones").to.contain("Indiana").and.contain("Smith")
+        }
+        
+        expectFailure("string should not contain Smith") {
+            expect("Indiana Jones").to.contain("Smith").and.contain("Jones")
         }
     }
     
-    func testToContainWithStringUsingSubstringWithOptional() {
-        expect(optionalString).to.contain("La Riva")
-
-        expectFailure("McKenzie should not contain Hoser") {
-            expect(optionalString).to.contain("El")
+    func testToNotContainWithStringWithCompoundMatcher() {
+        expect("Indiana Jones").toNot.contain("Smith").and.contain("New Jersey")
+        
+        expectFailure("string should contain Indiana") {
+            expect("Indiana Jones").toNot.contain("Indiana").and.contain("Jones")
         }
-    }
-    
-    func testToContainWithStringUsingSubstringWithOptionalNil() {
-        expectFailure("string is nil") {
-            expect(nilString).to.contain("hosehead")
-        }
-    }
-
-    func testToNotContainStringUsingSubstring() {
-        expect("Canada").toNot.contain("Maple Leaf")
-
-        expectFailure("The Great White North should contain North") {
-            expect("The Great White North").toNot.contain("North")
-        }
-    }
-    
-    func testToNotContainStringUsingSubstringWithOptional() {
-        expect(optionalString).toNot.contain("El")
-
-        expectFailure("McKenzie should not contain Hoser") {
-            expect(optionalString).toNot.contain("Riva")
-        }
-    }
-    
-    func testToNotContainStringUsingSubstringWithOptionalNil() {
-        expectFailure("string is nil") {
-            expect(nilString).toNot.contain("hosehead")
+        
+        expectFailure("string should contain Jones") {
+            expect("Indiana Jones").toNot.contain("Indiana").and.contain("Jones")
         }
     }
 }

@@ -6,10 +6,14 @@ final class StartWithSpec: XCTestCase {
     var nilArray: [String]?
     var nilString: String?
     
+    var optionalString: String?
+    
     override func setUp() {
         super.setUp()
         
         optionalArray = ["arm bar", "triangle", "oma plata"]
+        
+        optionalString = "Deadly Towers"
     }
     
     func testToStartWith() {
@@ -91,6 +95,42 @@ final class StartWithSpec: XCTestCase {
             expect(optionalArray).toNot.startWith(nilString)
         }
     }
+    
+    // MARK: - String
+    
+    func testToStartWithString() {
+        expect("Indiana Jones").to.startWith("Indiana")
+        
+        expectFailure("string should not start with Smith") {
+            expect("Indiana Jones").to.startWith("Smith")
+        }
+    }
+    
+    func testToStartWithWithStringWithOptional() {
+        expect(optionalString).to.startWith("Deadly")
+        
+        expectFailure("string should not start with Bowers") {
+            expect(optionalString).to.endWith("Bowers")
+        }
+    }
+    
+    func testToNotStartWithString() {
+        expect("Indiana Jones").toNot.startWith("Jones")
+        
+        expectFailure("string should start with Indiana") {
+            expect("Indiana Jones").toNot.startWith("Indiana")
+        }
+    }
+    
+    func testToNotStartWithWithStringWithOptional() {
+        expect(optionalString).toNot.startWith("Towers")
+        
+        expectFailure("string should start with Bowers") {
+            expect(optionalString).toNot.startWith("Deadly")
+        }
+    }
+    
+    // MARK: - Compound Matcher
     
     func testToStartWithCompoundMatcher() {
         expect([1, 2, 3]).to.startWith(1).and.endWith(3)

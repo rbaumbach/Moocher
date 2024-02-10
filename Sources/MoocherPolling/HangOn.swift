@@ -1,6 +1,6 @@
 //  MIT License
 //
-//  Copyright (c) 2023 Ryan Baumbach <github@ryan.codes>
+//  Copyright (c) 2023-2024 Ryan Baumbach <github@ryan.codes>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,12 @@
 
 import XCTest
 
-public func hangOn(for time: Time, work: (@escaping () -> Void) -> Void) {
+public func hangOn(for time: Time, work: (@escaping @Sendable () -> Void) -> Void) {
     let testCase = XCTestCase()
     
-    let expectation = testCase.expectation(description: "complete")
+    let expectation = testCase.expectation(description: "moocher.hangon.complete")
     
-    let complete = {
+    let complete: @Sendable () -> Void = {
         expectation.fulfill()
     }
     

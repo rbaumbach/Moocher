@@ -21,6 +21,7 @@
 		945E8449292F1843000339B8 /* Waiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8448292F1843000339B8 /* Waiter.swift */; };
 		945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* PollingBeNil.swift */; };
 		945E844E292F2346000339B8 /* PollingEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* PollingEqual.swift */; };
+		9471F4EB2B76E75D0065CD44 /* SpecHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */; };
 		9491131929284C5900B60941 /* StartWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131829284C5900B60941 /* StartWith.swift */; };
 		9491131C29284F5300B60941 /* StartWithSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131A29284E6600B60941 /* StartWithSpec.swift */; };
 		9491131E2928502600B60941 /* EndWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491131D2928502600B60941 /* EndWith.swift */; };
@@ -137,6 +138,9 @@
 		945E8448292F1843000339B8 /* Waiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiter.swift; sourceTree = "<group>"; };
 		945E844B292F2048000339B8 /* PollingBeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeNil.swift; sourceTree = "<group>"; };
 		945E844D292F2346000339B8 /* PollingEqual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEqual.swift; sourceTree = "<group>"; };
+		9471F4E62B76E2BF0065CD44 /* MIT-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = SOURCE_ROOT; };
+		9471F4E82B76E5620065CD44 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecHelpers.swift; sourceTree = "<group>"; };
 		9491131829284C5900B60941 /* StartWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWith.swift; sourceTree = "<group>"; };
 		9491131A29284E6600B60941 /* StartWithSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithSpec.swift; sourceTree = "<group>"; };
 		9491131D2928502600B60941 /* EndWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndWith.swift; sourceTree = "<group>"; };
@@ -163,7 +167,6 @@
 		94CFFACD292ADF9400D0C0FF /* HaveMaxValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMaxValueOfSpec.swift; sourceTree = "<group>"; };
 		94CFFAD0292AE2A800D0C0FF /* HaveMinValueOfSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOfSpec.swift; sourceTree = "<group>"; };
 		94CFFAD3292AE31B00D0C0FF /* HaveMinValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMinValueOf.swift; sourceTree = "<group>"; };
-		94ED33D7293104A7009B67B7 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		94ED33D8293104BB009B67B7 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		94ED33D9293104BB009B67B7 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		94ED33DA29310511009B67B7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -293,6 +296,29 @@
 			path = Matchers;
 			sourceTree = "<group>";
 		};
+		9471F4E72B76E5080065CD44 /* Additional Files */ = {
+			isa = PBXGroup;
+			children = (
+				94ED33DA29310511009B67B7 /* .swiftlint.yml */,
+				9471F4E82B76E5620065CD44 /* Fastfile */,
+				94ED33D8293104BB009B67B7 /* Gemfile */,
+				9471F4E62B76E2BF0065CD44 /* MIT-LICENSE.txt */,
+				9438689F292FEE8500D079A9 /* Moocher.podspec */,
+				9499BD5F291EA859004C2244 /* Package.swift */,
+				94ED33D9293104BB009B67B7 /* Podfile */,
+				9417CFC629310A0500295A0E /* README.md */,
+			);
+			name = "Additional Files";
+			sourceTree = "<group>";
+		};
+		9471F4E92B76E7470065CD44 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		9499BD5B291EA84A004C2244 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,20 +382,6 @@
 			path = MoocherPolling;
 			sourceTree = "<group>";
 		};
-		94ED33D62931047B009B67B7 /* Project */ = {
-			isa = PBXGroup;
-			children = (
-				9499BD5F291EA859004C2244 /* Package.swift */,
-				9438689F292FEE8500D079A9 /* Moocher.podspec */,
-				94ED33D8293104BB009B67B7 /* Gemfile */,
-				94ED33D9293104BB009B67B7 /* Podfile */,
-				94ED33D7293104A7009B67B7 /* Fastfile */,
-				94ED33DA29310511009B67B7 /* .swiftlint.yml */,
-				9417CFC629310A0500295A0E /* README.md */,
-			);
-			name = Project;
-			sourceTree = "<group>";
-		};
 		94F1DE7A291E054900411CCB = {
 			isa = PBXGroup;
 			children = (
@@ -377,7 +389,7 @@
 				94ED33D52931045C009B67B7 /* MoocherPolling */,
 				94F1DE8E291E05D200411CCB /* Sources */,
 				9499BD5B291EA84A004C2244 /* Tests */,
-				94ED33D62931047B009B67B7 /* Project */,
+				9471F4E72B76E5080065CD44 /* Additional Files */,
 				94F1DE85291E054900411CCB /* Products */,
 				94F1DEA3291E09AD00411CCB /* Frameworks */,
 				8835B4E8EF8059212D19ECD0 /* Pods */,
@@ -398,6 +410,7 @@
 		94F1DE86291E054900411CCB /* Moocher */ = {
 			isa = PBXGroup;
 			children = (
+				9471F4E92B76E7470065CD44 /* Helpers */,
 				9499BD6D2922EEF3004C2244 /* Matchers */,
 				94F1DEA0291E091100411CCB /* Expect.swift */,
 				94F1DEB4292405A300411CCB /* ActualValue.swift */,
@@ -775,6 +788,7 @@
 				9499BD7B2922FCF1004C2244 /* BeTruthy.swift in Sources */,
 				9499BD7F2922FECC004C2244 /* BeLessThan.swift in Sources */,
 				94F1DEA1291E091100411CCB /* Expect.swift in Sources */,
+				9471F4EB2B76E75D0065CD44 /* SpecHelpers.swift in Sources */,
 				94F91F6F292A7C23005B0D76 /* CompoundEngine.swift in Sources */,
 				9499BD772922F3A4004C2244 /* ConformTo.swift in Sources */,
 				94F1DEA7291E09CA00411CCB /* MatcherEngine.swift in Sources */,
@@ -945,7 +959,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.4.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1002,7 +1017,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.4.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1036,7 +1052,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 0.4.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.Moocher;
@@ -1072,7 +1088,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 0.4.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.Moocher;
@@ -1145,7 +1161,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;
@@ -1181,7 +1197,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3.0;
+				MARKETING_VERSION = 0.4.1;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;

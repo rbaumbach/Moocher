@@ -20,13 +20,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-import Foundation
+import XCTest
 
-public struct CompoundEngine<T> {
-    let previousMatcherEngine: MatcherEngine<T>
-    
-    public var and: MatcherEngine<T> {
-        return MatcherEngine(actualValue: previousMatcherEngine.actualValue,
-                             to: previousMatcherEngine.to)
-    }
+public func failSpec() {
+    XCTAssertFalse(true)
+}
+
+public func passSpec() {
+    XCTAssertTrue(true)
 }
