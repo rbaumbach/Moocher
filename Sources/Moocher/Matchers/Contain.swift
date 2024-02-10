@@ -29,7 +29,7 @@ struct Contain {
                        _ item: U,
                        to: Bool,
                        file: StaticString = #filePath,
-                       line: UInt = #line) where T: Sequence, T.Element: Equatable, T.Element == U {
+                       line: UInt = #line) where T: Collection, T.Element: Equatable, T.Element == U {
         let hasElement = value.contains(item)
         
         if to {

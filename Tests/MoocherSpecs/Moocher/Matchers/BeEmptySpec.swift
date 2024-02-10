@@ -3,10 +3,12 @@ import XCTest
 
 final class BeEmptySpec: XCTestCase {
     var emptyArray: [Int]!
-    var emptyDictionary: [String: Int]!
     var optionalArray: [String]?
-    var optionalDictionary: [String: Int]?
     var nilArray: [String]?
+
+    var emptyDictionary: [String: Int]!
+    var optionalDictionary: [String: Int]?
+    var nilDictionary: [String: Int]?
     
     var emptyString: String!
     var optionalEmptyString: String?
@@ -58,13 +60,22 @@ final class BeEmptySpec: XCTestCase {
         expectFailure("array is nil") {
             expect(nilArray).to.beEmpty()
         }
+        
+        expectFailure("dictionary is nil") {
+            expect(nilDictionary).to.beEmpty()
+        }
     }
     
     func testToNotBeEmptyWithCollection() {
         expect([1, 2, 3]).toNot.beEmpty()
+        expect(["one": 1]).toNot.beEmpty()
         
         expectFailure("emptyArray should not be empty") {
             expect(emptyArray).toNot.beEmpty()
+        }
+        
+        expectFailure("emptyDictionary should not be empty") {
+            expect(emptyDictionary).toNot.beEmpty()
         }
     }
     
@@ -73,14 +84,24 @@ final class BeEmptySpec: XCTestCase {
         
         expect(optionalArray).toNot.beEmpty()
         
+        optionalDictionary?["one"] = 1
+        
         expectFailure("empty array is empty") {
             expect(emptyArray).toNot.beEmpty()
+        }
+        
+        expectFailure("empty dictionary is empty") {
+            expect(emptyDictionary).toNot.beEmpty()
         }
     }
     
     func testToNotBeEmptyWithCollectionWithOptionalNil() {
         expectFailure("array is nil") {
             expect(nilArray).toNot.beEmpty()
+        }
+        
+        expectFailure("dictionary is nil") {
+            expect(nilDictionary).toNot.beEmpty()
         }
     }
     

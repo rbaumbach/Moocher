@@ -248,9 +248,9 @@ public struct MatcherEngine<T> {
                                 line: line)
     }
     
-    public func throwError(file: StaticString = #filePath,
-                           line: UInt = #line,
-                           errorHandler: (Error) -> Void) {
+    public func throwError<U>(file: StaticString = #filePath,
+                              line: UInt = #line,
+                              errorHandler: (U) -> Void) where U: Error {
         guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("Actual value does not match throw exception block contract: () throws -> Void",
                     file: file,
@@ -266,9 +266,9 @@ public struct MatcherEngine<T> {
                                 errorHandler: errorHandler)
     }
     
-    public func throwError(specificError: Error,
-                           file: StaticString = #filePath,
-                           line: UInt = #line) {
+    public func throwError<U>(specificError: U,
+                              file: StaticString = #filePath,
+                              line: UInt = #line) where U: Error {
         guard let actualThrowExceptionBlock = actualValue as? ThrowExceptionBlock else {
             XCTFail("Actual value does not match throw exception block contract: () throws -> Void",
                     file: file,
@@ -462,7 +462,7 @@ public struct MatcherEngine<T> {
     @discardableResult
     public func contain<U>(_ item: U?,
                            file: StaticString = #filePath,
-                           line: UInt = #line) -> CompoundEngine<T> where T: Sequence, T.Element: Equatable, T.Element == U {
+                           line: UInt = #line) -> CompoundEngine<T> where T: Collection, T.Element: Equatable, T.Element == U {
         guard let actualValue = actualValue else {
             XCTFail("Actual value is nil",
                     file: file,

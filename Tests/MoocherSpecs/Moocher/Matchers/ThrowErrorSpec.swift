@@ -36,8 +36,8 @@ final class ThrowErrorSpec: XCTestCase {
     
     func testToThrowErrorWithErrorHandler() {
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) })
-            .to.throwError { error in
-                expect(error as? BarkException).to.equal(.earShrikingBark)
+            .to.throwError { (error: BarkException) in
+                expect(error).to.equal(.earShrikingBark)
         }
     }
 
@@ -45,10 +45,10 @@ final class ThrowErrorSpec: XCTestCase {
     // XCTFail is given to the user.
     
     func testToNotThrowErrorWithErrorHandler() {
-        XCTExpectFailure("dog should not throw error") {
+        expectFailure("dog should not throw error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) })
-                .toNot.throwError { error in
-                    expect(error as? BarkException).to.equal(.earShrikingBark)
+                .toNot.throwError { (error: BarkException) in
+                    expect(error).to.equal(.earShrikingBark)
             }
         }
     }
@@ -78,11 +78,11 @@ final class ThrowErrorSpec: XCTestCase {
     func testToThrowErrorWithErrorType() {
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).to.throwError(errorType: BarkException.self)
         
-        XCTExpectFailure("dog should not throw error") {
+        expectFailure("dog should not throw error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: false) }).to.throwError(errorType: BarkException.self)
         }
         
-        XCTExpectFailure("dog should throw BarkException error") {
+        expectFailure("dog should throw BarkException error") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).to.throwError(errorType: MeowException.self)
         }
     }
@@ -92,7 +92,7 @@ final class ThrowErrorSpec: XCTestCase {
         
         expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(errorType: MeowException.self)
         
-        XCTExpectFailure("dog should throw BarkException") {
+        expectFailure("dog should throw BarkException") {
             expect({ try _ = self.dog.bark(shouldThroughExceptionalBark: true) }).toNot.throwError(errorType: BarkException.self)
         }
     }
