@@ -54,4 +54,28 @@ struct EndWith {
             }
         }
     }
+    
+    func endWith(_ value: String,
+                 _ item: String,
+                 to: Bool,
+                 file: StaticString = #filePath,
+                 line: UInt = #line) {
+        if to {
+            if !value.hasSuffix(item) {
+                XCTFail("\(value) does not start with \(item)",
+                        file: file,
+                        line: line)
+                
+                return
+            }
+        } else {
+            if value.hasSuffix(item) {
+                XCTFail("\(value) starts with \(item)",
+                        file: file,
+                        line: line)
+                
+                return
+            }
+        }
+    }
 }

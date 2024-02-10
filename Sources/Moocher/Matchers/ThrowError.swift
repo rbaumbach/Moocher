@@ -38,16 +38,26 @@ struct ThrowError {
         }
     }
     
-    func throwError(_ block: () throws -> Void,
-                    to: Bool,
-                    file: StaticString = #filePath,
-                    line: UInt = #line,
-                    errorHandler: (Error) -> Void) {
+    func throwError<T>(_ block: () throws -> Void,
+                       to: Bool,
+                       file: StaticString = #filePath,
+                       line: UInt = #line,
+                       errorHandler: (T) -> Void) where T: Error {
+        let xctAssertErrorHandler: (Error) -> Void = { error in
+            if let error = error as? T {
+                errorHandler(error)
+            } else {
+                XCTFail("Error being thrown is not the expected type",
+                        file: file,
+                        line: line)
+            }
+        }
+        
         if to {
             XCTAssertThrowsError(try block(),
                                  file: file,
                                  line: line,
-                                 errorHandler)
+                                 xctAssertErrorHandler)
         } else {
             XCTFail("This matcher cannot be used when an exception is not expected to be thrown",
                     file: file,

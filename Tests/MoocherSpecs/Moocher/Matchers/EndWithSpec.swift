@@ -6,10 +6,14 @@ final class EndWithSpec: XCTestCase {
     var nilArray: [String]?
     var nilString: String?
     
+    var optionalString: String?
+    
     override func setUp() {
         super.setUp()
         
         optionalArray = ["arm bar", "triangle", "oma plata"]
+        
+        optionalString = "Deadly Towers"
     }
     
     func testToEndWith() {
@@ -91,6 +95,42 @@ final class EndWithSpec: XCTestCase {
             expect(optionalArray).toNot.endWith(nilString)
         }
     }
+    
+    // MARK: - String
+    
+    func testToEndWithString() {
+        expect("Indiana Jones").to.endWith("Jones")
+        
+        expectFailure("string should not end with Smith") {
+            expect("Indiana Jones").to.endWith("Smith")
+        }
+    }
+    
+    func testToEndWithWithStringWithOptional() {
+        expect(optionalString).to.endWith("Towers")
+        
+        expectFailure("string should not end with Bowers") {
+            expect(optionalString).to.endWith("Bowers")
+        }
+    }
+    
+    func testToNotEndWithString() {
+        expect("Indiana Jones").toNot.endWith("Smith")
+        
+        expectFailure("string should end with Jones") {
+            expect("Indiana Jones").toNot.endWith("Jones")
+        }
+    }
+    
+    func testToNotEndWithWithStringWithOptional() {
+        expect(optionalString).toNot.endWith("Bowers")
+        
+        expectFailure("string should end with Towers") {
+            expect(optionalString).toNot.endWith("Towers")
+        }
+    }
+    
+    // MARK: - Compound Matcher
     
     func testToEndWithCompoundMatcher() {
         expect([1, 2, 3]).to.endWith(3).and.startWith(1)

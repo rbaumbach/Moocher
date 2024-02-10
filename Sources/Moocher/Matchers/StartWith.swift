@@ -35,7 +35,7 @@ struct StartWith {
             
             return
         }
-                
+        
         if to {
             if firstItem != item {
                 XCTFail("\(value) does not start with \(item)",
@@ -46,6 +46,30 @@ struct StartWith {
             }
         } else {
             if firstItem == item {
+                XCTFail("\(value) starts with \(item)",
+                        file: file,
+                        line: line)
+                
+                return
+            }
+        }
+    }
+    
+    func startWith(_ value: String,
+                   _ item: String,
+                   to: Bool,
+                   file: StaticString = #filePath,
+                   line: UInt = #line) {
+        if to {
+            if !value.hasPrefix(item) {
+                XCTFail("\(value) does not start with \(item)",
+                        file: file,
+                        line: line)
+                
+                return
+            }
+        } else {
+            if value.hasPrefix(item) {
                 XCTFail("\(value) starts with \(item)",
                         file: file,
                         line: line)

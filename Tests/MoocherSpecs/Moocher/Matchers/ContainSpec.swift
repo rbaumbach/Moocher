@@ -356,4 +356,28 @@ final class ContainSpec: XCTestCase {
             expect(optionalArray).toNot.contain(nilArrayItem).and.startWith(anotherNilInt)
         }
     }
+        
+    func testToContainWithStringWithCompoundMatcher() {
+        expect("Indiana Jones").to.contain("Indiana").and.contain("Jones")
+        
+        expectFailure("string should not contain Smith") {
+            expect("Indiana Jones").to.contain("Indiana").and.contain("Smith")
+        }
+        
+        expectFailure("string should not contain Smith") {
+            expect("Indiana Jones").to.contain("Smith").and.contain("Jones")
+        }
+    }
+    
+    func testToNotContainWithStringWithCompoundMatcher() {
+        expect("Indiana Jones").toNot.contain("Smith").and.contain("New Jersey")
+        
+        expectFailure("string should contain Indiana") {
+            expect("Indiana Jones").toNot.contain("Indiana").and.contain("Jones")
+        }
+        
+        expectFailure("string should contain Jones") {
+            expect("Indiana Jones").toNot.contain("Indiana").and.contain("Jones")
+        }
+    }
 }
