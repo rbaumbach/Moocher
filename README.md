@@ -166,7 +166,7 @@ expect({ try functionThatDoesNotThrowAnError() })
 
 ```swift
 expect({ try functionThatThrowsAnError() })
-    .to.throwError { error in
+    .to.throwError { (error: ErrorType) in
         // Do something with error
     }
 ```
@@ -216,11 +216,25 @@ expect(["a", "b", "c"]).to.startWith("a")
 expect([2, 4, 8]).toNot.startWith(1)
 ```
 
+This matcher also works for `String`s as well.
+
+```swift
+expect("Double Dragon").to.startWith("D")
+expect("Bimmy and Jimmy Lee").toNot.startWith("Billy")
+```
+
 * `endWith`
 
 ```swift
 expect(["a", "b", "c"]).to.endWith("c")
 expect([2, 4, 8]).toNot.endWith(7)
+```
+
+This matcher also works for `String`s as well.
+
+```swift
+expect("Double Dragon").to.endWith("n")
+expect("Bimmy and Jimmy Lee").toNot.endWith("Smith")
 ```
 
 * `haveSizeOf`
@@ -229,8 +243,6 @@ expect([2, 4, 8]).toNot.endWith(7)
 expect(["taco", "burrito"]).to.haveSizeOf(2)
 expect([2, 4, 8]).toNot.haveSizeOf(7)
 ```
-
-### Sequence
 
 * `contain`
 
@@ -288,9 +300,9 @@ This can be added to your project:
 `HangOn` is a function that allows block input that will wait for an assertion given a specific timeframe.
 
 ```swift
+var number = 100
+
 hangOn(for: .seconds(10)) { complete in
-    var number = 100
-    
     DispatchQueue.global(qos: .background).async { [weak self] in
         sleep(3)
         
