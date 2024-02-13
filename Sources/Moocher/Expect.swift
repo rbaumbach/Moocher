@@ -26,6 +26,8 @@ public func expect<T>(_ value: T?) -> ActualValue<T> {
     return ActualValue(value: value)
 }
 
+// Note: This is for scenarios of expect(nil) that can be used with generics
+
 public func expect(_ value: Any?) -> AnyActualValue {
     return AnyActualValue(value: value)
 }
