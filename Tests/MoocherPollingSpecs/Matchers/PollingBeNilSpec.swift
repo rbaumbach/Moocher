@@ -2,8 +2,10 @@ import XCTest
 @testable import MoocherPolling
 
 final class PollingBeNilSpec: XCTestCase {
+    let longRunningTaskSimulator = LongRunningTaskSimulator()
+    
     var number: Int?
-    var longRunningTaskSimulator = LongRunningTaskSimulator()
+    var eventuallyNilNumber: Int?
     
     override func setUp() {
         super.setUp()
@@ -22,14 +24,14 @@ final class PollingBeNilSpec: XCTestCase {
     }
     
     func testToSomedayBeNilWithOptionalNotGivenAValue() {
-        var localNumber: Int?
-        
-        longRunningTaskSimulator.longRunningTask {
-            localNumber = nil
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.eventuallyNilNumber = nil
         }
                 
-        expect(localNumber).toSomeday.beNil()
+        expect(self.eventuallyNilNumber).toSomeday.beNil()
     }
+    
+    // TBD: Create a mechanism to test when something eventually fails
     
 //    func testToSomedayBeNilFailure() {
 //        self.number = 100

@@ -28,6 +28,8 @@ final class PollingEqualSpec: XCTestCase {
         expect(self.optionalNumber).toSomeday.equal(77)
     }
     
+    // TBD: Create a mechanism to test when something eventually fails
+    
 //    func testExpectToSomedayEqualFailure() {
 //        longRunningTaskSimulator.longRunningTask { [weak self] in
 //            self?.number = 77

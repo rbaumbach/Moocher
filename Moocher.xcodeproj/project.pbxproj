@@ -16,7 +16,7 @@
 		9445702F2937992D009D9202 /* PollingBeNilSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445702E2937992D009D9202 /* PollingBeNilSpec.swift */; };
 		944570312937ABDD009D9202 /* LongRunningTaskSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944570302937ABDD009D9202 /* LongRunningTaskSimulator.swift */; };
 		944570332937F2F9009D9202 /* PollingContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944570322937F2F9009D9202 /* PollingContainSpec.swift */; };
-		9445703529386577009D9202 /* PollingEqualSPec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445703429386577009D9202 /* PollingEqualSPec.swift */; };
+		9445703529386577009D9202 /* PollingEqualSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9445703429386577009D9202 /* PollingEqualSpec.swift */; };
 		945E8443292DE969000339B8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8442292DE969000339B8 /* Time.swift */; };
 		945E8449292F1843000339B8 /* Waiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E8448292F1843000339B8 /* Waiter.swift */; };
 		945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* PollingBeNil.swift */; };
@@ -133,7 +133,7 @@
 		9445702E2937992D009D9202 /* PollingBeNilSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeNilSpec.swift; sourceTree = "<group>"; };
 		944570302937ABDD009D9202 /* LongRunningTaskSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongRunningTaskSimulator.swift; sourceTree = "<group>"; };
 		944570322937F2F9009D9202 /* PollingContainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingContainSpec.swift; sourceTree = "<group>"; };
-		9445703429386577009D9202 /* PollingEqualSPec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEqualSPec.swift; sourceTree = "<group>"; };
+		9445703429386577009D9202 /* PollingEqualSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEqualSpec.swift; sourceTree = "<group>"; };
 		945E8442292DE969000339B8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		945E8448292F1843000339B8 /* Waiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Waiter.swift; sourceTree = "<group>"; };
 		945E844B292F2048000339B8 /* PollingBeNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeNil.swift; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 			children = (
 				9445702E2937992D009D9202 /* PollingBeNilSpec.swift */,
 				944570322937F2F9009D9202 /* PollingContainSpec.swift */,
-				9445703429386577009D9202 /* PollingEqualSPec.swift */,
+				9445703429386577009D9202 /* PollingEqualSpec.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -768,7 +768,7 @@
 				9445702F2937992D009D9202 /* PollingBeNilSpec.swift in Sources */,
 				944570312937ABDD009D9202 /* LongRunningTaskSimulator.swift in Sources */,
 				9438689E292FEC8100D079A9 /* HangOnSpec.swift in Sources */,
-				9445703529386577009D9202 /* PollingEqualSPec.swift in Sources */,
+				9445703529386577009D9202 /* PollingEqualSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
