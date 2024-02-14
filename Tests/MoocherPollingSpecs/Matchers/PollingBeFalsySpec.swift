@@ -19,7 +19,7 @@ final class PollingBeFaslySpec: XCTestCase {
     }
     
     func testBefalsyFailure() {
-        longRunningTaskSimulator.longRunningTask { }
+        longRunningTaskSimulator.longRunningTask()
 
         expectFailure(self.isTruthy).toSomeday.beFalsy()
     }
@@ -41,7 +41,7 @@ final class PollingBeFaslySpec: XCTestCase {
     }
     
     func testBeFalsyOptionalNever() {
-        longRunningTaskSimulator.longRunningTask { }
+        longRunningTaskSimulator.longRunningTask()
 
         expect(self.isTruthyOptional).toNever.beFalsy()
     }
