@@ -29,9 +29,7 @@ struct Waiter {
                             pollingInterval: Time,
                             isInverted: Bool,
                             matcherBlock: @escaping (@escaping () -> Void) -> Void) {
-        let testCase = XCTestCase()
-        
-        let expectation = testCase.expectation(description: "moocher.polling")
+        let expectation = XCTestExpectation(description: "moocher.polling")
         expectation.isInverted = isInverted
                 
         Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
@@ -42,10 +40,16 @@ struct Waiter {
             }
         }
         
-        // Note: I should use XCTWaiter in conjunction with XCTestExpectation, but
-        // unfortunately it doesn't honor isInverted for XCTestExpectation.  A major
-        // rework would be needed to support it.
+        let result = XCTWaiter().wait(for: [expectation],
+                                      timeout: timeout.toTimeInterval())
         
-        testCase.waitForExpectations(timeout: timeout.toTimeInterval())
+        switch result {
+        case .completed:
+            break
+        case .timedOut:
+            XCTFail("Time was exceeded for expecation")
+        default:
+            XCTFail("Test failed")
+        }
     }
 }
