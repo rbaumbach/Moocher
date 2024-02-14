@@ -26,7 +26,8 @@ public func expect<T>(_ block: @autoclosure @escaping @Sendable () -> T?,
                       timeout: Time = .seconds(5),
                       pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
     return PollingActualValue(value: block,
-                              timingInfo: (timeout, pollingInterval), 
+                              timeout: timeout,
+                              pollingInterval: pollingInterval,
                               shouldInvertExpectation: false)
 }
 
@@ -34,6 +35,7 @@ public func expectFailure<T>(_ block: @autoclosure @escaping @Sendable () -> T?,
                              timeout: Time = .seconds(5),
                              pollingInterval: Time = .miliseconds(100)) -> PollingActualValue<T> {
     return PollingActualValue(value: block,
-                              timingInfo: (timeout, pollingInterval), 
+                              timeout: timeout,
+                              pollingInterval: pollingInterval,
                               shouldInvertExpectation: true)
 }

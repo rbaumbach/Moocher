@@ -26,7 +26,9 @@ public struct PollingActualValue<T> {
     // MARK: - Readonly properties
     
     let value: () -> T?
-    let timingInfo: (timeout: Time, pollingInterval: Time)
+    
+    let timeout: Time
+    let pollingInterval: Time
     
     let shouldInvertExpectation: Bool
     
