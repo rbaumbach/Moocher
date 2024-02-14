@@ -23,26 +23,27 @@
 import XCTest
 
 struct Waiter {
+    // MARK: - Public methods
+    
     func waitForExpectation(timeout: Time,
                             pollingInterval: Time,
                             isInverted: Bool,
                             matcherBlock: @escaping (@escaping () -> Void) -> Void) {
         let testCase = XCTestCase()
         
-        let expectation = testCase.expectation(description: "polling expectation")
+        let expectation = testCase.expectation(description: "moocher.polling")
         expectation.isInverted = isInverted
-        
+                
         Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
                              repeats: true) { timer in
-            let complete = {
+            matcherBlock {
                 expectation.fulfill()
                 timer.invalidate()
-                
-                return
             }
-            
-            matcherBlock(complete)
         }
+        
+        // Note: I should use XCTWaiter, but unfortunately it doesn't honor isInverted
+        // for XCTestExpectation.  A major rework would be needed to support it.
         
         testCase.waitForExpectations(timeout: timeout.toTimeInterval())
     }

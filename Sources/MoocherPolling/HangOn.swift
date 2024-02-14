@@ -22,7 +22,7 @@
 
 import XCTest
 
-@available(*, deprecated, message: "This function has been deprecated. Use hangOn(time:description:work:) instead.")
+@available(*, deprecated, message: "This function has been deprecated. Use hangOn(for:description:work:) instead.")
 public func hangOn(for time: Time,
                    work: (@escaping () -> Void) -> Void) {
     let testCase = XCTestCase()
@@ -40,7 +40,7 @@ public func hangOn(for time: Time,
 
 @Sendable
 func hangOn(for time: Time = .seconds(10),
-            description: String = "moocher.hangon.complete",
+            description: String = "moocher.hangon.expecation",
             work: (@escaping () -> Void) -> Void) {
     let expectation = XCTestExpectation(description: description)
     

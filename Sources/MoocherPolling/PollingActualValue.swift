@@ -28,15 +28,17 @@ public struct PollingActualValue<T> {
     let value: () -> T?
     let timingInfo: (timeout: Time, pollingInterval: Time)
     
+    let shouldInvertExpectation: Bool
+    
     // MARK: - Public properties
     
     public var toSomeday: PollingMatcherEngine<T> {
         return PollingMatcherEngine(pollingActualValue: self,
-                                    isInverted: false)
+                                    isInverted: shouldInvertExpectation)
     }
     
     public var toNever: PollingMatcherEngine<T> {
         return PollingMatcherEngine(pollingActualValue: self,
-                                    isInverted: true)
+                                    isInverted: !shouldInvertExpectation)
     }
 }
