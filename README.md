@@ -246,8 +246,6 @@ expect([2, 4, 8]).toNot.haveSizeOf(7)
 
 * `contain`
 
-This matcher works for types that conform to `Sequence`.
-
 ```swift
 expect(["uno", "dos", "tres"]).to.contain("tres")
 expect("Billy Goat").toNot.contain("$")
@@ -356,5 +354,7 @@ expect(dogArray, timeout: .seconds(10), pollingInterval: .miliseconds(500)).toSo
 The following matchers can be used for `toSomeday` and `toNever`:
 
 * `beNil`
+* `beTruthy`
+* `beFalsy`
 * `equal`
 * `contain`
