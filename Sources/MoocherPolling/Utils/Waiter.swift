@@ -42,8 +42,9 @@ struct Waiter {
             }
         }
         
-        // Note: I should use XCTWaiter, but unfortunately it doesn't honor isInverted
-        // for XCTestExpectation.  A major rework would be needed to support it.
+        // Note: I should use XCTWaiter in conjunction with XCTestExpectation, but
+        // unfortunately it doesn't honor isInverted for XCTestExpectation.  A major
+        // rework would be needed to support it.
         
         testCase.waitForExpectations(timeout: timeout.toTimeInterval())
     }
