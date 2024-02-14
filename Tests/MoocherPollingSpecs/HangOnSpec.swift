@@ -12,7 +12,7 @@ final class HangOnSpec: XCTestCase {
                 
                 self?.number = 99
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     expect(self?.number).to.equal(99)
                     
                     complete()
@@ -21,19 +21,19 @@ final class HangOnSpec: XCTestCase {
         }
     }
     
-//    func testHangOnFailure() {
-//        hangOn(for: .seconds(3)) { complete in
-//            DispatchQueue.global(qos: .background).async { [weak self] in
-//                sleep(5)
-//
-//                self?.number = 99
-//
-//                DispatchQueue.main.async {
-//                    expect(self?.number).to.equal(99)
-//
-//                    complete()
-//                }
-//            }
-//        }
-//    }
+    func testHangOnWithDescription() {
+        hangOn { complete in
+            DispatchQueue.global(qos: .background).async { [weak self] in
+                sleep(3)
+                
+                self?.number = 99
+                
+                DispatchQueue.main.async { [weak self] in
+                    expect(self?.number).to.equal(99)
+                    
+                    complete()
+                }
+            }
+        }
+    }
 }

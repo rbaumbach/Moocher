@@ -28,36 +28,42 @@ public struct PollingMatcherEngine<T> {
     let pollingActualValue: PollingActualValue<T>
     let isInverted: Bool
     
-    var timeout: Time {
-        return pollingActualValue.timingInfo.timeout
-    }
-    
-    var pollingInterval: Time {
-        return pollingActualValue.timingInfo.pollingInterval
-    }
-    
     // MARK: - Public methods
     
     public func beNil() {
         PollingBeNil().beNil(pollingActualValue.value,
-                             timeout: timeout,
-                             pollingInterval: pollingInterval,
+                             timeout: pollingActualValue.timeout,
+                             pollingInterval: pollingActualValue.pollingInterval,
                              isInverted: isInverted)
+    }
+    
+    public func beTruthy() where T == Bool {
+        PollingBeTruthy().beTruthy(pollingActualValue.value,
+                                   timeout: pollingActualValue.timeout,
+                                   pollingInterval: pollingActualValue.pollingInterval,
+                                   isInverted: isInverted)
+    }
+    
+    public func beFalsy() where T == Bool {
+        PollingBeFalsy().beFalsy(pollingActualValue.value,
+                                 timeout: pollingActualValue.timeout,
+                                 pollingInterval: pollingActualValue.pollingInterval,
+                                 isInverted: isInverted)
     }
     
     public func equal(_ expectedValue: T) where T: Equatable {
         PollingEqual().equal(pollingActualValue.value,
                              expectedValue,
-                             timeout: timeout,
-                             pollingInterval: pollingInterval,
+                             timeout: pollingActualValue.timeout,
+                             pollingInterval: pollingActualValue.pollingInterval,
                              isInverted: isInverted)
     }
     
-    public func contain<U>(_ item: U) where T: Sequence, T.Element: Equatable, T.Element == U {
+    public func contain<U>(_ item: U) where T: Collection, T.Element: Equatable, T.Element == U {
         PollingContain().contain(pollingActualValue.value,
                                  item,
-                                 timeout: timeout,
-                                 pollingInterval: pollingInterval,
+                                 timeout: pollingActualValue.timeout,
+                                 pollingInterval: pollingActualValue.pollingInterval,
                                  isInverted: isInverted)
     }
 }

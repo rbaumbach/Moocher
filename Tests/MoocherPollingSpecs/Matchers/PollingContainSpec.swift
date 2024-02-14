@@ -2,9 +2,12 @@ import XCTest
 @testable import MoocherPolling
 
 final class PollingContainSpec: XCTestCase {
+    let longRunningTaskSimulator = LongRunningTaskSimulator()
+    
     var turtleArray: [String]!
     var optionalArray: [String]?
-    var longRunningTaskSimulator = LongRunningTaskSimulator()
+    var tacos: [String]!
+    var dogArray: [String]!
     
     override func setUp() {
         super.setUp()
@@ -29,42 +32,42 @@ final class PollingContainSpec: XCTestCase {
     }
     
     func testToSomedayContainLocal() {
-        var tacos = ["Carne", "Pollo"]
+        tacos = ["Carne", "Pollo"]
         
-        longRunningTaskSimulator.longRunningTask {
-            tacos = ["Carnitas"]
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.tacos = ["Carnitas"]
         }
         
-        expect(tacos).toSomeday.contain("Carnitas")
+        expect(self.tacos).toSomeday.contain("Carnitas")
     }
-    
-//    func testToSomedayContainFailure() {
-//        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
-//
-//        longRunningTaskSimulator.longRunningTask {
-//            dogArray.append("German Shepard")
-//        }
-//
-//        expect(dogArray).toSomeday.contain("Bloodhound")
-//    }
+        
+    func testToSomedayContainFailure() {
+        dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.dogArray.append("German Shepard")
+        }
+
+        expectFailure(self.dogArray).toSomeday.contain("Bloodhound")
+    }
     
     func testToNeverContain() {
-        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+        dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
         
-        longRunningTaskSimulator.longRunningTask {
-            dogArray.append("German Shepard")
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.dogArray.append("German Shepard")
         }
         
-        expect(dogArray).toNever.contain("Bloodhound")
+        expect(self.dogArray).toNever.contain("Bloodhound")
     }
     
-//    func testToNeverContainFailure() {
-//        var dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
-//
-//        longRunningTaskSimulator.longRunningTask {
-//            dogArray.append("German Shepard")
-//        }
-//
-//        expect(dogArray).toNever.contain("German Shepard")
-//    }
+    func testToNeverContainFailure() {
+        dogArray = ["Chihuhahua", "Miniature Pinscher", "Border Collie"]
+
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.dogArray.append("German Shepard")
+        }
+
+        expectFailure(self.dogArray).toNever.contain("German Shepard")
+    }
 }

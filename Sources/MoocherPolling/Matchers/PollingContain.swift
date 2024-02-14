@@ -23,11 +23,13 @@
 import Foundation
 
 struct PollingContain {
+    // MARK: - Public methods
+    
     func contain<T, U>(_ actualValueBlock: @escaping () -> T?,
                        _ item: U,
                        timeout: Time,
                        pollingInterval: Time,
-                       isInverted: Bool) where T: Sequence, T.Element: Equatable, T.Element == U {
+                       isInverted: Bool) where T: Collection, T.Element: Equatable, T.Element == U {
         Waiter().waitForExpectation(timeout: timeout,
                                     pollingInterval: pollingInterval,
                                     isInverted: isInverted) { complete in

@@ -27,14 +27,14 @@ final class PollingEqualSpec: XCTestCase {
                 
         expect(self.optionalNumber).toSomeday.equal(77)
     }
-    
-//    func testExpectToSomedayEqualFailure() {
-//        longRunningTaskSimulator.longRunningTask { [weak self] in
-//            self?.number = 77
-//        }
-//
-//        expect(self.number).toSomeday.equal(99)
-//    }
+        
+    func testExpectToSomedayEqualFailure() {
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.optionalNumber = 77
+        }
+
+        expectFailure(self.optionalNumber).toSomeday.equal(99)
+    }
     
     func testExpectToNeverEqual() {
         longRunningTaskSimulator.longRunningTask { [weak self] in
@@ -44,11 +44,11 @@ final class PollingEqualSpec: XCTestCase {
         expect(self.optionalNumber).toNever.equal(55)
     }
     
-//    func testExpectToNeverEqualFailure() {
-//        longRunningTaskSimulator.longRunningTask { [weak self] in
-//            self?.number = 77
-//        }
-//
-//        expect(self.number).toNever.equal(77)
-//    }
+    func testExpectToNeverEqualFailure() {
+        longRunningTaskSimulator.longRunningTask { [weak self] in
+            self?.optionalNumber = 77
+        }
+
+        expectFailure(self.optionalNumber).toNever.equal(77)
+    }
 }

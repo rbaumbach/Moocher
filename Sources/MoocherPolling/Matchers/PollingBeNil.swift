@@ -23,6 +23,8 @@
 import Foundation
 
 struct PollingBeNil {
+    // MARK: - Public methods
+    
     func beNil<T>(_ actualValueBlock: @escaping () -> T?,
                   timeout: Time,
                   pollingInterval: Time,

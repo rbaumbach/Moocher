@@ -23,27 +23,33 @@
 import XCTest
 
 struct Waiter {
+    // MARK: - Public methods
+    
     func waitForExpectation(timeout: Time,
                             pollingInterval: Time,
                             isInverted: Bool,
                             matcherBlock: @escaping (@escaping () -> Void) -> Void) {
-        let testCase = XCTestCase()
-        
-        let expectation = testCase.expectation(description: "polling expectation")
+        let expectation = XCTestExpectation(description: "moocher.polling")
         expectation.isInverted = isInverted
-        
+                
         Timer.scheduledTimer(withTimeInterval: pollingInterval.toTimeInterval(),
                              repeats: true) { timer in
-            let complete = {
+            matcherBlock {
                 expectation.fulfill()
                 timer.invalidate()
-                
-                return
             }
-            
-            matcherBlock(complete)
         }
         
-        testCase.waitForExpectations(timeout: timeout.toTimeInterval())
+        let result = XCTWaiter().wait(for: [expectation],
+                                      timeout: timeout.toTimeInterval())
+        
+        switch result {
+        case .completed:
+            break
+        case .timedOut:
+            XCTFail("Time was exceeded for expecation")
+        default:
+            XCTFail("Test failed")
+        }
     }
 }

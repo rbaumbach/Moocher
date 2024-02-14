@@ -22,7 +22,9 @@
 
 import XCTest
 
-public func hangOn(for time: Time, work: (@escaping @Sendable () -> Void) -> Void) {
+@available(*, deprecated, message: "This function has been deprecated. Use hangOn(for:description:work:) instead.")
+public func hangOn(for time: Time,
+                   work: (@escaping () -> Void) -> Void) {
     let testCase = XCTestCase()
     
     let expectation = testCase.expectation(description: "moocher.hangon.complete")
@@ -34,4 +36,18 @@ public func hangOn(for time: Time, work: (@escaping @Sendable () -> Void) -> Voi
     work(complete)
     
     testCase.waitForExpectations(timeout: time.toTimeInterval())
+}
+
+@Sendable
+func hangOn(for time: Time = .seconds(10),
+            description: String = "moocher.hangon.expecation",
+            work: (@escaping () -> Void) -> Void) {
+    let expectation = XCTestExpectation(description: description)
+    
+    work {
+        expectation.fulfill()
+    }
+    
+    XCTWaiter().wait(for: [expectation],
+                     timeout: time.toTimeInterval())
 }

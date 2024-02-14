@@ -22,17 +22,55 @@
 
 import Foundation
 
-struct LongRunningTaskSimulator {
-    // MARK: - Public methods
+// Note: This functionality is a copy of the @Atomic property wrapper that can be found in my Capsule repo:
+// https://github.com/rbaumbach/Capsule/blob/1.6.1/Sources/Capsule/Property%20Wrappers/Atomic.swift
+// Since it's less than 50 lines long, I'm copying it to keep the dependency out of this project to
+// simplify things.
+
+@propertyWrapper
+public struct Atomic<T> {
+    // MARK: - Private properties
     
-    func longRunningTask(_ seconds: Int = 1,
-                         completionHandler: (() -> Void)? = nil) {
-        DispatchQueue.global(qos: .background).async {
-            sleep(UInt32(seconds))
-            
-            DispatchQueue.main.async {
-                completionHandler?()
-            }
+    private var value: T
+    private let lock: NSLocking = NSLock()
+    
+    // MARK: - Init methods
+    
+    public init(wrappedValue value: T) {
+        self.value = value
+    }
+    
+    // MARK: - Public properties
+    
+    public var wrappedValue: T {
+        get {
+            atomicGet()
         }
+        
+        set {
+            atomicSet(newValue)
+        }
+    }
+    
+    // MARK: - Private properties
+    
+    private func atomicGet() -> T {
+        defer {
+            lock.unlock()
+        }
+        
+        lock.lock()
+
+        return value
+    }
+    
+    private mutating func atomicSet(_ value: T) {
+        defer {
+            lock.unlock()
+        }
+        
+        lock.lock()
+        
+        self.value = value
     }
 }

@@ -499,8 +499,6 @@ public struct MatcherEngine<T> {
         return CompoundEngine(previousMatcherEngine: self)
     }
     
-    // MARK: - Sequence matchers
-    
     @discardableResult
     public func contain<U>(_ item: U?,
                            file: StaticString = #filePath,

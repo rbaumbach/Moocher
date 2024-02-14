@@ -22,17 +22,10 @@
 
 import Foundation
 
-struct LongRunningTaskSimulator {
-    // MARK: - Public methods
+final class TestWrapper<T>: @unchecked Sendable {
+    @Atomic var value: T?
     
-    func longRunningTask(_ seconds: Int = 1,
-                         completionHandler: (() -> Void)? = nil) {
-        DispatchQueue.global(qos: .background).async {
-            sleep(UInt32(seconds))
-            
-            DispatchQueue.main.async {
-                completionHandler?()
-            }
-        }
+    init(value: T? = nil) {
+        self.value = value
     }
 }
