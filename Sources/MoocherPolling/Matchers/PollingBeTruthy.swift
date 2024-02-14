@@ -22,16 +22,22 @@
 
 import Foundation
 
-struct LongRunningTaskSimulator {
+struct PollingBeTruthy {
     // MARK: - Public methods
     
-    func longRunningTask(_ seconds: Int = 1,
-                         completionHandler: (() -> Void)? = nil) {
-        DispatchQueue.global(qos: .background).async {
-            sleep(UInt32(seconds))
+    func beTruthy(_ actualValueBlock: @escaping () -> Bool?,
+                  timeout: Time,
+                  pollingInterval: Time,
+                  isInverted: Bool) {
+        Waiter().waitForExpectation(timeout: timeout,
+                                    pollingInterval: pollingInterval,
+                                    isInverted: isInverted) { complete in
+            guard let updatedValue = actualValueBlock() else {
+                return
+            }
             
-            DispatchQueue.main.async {
-                completionHandler?()
+            if updatedValue {
+                complete()
             }
         }
     }

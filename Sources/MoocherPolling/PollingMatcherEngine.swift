@@ -37,6 +37,20 @@ public struct PollingMatcherEngine<T> {
                              isInverted: isInverted)
     }
     
+    public func beTruthy() where T == Bool {
+        PollingBeTruthy().beTruthy(pollingActualValue.value,
+                                   timeout: pollingActualValue.timeout,
+                                   pollingInterval: pollingActualValue.pollingInterval,
+                                   isInverted: isInverted)
+    }
+    
+    public func beFalsy() where T == Bool {
+        PollingBeFalsy().beFalsy(pollingActualValue.value,
+                                 timeout: pollingActualValue.timeout,
+                                 pollingInterval: pollingActualValue.pollingInterval,
+                                 isInverted: isInverted)
+    }
+    
     public func equal(_ expectedValue: T) where T: Equatable {
         PollingEqual().equal(pollingActualValue.value,
                              expectedValue,
@@ -45,7 +59,7 @@ public struct PollingMatcherEngine<T> {
                              isInverted: isInverted)
     }
     
-    public func contain<U>(_ item: U) where T: Sequence, T.Element: Equatable, T.Element == U {
+    public func contain<U>(_ item: U) where T: Collection, T.Element: Equatable, T.Element == U {
         PollingContain().contain(pollingActualValue.value,
                                  item,
                                  timeout: pollingActualValue.timeout,

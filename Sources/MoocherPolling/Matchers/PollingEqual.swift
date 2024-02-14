@@ -23,6 +23,8 @@
 import Foundation
 
 struct PollingEqual {
+    // MARK: - Public methods
+    
     func equal<T>(_ actualValueBlock: @escaping () -> T?,
                   _ expectedValue: T,
                   timeout: Time,
