@@ -39,9 +39,9 @@ public func hangOn(for time: Time,
 }
 
 @Sendable
-func hangOn(for time: Time = .seconds(10),
-            description: String = "moocher.hangon.expecation",
-            work: (@escaping () -> Void) -> Void) {
+public func hangOn(for time: Time = .seconds(10),
+                   description: String = "moocher.hangon.expecation",
+                   work: (@escaping () -> Void) -> Void) {
     let expectation = XCTestExpectation(description: description)
     
     work {
