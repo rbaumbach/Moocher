@@ -20,32 +20,21 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+import Foundation
 import XCTest
 
 // MARK: - Specs
 
-public func failSpec(_ message: String? = nil,
-                     file: StaticString = #filePath,
-                     line: UInt = #line) {
-    XCTFail(message ?? "",
-            file: file,
-            line: line)
-}
-
-public func passSpec() {
-    XCTAssertTrue(true)
+public struct SpecBundle {
+    static func bundle(_ testCase: XCTestCase) -> Bundle {
+        return Bundle(for: type(of: testCase))
+    }
 }
 
 // MARK: - Tests
 
-public func failTest(_ message: String? = nil,
-                     file: StaticString = #filePath,
-                     line: UInt = #line) {
-    failSpec(message,
-             file: file,
-             line: line)
-}
-
-public func passTest() {
-    passSpec()
+public struct TestBundle {
+    static func bundle(_ testCase: XCTestCase) -> Bundle {
+        return SpecBundle.bundle(testCase)
+    }
 }
