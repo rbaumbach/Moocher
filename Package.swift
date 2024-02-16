@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 //MIT License
@@ -22,8 +22,6 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
-
-// swift-tools-version:5.5
 
 import PackageDescription
 
@@ -59,5 +57,5 @@ let package = Package(
             dependencies: ["Moocher", "MoocherPolling"]
         )
     ],
-    swiftLanguageVersions: [.v5, .upToNextMajor(from: "5.5")]
+    swiftLanguageVersions: [.v5]
 )
