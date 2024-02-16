@@ -22,7 +22,7 @@
 		945E844C292F2048000339B8 /* PollingBeNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844B292F2048000339B8 /* PollingBeNil.swift */; };
 		945E844E292F2346000339B8 /* PollingEqual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945E844D292F2346000339B8 /* PollingEqual.swift */; };
 		9471F4EB2B76E75D0065CD44 /* SpecHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */; };
-		9471F4FA2B7B181E0065CD44 /* TestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4F92B7B181E0065CD44 /* TestWrapper.swift */; };
+		9471F4FA2B7B181E0065CD44 /* SpecWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4F92B7B181E0065CD44 /* SpecWrapper.swift */; };
 		9471F4FC2B7B184F0065CD44 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F4FB2B7B184F0065CD44 /* Atomic.swift */; };
 		9471F5062B7C5DE30065CD44 /* PollingBeTruthy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F5042B7C5B8E0065CD44 /* PollingBeTruthy.swift */; };
 		9471F5082B7C5F7D0065CD44 /* PollingBeFalsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471F5072B7C5F7D0065CD44 /* PollingBeFalsy.swift */; };
@@ -48,6 +48,7 @@
 		9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD802922FFC8004C2244 /* BeLessThanOrEqualTo.swift */; };
 		9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD822923009B004C2244 /* BeGreaterThan.swift */; };
 		9499BD852923440B004C2244 /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */; };
+		94BCA9AE2B7FD3A100F0BE4E /* SpecBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BCA9AD2B7FD3A100F0BE4E /* SpecBundle.swift */; };
 		94CFFAC72926C7BC00D0C0FF /* Contain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC62926C7BC00D0C0FF /* Contain.swift */; };
 		94CFFACA292747AB00D0C0FF /* ContainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */; };
 		94CFFACC292ADD0600D0C0FF /* HaveMaxValueOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CFFACB292ADD0600D0C0FF /* HaveMaxValueOf.swift */; };
@@ -147,7 +148,7 @@
 		9471F4E62B76E2BF0065CD44 /* MIT-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MIT-LICENSE.txt"; sourceTree = SOURCE_ROOT; };
 		9471F4E82B76E5620065CD44 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecHelpers.swift; sourceTree = "<group>"; };
-		9471F4F92B7B181E0065CD44 /* TestWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWrapper.swift; sourceTree = "<group>"; };
+		9471F4F92B7B181E0065CD44 /* SpecWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecWrapper.swift; sourceTree = "<group>"; };
 		9471F4FB2B7B184F0065CD44 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		9471F5042B7C5B8E0065CD44 /* PollingBeTruthy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeTruthy.swift; sourceTree = "<group>"; };
 		9471F5072B7C5F7D0065CD44 /* PollingBeFalsy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingBeFalsy.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		9499BD802922FFC8004C2244 /* BeLessThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeLessThanOrEqualTo.swift; sourceTree = "<group>"; };
 		9499BD822923009B004C2244 /* BeGreaterThan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThan.swift; sourceTree = "<group>"; };
 		9499BD842923440B004C2244 /* BeGreaterThanOrEqualTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeGreaterThanOrEqualTo.swift; sourceTree = "<group>"; };
+		94BCA9AD2B7FD3A100F0BE4E /* SpecBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecBundle.swift; sourceTree = "<group>"; };
 		94CFFAC62926C7BC00D0C0FF /* Contain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contain.swift; sourceTree = "<group>"; };
 		94CFFAC8292744BF00D0C0FF /* ContainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainSpec.swift; sourceTree = "<group>"; };
 		94CFFACB292ADD0600D0C0FF /* HaveMaxValueOf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaveMaxValueOf.swift; sourceTree = "<group>"; };
@@ -331,8 +333,9 @@
 			isa = PBXGroup;
 			children = (
 				9471F4FB2B7B184F0065CD44 /* Atomic.swift */,
+				94BCA9AD2B7FD3A100F0BE4E /* SpecBundle.swift */,
 				9471F4EA2B76E75D0065CD44 /* SpecHelpers.swift */,
-				9471F4F92B7B181E0065CD44 /* TestWrapper.swift */,
+				9471F4F92B7B181E0065CD44 /* SpecWrapper.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 			files = (
 				9499BD702922F000004C2244 /* BeNil.swift in Sources */,
 				94F1DEB5292405A300411CCB /* ActualValue.swift in Sources */,
+				94BCA9AE2B7FD3A100F0BE4E /* SpecBundle.swift in Sources */,
 				9491131E2928502600B60941 /* EndWith.swift in Sources */,
 				9499BD832923009B004C2244 /* BeGreaterThan.swift in Sources */,
 				9499BD812922FFC8004C2244 /* BeLessThanOrEqualTo.swift in Sources */,
@@ -823,7 +827,7 @@
 				9499BD792922F4DF004C2244 /* Equal.swift in Sources */,
 				94F1DEB1292350DB00411CCB /* BeEmpty.swift in Sources */,
 				94F1DEB32924056000411CCB /* NilMatcherEngine.swift in Sources */,
-				9471F4FA2B7B181E0065CD44 /* TestWrapper.swift in Sources */,
+				9471F4FA2B7B181E0065CD44 /* SpecWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,7 +988,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1042,7 +1046,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1076,7 +1080,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.Moocher;
@@ -1112,7 +1116,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.Moocher;
@@ -1185,7 +1189,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;
@@ -1221,7 +1225,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.4.3;
+				MARKETING_VERSION = 0.4.4;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				PRODUCT_BUNDLE_IDENTIFIER = teamthick.MoocherPolling;

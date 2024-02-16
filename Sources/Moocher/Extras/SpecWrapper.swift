@@ -22,6 +22,18 @@
 
 import Foundation
 
+// MARK: - Specs
+
+final class SpecWrapper<T>: @unchecked Sendable {
+    @Atomic var value: T?
+    
+    init(value: T? = nil) {
+        self.value = value
+    }
+}
+
+// MARK: - Tests
+
 final class TestWrapper<T>: @unchecked Sendable {
     @Atomic var value: T?
     
